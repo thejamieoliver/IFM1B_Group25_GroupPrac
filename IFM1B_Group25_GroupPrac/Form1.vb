@@ -11,5 +11,7 @@ Option Infer Off
 ' Class name: (name of the class)
 ' *****************************************************************
 Public Class Form1
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class
