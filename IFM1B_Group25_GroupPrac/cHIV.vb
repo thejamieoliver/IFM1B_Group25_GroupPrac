@@ -8,10 +8,10 @@ Option Infer Off
 ' Team Member 3 Details: Ogden, AR (220078628)
 ' Team Member 4 Details: Oliver, J (220015262)
 ' Practical: Team Project
-' Class name: (name of the class)
+' Class name: cHIV
 ' *****************************************************************
-Public Class Form1
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+Public Class cHIV
 
-    End Sub
+    Inherits cDisease
+    Private _bloodCount As Double
 End Class
