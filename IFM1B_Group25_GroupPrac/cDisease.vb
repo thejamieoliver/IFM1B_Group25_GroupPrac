@@ -11,9 +11,22 @@ Option Infer Off
 ' Class name: cDisease
 ' *****************************************************************
 Public Class cDisease
+    'Variable Declaration
     Private _Name As String
     Private _InfectionRate As Double
     Private _RecoveryRate As Double
     Private _Symptoms() As String
+    Private _TotalCases As Integer
+    Private _TotalDeaths As Integer
+    Private _TotalRecovers As Integer
+    Private _YearNewCases() As Integer
+    Private _YearDeaths() As Integer
+    Private _YearRecoveries() As Integer
+
+    Public Sub New(Name As String, InfectionRate As Double, RecoveryRate As Double)
+        _Name = Name
+        _InfectionRate = InfectionRate
+        _RecoveryRate = RecoveryRate
+    End Sub
 End Class
 
