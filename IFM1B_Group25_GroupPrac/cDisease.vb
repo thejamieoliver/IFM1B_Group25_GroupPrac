@@ -8,9 +8,9 @@ Option Infer Off
 ' Team Member 3 Details: Ogden, AR (220078628)
 ' Team Member 4 Details: Oliver, J (220015262)
 ' Practical: Team Project
-' Class name: Disease
+' Class name: cDisease
 ' *****************************************************************
-Public Class Disease
+Public Class cDisease
     Private _Name As String
     Private _InfectionRate As Double
     Private _RecoveryRate As Double
