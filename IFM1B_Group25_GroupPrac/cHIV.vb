@@ -13,11 +13,5 @@ Option Infer Off
 Public Class cHIV
 
     Inherits cDisease
-    Private _TBCross As Integer
-    Private _ART As Double
-    Public Sub New()
-
-    End Sub
-
-
+    Private _bloodCount As Double
 End Class
