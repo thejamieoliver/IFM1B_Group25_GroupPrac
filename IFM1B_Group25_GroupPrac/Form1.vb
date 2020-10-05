@@ -9,7 +9,7 @@ Imports Disease
 ' Team Member 3 Details: Ogden, AR (220078628)
 ' Team Member 4 Details: Oliver, J (220015262)
 ' Practical: Team Project
-' Class name: Form1
+' Class name: (name of the class)
 ' *****************************************************************
 Public Class Form1
     Private Disease As cDisease
