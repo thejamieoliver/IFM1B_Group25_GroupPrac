@@ -10,14 +10,9 @@ Option Infer Off
 ' Practical: Team Project
 ' Class name: cHIV
 ' *****************************************************************
-Public Class cHIV
-
+Public Class cMalaria
     Inherits cDisease
-    Private _TBCross As Integer
-    Private _ART As Double
     Public Sub New()
 
     End Sub
-
-
 End Class

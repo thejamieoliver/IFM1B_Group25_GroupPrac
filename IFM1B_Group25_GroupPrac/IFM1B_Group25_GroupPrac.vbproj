@@ -73,7 +73,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cAIDS.vb" />
     <Compile Include="cDisease.vb" />
+    <Compile Include="cMalaria.vb" />
+    <Compile Include="cTB.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
