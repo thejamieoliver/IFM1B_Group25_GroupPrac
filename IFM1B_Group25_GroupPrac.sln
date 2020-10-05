@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IFM1B_Group25_GroupPrac", "IFM1B_Group25_GroupPrac\IFM1B_Group25_GroupPrac.vbproj", "{9E5E1212-8970-439A-948A-F9CF789C3EF9}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Disease.vb", "Disease.vb\Disease.vb.vbproj", "{16B8DBBD-304E-43A9-ACE3-5024CFFF5C09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9E5E1212-8970-439A-948A-F9CF789C3EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E5E1212-8970-439A-948A-F9CF789C3EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E5E1212-8970-439A-948A-F9CF789C3EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16B8DBBD-304E-43A9-ACE3-5024CFFF5C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16B8DBBD-304E-43A9-ACE3-5024CFFF5C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16B8DBBD-304E-43A9-ACE3-5024CFFF5C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16B8DBBD-304E-43A9-ACE3-5024CFFF5C09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

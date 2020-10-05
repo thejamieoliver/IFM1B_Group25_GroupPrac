@@ -11,7 +11,9 @@ Option Infer Off
 ' Class name: cHIV
 ' *****************************************************************
 Public Class cHIV
-
-    Inherits cDisease
+    Inherits cDisease1
     Private _bloodCount As Double
+    Public Sub New(BloodCount As Double)
+        _bloodCount = BloodCount
+    End Sub
 End Class
