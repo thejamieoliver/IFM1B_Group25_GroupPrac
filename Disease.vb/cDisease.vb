@@ -107,8 +107,8 @@ Public Class cDisease
         If value > 0 Then
             Return True
         Else
-            Return False
             MsgBox("Invalid Input")
+            Return False
         End If
     End Function
     Private Function funcTotalDeaths() As Integer
