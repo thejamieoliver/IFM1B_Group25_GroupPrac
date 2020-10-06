@@ -14,7 +14,13 @@ Public Class Form1
     Const PASSWORD As String = "123"
     Private Disease As cDisease
     Private HIV As cHIV
-
+    Private Enum enumDisease As Integer
+        HIV
+        AIDs
+        TB
+        Malaria
+        New_Disease
+    End Enum
     Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
         If InputBox("Enter the password", "Login") = PASSWORD Then
             pnlDoctor.Visible = True
@@ -27,9 +33,20 @@ Public Class Form1
         pnlPatient.Visible = True
     End Sub
 
-    Private Sub btnNewDisease_Click(sender As Object, e As EventArgs) Handles btnNewDisease.Click
+    Private Sub btnNewDisease_Click(sender As Object, e As EventArgs) Handles btnRecordInfo.Click
+
         Select Case cbDiseases.SelectedIndex
-            Case 1
+            Case enumDisease.HIV
+
+            Case enumDisease.AIDs
+
+            Case enumDisease.TB
+
+            Case enumDisease.Malaria
+
+            Case enumDisease.New_Disease
+                pnlNewDisease.Visible = True
+                MsgBox("Hi")
         End Select
     End Sub
 End Class

@@ -25,10 +25,11 @@ Partial Class Form1
         Me.btnAdmin = New System.Windows.Forms.Button()
         Me.btnPatient = New System.Windows.Forms.Button()
         Me.pnlDoctor = New System.Windows.Forms.Panel()
+        Me.cbDiseases = New System.Windows.Forms.ComboBox()
+        Me.btnRecordInfo = New System.Windows.Forms.Button()
         Me.pnlPatient = New System.Windows.Forms.Panel()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
-        Me.btnNewDisease = New System.Windows.Forms.Button()
-        Me.cbDiseases = New System.Windows.Forms.ComboBox()
+        Me.pnlNewDisease = New System.Windows.Forms.Panel()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlPatient.SuspendLayout()
         Me.SuspendLayout()
@@ -54,18 +55,36 @@ Partial Class Form1
         'pnlDoctor
         '
         Me.pnlDoctor.Controls.Add(Me.cbDiseases)
-        Me.pnlDoctor.Controls.Add(Me.btnNewDisease)
-        Me.pnlDoctor.Location = New System.Drawing.Point(149, 16)
+        Me.pnlDoctor.Controls.Add(Me.btnRecordInfo)
+        Me.pnlDoctor.Location = New System.Drawing.Point(1, 1)
         Me.pnlDoctor.Name = "pnlDoctor"
         Me.pnlDoctor.Size = New System.Drawing.Size(799, 449)
         Me.pnlDoctor.TabIndex = 2
         Me.pnlDoctor.Visible = False
         '
+        'cbDiseases
+        '
+        Me.cbDiseases.FormattingEnabled = True
+        Me.cbDiseases.Items.AddRange(New Object() {"HIV", "AIDs", "TB", "Malaria", "New Disease"})
+        Me.cbDiseases.Location = New System.Drawing.Point(85, 160)
+        Me.cbDiseases.Name = "cbDiseases"
+        Me.cbDiseases.Size = New System.Drawing.Size(121, 21)
+        Me.cbDiseases.TabIndex = 1
+        Me.cbDiseases.Text = "Select a disease..."
+        '
+        'btnRecordInfo
+        '
+        Me.btnRecordInfo.Location = New System.Drawing.Point(72, 89)
+        Me.btnRecordInfo.Name = "btnRecordInfo"
+        Me.btnRecordInfo.Size = New System.Drawing.Size(75, 23)
+        Me.btnRecordInfo.TabIndex = 0
+        Me.btnRecordInfo.Text = "Button1"
+        Me.btnRecordInfo.UseVisualStyleBackColor = True
+        '
         'pnlPatient
         '
         Me.pnlPatient.Controls.Add(Me.cbSymptoms)
-        Me.pnlPatient.Controls.Add(Me.pnlDoctor)
-        Me.pnlPatient.Location = New System.Drawing.Point(380, 60)
+        Me.pnlPatient.Location = New System.Drawing.Point(336, 36)
         Me.pnlPatient.Name = "pnlPatient"
         Me.pnlPatient.Size = New System.Drawing.Size(317, 209)
         Me.pnlPatient.TabIndex = 3
@@ -79,24 +98,13 @@ Partial Class Form1
         Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
         Me.cbSymptoms.TabIndex = 0
         '
-        'btnNewDisease
+        'pnlNewDisease
         '
-        Me.btnNewDisease.Location = New System.Drawing.Point(72, 89)
-        Me.btnNewDisease.Name = "btnNewDisease"
-        Me.btnNewDisease.Size = New System.Drawing.Size(75, 23)
-        Me.btnNewDisease.TabIndex = 0
-        Me.btnNewDisease.Text = "Button1"
-        Me.btnNewDisease.UseVisualStyleBackColor = True
-        '
-        'cbDiseases
-        '
-        Me.cbDiseases.FormattingEnabled = True
-        Me.cbDiseases.Items.AddRange(New Object() {"HIV", "AIDs", "TB", "Malaria", "New Disease"})
-        Me.cbDiseases.Location = New System.Drawing.Point(85, 160)
-        Me.cbDiseases.Name = "cbDiseases"
-        Me.cbDiseases.Size = New System.Drawing.Size(121, 21)
-        Me.cbDiseases.TabIndex = 1
-        Me.cbDiseases.Text = "Select a disease..."
+        Me.pnlNewDisease.Location = New System.Drawing.Point(427, 167)
+        Me.pnlNewDisease.Name = "pnlNewDisease"
+        Me.pnlNewDisease.Size = New System.Drawing.Size(200, 100)
+        Me.pnlNewDisease.TabIndex = 3
+        Me.pnlNewDisease.Visible = False
         '
         'Form1
         '
@@ -104,6 +112,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.pnlPatient)
+        Me.Controls.Add(Me.pnlNewDisease)
+        Me.Controls.Add(Me.pnlDoctor)
         Me.Controls.Add(Me.btnPatient)
         Me.Controls.Add(Me.btnAdmin)
         Me.Name = "Form1"
@@ -120,5 +130,6 @@ Partial Class Form1
     Friend WithEvents pnlPatient As Panel
     Friend WithEvents cbSymptoms As ComboBox
     Friend WithEvents cbDiseases As ComboBox
-    Friend WithEvents btnNewDisease As Button
+    Friend WithEvents btnRecordInfo As Button
+    Friend WithEvents pnlNewDisease As Panel
 End Class
