@@ -60,6 +60,8 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Import Include="cHIV" />
+    <Import Include="Disease.vb" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -120,13 +122,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\cHIV\HIV.vbproj">
-      <Project>{50d15955-3b80-4c18-9e08-11e330de969f}</Project>
-      <Name>HIV</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Disease.vb\Disease.vbproj">
       <Project>{16b8dbbd-304e-43a9-ace3-5024cfff5c09}</Project>
-      <Name>Disease.vb</Name>
+      <Name>Disease</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

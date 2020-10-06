@@ -1,7 +1,6 @@
 ﻿Option Strict On
 Option Explicit On
 Option Infer Off
-Imports Disease
 ' *****************************************************************
 ' Team Number: 25
 ' Team Member 1 Details: Crossling, CJ (220108433)
@@ -12,10 +11,42 @@ Imports Disease
 ' Class name: (name of the class)
 ' *****************************************************************
 Public Class Form1
+    Const PASSWORD As String = "123"
     Private Disease As cDisease
     Private HIV As cHIV
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Disease = New cDisease()
-        HIV = New cHIV()
+    Private Enum enumDisease As Integer
+        HIV
+        AIDs
+        TB
+        Malaria
+        New_Disease
+    End Enum
+    Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
+        If InputBox("Enter the password", "Login") = PASSWORD Then
+            pnlDoctor.Visible = True
+        Else
+            MessageBox.Show("Incorrect Password!", "Error")
+        End If
+    End Sub
+
+    Private Sub btnPatient_Click(sender As Object, e As EventArgs) Handles btnPatient.Click
+        pnlPatient.Visible = True
+    End Sub
+
+    Private Sub btnNewDisease_Click(sender As Object, e As EventArgs) Handles btnRecordInfo.Click
+
+        Select Case cbDiseases.SelectedIndex
+            Case enumDisease.HIV
+
+            Case enumDisease.AIDs
+
+            Case enumDisease.TB
+
+            Case enumDisease.Malaria
+
+            Case enumDisease.New_Disease
+                pnlNewDisease.Visible = True
+                MsgBox("Hi")
+        End Select
     End Sub
 End Class

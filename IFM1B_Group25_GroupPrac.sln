@@ -7,8 +7,6 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IFM1B_Group25_GroupPrac", "
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Disease", "Disease.vb\Disease.vbproj", "{16B8DBBD-304E-43A9-ACE3-5024CFFF5C09}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "HIV", "cHIV\HIV.vbproj", "{50D15955-3B80-4C18-9E08-11E330DE969F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{16B8DBBD-304E-43A9-ACE3-5024CFFF5C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16B8DBBD-304E-43A9-ACE3-5024CFFF5C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16B8DBBD-304E-43A9-ACE3-5024CFFF5C09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50D15955-3B80-4C18-9E08-11E330DE969F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50D15955-3B80-4C18-9E08-11E330DE969F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50D15955-3B80-4C18-9E08-11E330DE969F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50D15955-3B80-4C18-9E08-11E330DE969F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
