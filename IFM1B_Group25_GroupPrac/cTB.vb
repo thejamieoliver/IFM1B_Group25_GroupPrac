@@ -10,9 +10,9 @@ Option Infer Off
 ' Practical: Team Project
 ' Class name: cHIV
 ' *****************************************************************
-Public Class cHIV
-
+Public Class cTB
     Inherits cDisease
-    Private _bloodCount As Double
-    'This is a change I made while testing with cleveland
+    Public Sub New()
+
+    End Sub
 End Class
