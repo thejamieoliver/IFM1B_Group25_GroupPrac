@@ -1,5 +1,4 @@
-﻿
-Option Strict On
+﻿Option Strict On
 Option Explicit On
 Option Infer Off
 ' *****************************************************************
@@ -12,6 +11,8 @@ Option Infer Off
 ' Class name: cDisease
 ' *****************************************************************
 Public Class cDisease
+    'Interface Class
+    Implements ExtractInfo
     'Variable Declaration
     Private _Name As String 'Disease name.
     Private _InfectionRate As Double 'Infection rate of the disease.
@@ -33,10 +34,7 @@ Public Class cDisease
         ReDim _Symptoms(_NumSymptoms)
         _Symptoms = Symptoms
     End Sub
-    Public Sub New()
-
-    End Sub
-    Public ReadOnly Property TotalDeaths As Integer
+    Public ReadOnly Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
         Get
             Dim tempTotal As Integer
             For Each i As Integer In _YearDeaths
@@ -45,4 +43,76 @@ Public Class cDisease
             Return tempTotal
         End Get
     End Property
+
+    'Interface properties
+    Public Property DiseaseName As String Implements ExtractInfo.DiseaseName
+        Get
+            Return _Name
+        End Get
+        Set(value As String)
+            _Name = value
+        End Set
+    End Property
+
+    Public Property InfectionRate As Double Implements ExtractInfo.InfectionRate
+        Get
+            Return _InfectionRate
+        End Get
+        Set(value As Double)
+            _InfectionRate = value
+        End Set
+    End Property
+
+    Public Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
+        Get
+            Return _RecoveryRate
+        End Get
+        Set(value As Double)
+            _RecoveryRate = value
+        End Set
+    End Property
+
+    Public Property TotalCases As Integer Implements ExtractInfo.TotalCases
+        Get
+            Return _TotalCases
+        End Get
+        Set(value As Integer)
+            If IsPositive(value) = True Then
+                _TotalCases = value
+            End If
+        End Set
+    End Property
+
+    Public Property TotalRecovers As Integer Implements ExtractInfo.TotalRecovers
+        Get
+            Return _TotalRecovers
+        End Get
+        Set(value As Integer)
+            If IsPositive(value) = True Then
+                _TotalRecovers = value
+            End If
+        End Set
+    End Property
+
+    Public Property NumSymptoms As Integer Implements ExtractInfo.NumSymptoms
+        Get
+            Return _NumSymptoms
+        End Get
+        Set(value As Integer)
+            If IsPositive(value) = True Then
+                _NumSymptoms = value
+                ReDim Preserve _Symptoms(_NumSymptoms)
+            End If
+        End Set
+    End Property
+
+    'Utility function for checking if a value is positive
+    Private Function IsPositive(value As Integer) As Boolean
+        If value > 0 Then
+            Return True
+        Else
+            Return False
+            MsgBox("Invalid Input")
+        End If
+    End Function
 End Class
