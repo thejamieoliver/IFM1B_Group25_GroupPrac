@@ -13,7 +13,9 @@ Imports Disease
 ' *****************************************************************
 Public Class Form1
     Private Disease As cDisease
+    Private HIV As cHIV
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Disease = New Disease()
+        Disease = New cDisease()
+        HIV = New cHIV()
     End Sub
 End Class

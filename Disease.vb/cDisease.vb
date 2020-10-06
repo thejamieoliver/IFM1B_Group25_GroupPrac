@@ -22,8 +22,8 @@ Public Class cDisease
     Private _TotalDeaths As Integer 'Total number of deaths for each recorded year.
     Private _TotalRecovers As Integer 'Total number of recoveries for each recorded year.
     Private _YearNewCases() As Integer 'Array storing number of new cases for each recorded year. | _NumYears
-    Private _YearDeaths() As Integer 'Array storing number of deaths for each recorded year. | _NumYears
     Private _YearRecoveries() As Integer 'Array storing number of recoveries for each recorded year. | _NumYears
+    Private _YearDeaths() As Integer 'Array storing number of deaths for each recorded year. | _NumYears
     Private _NumSymptoms As Integer 'Number of symptoms to record for.
     Private _NumYears As Integer 'Number of years to record for.
     Public Sub New(Name As String, InfectionRate As Double, RecoveryRate As Double, NumSymptoms As Integer, Symptoms() As String)
@@ -36,11 +36,7 @@ Public Class cDisease
     End Sub
     Public ReadOnly Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
         Get
-            Dim tempTotal As Integer
-            For Each i As Integer In _YearDeaths
-                tempTotal += _YearDeaths(i)
-            Next
-            Return tempTotal
+            Return funcTotalDeaths()
         End Get
     End Property
 
@@ -114,5 +110,11 @@ Public Class cDisease
             Return False
             MsgBox("Invalid Input")
         End If
+    End Function
+    Private Function funcTotalDeaths() As Integer
+        For Each i As Integer In _YearDeaths
+            _TotalDeaths += _YearDeaths(i)
+        Next
+        Return _TotalDeaths
     End Function
 End Class
