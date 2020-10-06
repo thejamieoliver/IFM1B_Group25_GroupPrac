@@ -34,7 +34,7 @@ Public Class cDisease
         ReDim _Symptoms(_NumSymptoms)
         _Symptoms = Symptoms
     End Sub
-    Public ReadOnly Property TotalDeaths As Integer
+    Public ReadOnly Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
         Get
             Dim tempTotal As Integer
             For Each i As Integer In _YearDeaths
@@ -106,15 +106,7 @@ Public Class cDisease
         End Set
     End Property
 
-    Private Property ExtractInfo_TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
-        Get
-            Throw New NotImplementedException()
-        End Get
-        Set(value As Integer)
-            Throw New NotImplementedException()
-        End Set
-    End Property
-
+    'Utility function for checking if a value is positive
     Private Function IsPositive(value As Integer) As Boolean
         If value > 0 Then
             Return True

@@ -4,6 +4,6 @@
     Property RecoveryRate As Double
     Property NumSymptoms As Integer
     Property TotalCases As Integer
-    Property TotalDeaths As Integer
+    ReadOnly Property TotalDeaths As Integer
     Property TotalRecovers As Integer
 End Interface
