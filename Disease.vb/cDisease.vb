@@ -29,6 +29,8 @@ Public Class cDisease
     Private _YearDeaths() As Integer 'Array storing number of deaths for each recorded year. | _NumYears
     Private _NumSymptoms As Integer 'Number of symptoms to record for.
     Private _NumYears As Integer 'Number of years to record for.
+
+
     Public Sub New(Name As String, RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String)
         _Name = Name
         _RegionName = RegionName
@@ -37,23 +39,32 @@ Public Class cDisease
         ReDim _Symptoms(_NumSymptoms)
         _Symptoms = Symptoms
     End Sub
+
+
     Private Sub calcInfectionRate()
         'Calculates the infection rate for the latest year recorded
         _InfectionRate = _YearNewCases(Len(_YearNewCases)) / _RegionPopulation
     End Sub
+
+
     Private Sub calcRecoveryRate()
         'Calculates the recovery rate for the latest year recorded
         _RecoveryRate = _YearRecoveries(Len(_YearRecoveries)) / _YearNewCases(Len(_YearNewCases))
     End Sub
+
+
     Private Sub calcDeathRate()
         'Calculates the death rate for the latest year recorded
         _DeathRate = _YearDeaths(Len(_YearRecoveries)) / _YearNewCases(Len(_YearNewCases))
     End Sub
+
+
     Public ReadOnly Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
         Get
             Return funcTotalDeaths()
         End Get
     End Property
+
 
     'Interface properties
     Public Property DiseaseName As String Implements ExtractInfo.DiseaseName
@@ -65,24 +76,30 @@ Public Class cDisease
         End Set
     End Property
 
+
     Public ReadOnly Property InfectionRate As Double Implements ExtractInfo.InfectionRate
         Get
             calcInfectionRate()
             Return _InfectionRate
         End Get
     End Property
+
+
     Public ReadOnly Property DeathRate As Double Implements ExtractInfo.DeathRate
         Get
             calcDeathRate()
             Return _DeathRate
         End Get
     End Property
+
+
     Public ReadOnly Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
         Get
             calcRecoveryRate()
             Return _RecoveryRate
         End Get
     End Property
+
 
     Public Property TotalCases As Integer Implements ExtractInfo.TotalCases
         Get
@@ -95,6 +112,7 @@ Public Class cDisease
         End Set
     End Property
 
+
     Public Property TotalRecovers As Integer Implements ExtractInfo.TotalRecovers
         Get
             Return _TotalRecovers
@@ -105,6 +123,7 @@ Public Class cDisease
             End If
         End Set
     End Property
+
 
     Public Property NumSymptoms As Integer Implements ExtractInfo.NumSymptoms
         Get
@@ -118,6 +137,24 @@ Public Class cDisease
         End Set
     End Property
 
+
+    Public ReadOnly Property RegionName As String Implements ExtractInfo.RegionName
+        Get
+            Return _RegionName
+        End Get
+    End Property
+
+
+    Public Property Population As Integer Implements ExtractInfo.Population
+        Get
+            Return _RegionPopulation
+        End Get
+        Set(value As Integer)
+            _RegionPopulation = value
+        End Set
+    End Property
+
+
     Private Function IsPositive(value As Integer) As Boolean
         'Utility function for checking if a value is positive
         If value > 0 Then
@@ -127,6 +164,8 @@ Public Class cDisease
             Return False
         End If
     End Function
+
+
     Private Function funcTotalDeaths() As Integer
         'Utility function to add all recorded deaths for a disease
         For Each i As Integer In _YearDeaths
