@@ -14,8 +14,7 @@ Public Class cHIV
 
     Inherits cDisease
     Private _bloodCount As Double
-    Private _CrossInfected As Integer 'Number of people cross infected with TB
-    'This is a change I made while testing with cleveland
+    Private _CrossInfected As Integer
     Public Sub New()
 
     End Sub
