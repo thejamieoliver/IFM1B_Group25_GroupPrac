@@ -36,11 +36,7 @@ Public Class cDisease
     End Sub
     Public ReadOnly Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
         Get
-            Dim tempTotal As Integer
-            For Each i As Integer In _YearDeaths
-                tempTotal += _YearDeaths(i)
-            Next
-            Return tempTotal
+            Return funcTotalDeaths()
         End Get
     End Property
 
@@ -114,5 +110,12 @@ Public Class cDisease
             Return False
             MsgBox("Invalid Input")
         End If
+    End Function
+    Private Function funcTotalDeaths() As Integer
+        Dim tempTotal As Integer
+        For Each i As Integer In _YearDeaths
+            tempTotal += _YearDeaths(i)
+        Next
+        Return tempTotal
     End Function
 End Class
