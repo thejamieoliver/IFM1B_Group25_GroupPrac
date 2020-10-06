@@ -18,6 +18,7 @@ Public Class cDisease
     Private _RegionName As String 'Name of region
     Private _RegionPopulation As Integer 'Population of region
     Private _InfectionRate As Double 'Infection rate of the disease.
+    Private _DeathRate As Double 'Death rate of the disease.
     Private _RecoveryRate As Double 'Recovery rate of the disease.
     Private _Symptoms() As String 'Array string all symptoms of the disease. | _NumSymptoms
     Private _TotalCases As Integer 'Total number of cases for each recorded year.
@@ -37,7 +38,16 @@ Public Class cDisease
         _Symptoms = Symptoms
     End Sub
     Private Sub calcInfectionRate()
+        'Calculates the infection rate for the latest year recorded
         _InfectionRate = _YearNewCases(Len(_YearNewCases)) / _RegionPopulation
+    End Sub
+    Private Sub calcRecoveryRate()
+        'Calculates the recovery rate for the latest year recorded
+        _RecoveryRate = _YearRecoveries(Len(_YearRecoveries)) / _YearNewCases(Len(_YearNewCases))
+    End Sub
+    Private Sub calcDeathRate()
+        'Calculates the death rate for the latest year recorded
+        _DeathRate = _YearDeaths(Len(_YearRecoveries)) / _YearNewCases(Len(_YearNewCases))
     End Sub
     Public ReadOnly Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
         Get
@@ -55,22 +65,23 @@ Public Class cDisease
         End Set
     End Property
 
-    Public Property InfectionRate As Double Implements ExtractInfo.InfectionRate
+    Public ReadOnly Property InfectionRate As Double Implements ExtractInfo.InfectionRate
         Get
+            calcInfectionRate()
             Return _InfectionRate
         End Get
-        Set(value As Double)
-            _InfectionRate = value
-        End Set
     End Property
-
-    Public Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
+    Public ReadOnly Property DeathRate As Double Implements ExtractInfo.DeathRate
         Get
+            calcDeathRate()
+            Return _DeathRate
+        End Get
+    End Property
+    Public ReadOnly Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
+        Get
+            calcRecoveryRate()
             Return _RecoveryRate
         End Get
-        Set(value As Double)
-            _RecoveryRate = value
-        End Set
     End Property
 
     Public Property TotalCases As Integer Implements ExtractInfo.TotalCases
