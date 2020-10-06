@@ -8,13 +8,11 @@ Option Infer Off
 ' Team Member 3 Details: Ogden, AR (220078628)
 ' Team Member 4 Details: Oliver, J (220015262)
 ' Practical: Team Project
-' Class name: (name of the class)
+' Class name: cHIV
 ' *****************************************************************
-Public Class Form1
-    Private Disease As cDisease
-    Private HIV As cHIV
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Disease = New cDisease()
-        HIV = New cHIV()
-    End Sub
+Public Class cHIV
+
+    Inherits cDisease
+    Private _bloodCount As Double
+    'This is a change I made while testing with cleveland
 End Class
