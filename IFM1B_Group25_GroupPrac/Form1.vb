@@ -11,12 +11,25 @@ Option Infer Off
 ' Class name: (name of the class)
 ' *****************************************************************
 Public Class Form1
-    Const Password As String = "ClEvEiSgAy6g"
+    Const PASSWORD As String = "123"
     Private Disease As cDisease
     Private HIV As cHIV
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Disease = New cDisease()
-        HIV = New cHIV()
+    Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
+        If InputBox("Enter the password", "Login") = PASSWORD Then
+            pnlDoctor.Visible = True
+        Else
+            MessageBox.Show("Incorrect Password!", "Error")
+        End If
+    End Sub
+
+    Private Sub btnPatient_Click(sender As Object, e As EventArgs) Handles btnPatient.Click
+        pnlPatient.Visible = True
+    End Sub
+
+    Private Sub btnNewDisease_Click(sender As Object, e As EventArgs) Handles btnNewDisease.Click
+        Select Case cbDiseases.SelectedIndex
+            Case 1
+        End Select
     End Sub
 End Class

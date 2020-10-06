@@ -31,31 +31,21 @@ Public Class cDisease
     Private _NumYears As Integer 'Number of years to record for.
 
 
-    Public Sub New(Name As String, RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String)
+    Public Sub New(Name As String, RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String, NumYears As Integer)
         _Name = Name
         _RegionName = RegionName
         _RegionPopulation = Population
         _NumSymptoms = NumSymptoms
         ReDim _Symptoms(_NumSymptoms)
         _Symptoms = Symptoms
+        _NumYears = NumYears
+        ReDim _YearDeaths(_NumYears)
+        ReDim _YearNewCases(_NumYears)
+        ReDim _YearRecoveries(_NumYears)
     End Sub
 
+    Public Sub New()
 
-    Private Sub calcInfectionRate()
-        'Calculates the infection rate for the latest year recorded
-        _InfectionRate = _YearNewCases(Len(_YearNewCases)) / _RegionPopulation
-    End Sub
-
-
-    Private Sub calcRecoveryRate()
-        'Calculates the recovery rate for the latest year recorded
-        _RecoveryRate = _YearRecoveries(Len(_YearRecoveries)) / _YearNewCases(Len(_YearNewCases))
-    End Sub
-
-
-    Private Sub calcDeathRate()
-        'Calculates the death rate for the latest year recorded
-        _DeathRate = _YearDeaths(Len(_YearRecoveries)) / _YearNewCases(Len(_YearNewCases))
     End Sub
 
 
@@ -66,7 +56,7 @@ Public Class cDisease
     End Property
 
 
-    'Interface properties
+    'Interface properties ****************************************************************************************************
     Public Property DiseaseName As String Implements ExtractInfo.DiseaseName
         Get
             Return _Name
@@ -153,7 +143,25 @@ Public Class cDisease
             _RegionPopulation = value
         End Set
     End Property
+    '************************************************************************************************************************
 
+    'Utility Methods ********************************************************************************************************
+    Private Sub calcInfectionRate()
+        'Calculates the infection rate for the latest year recorded
+        _InfectionRate = _YearNewCases(Len(_YearNewCases)) / _RegionPopulation
+    End Sub
+
+
+    Private Sub calcRecoveryRate()
+        'Calculates the recovery rate for the latest year recorded
+        _RecoveryRate = _YearRecoveries(Len(_YearRecoveries)) / _YearNewCases(Len(_YearNewCases))
+    End Sub
+
+
+    Private Sub calcDeathRate()
+        'Calculates the death rate for the latest year recorded
+        _DeathRate = _YearDeaths(Len(_YearRecoveries)) / _YearNewCases(Len(_YearNewCases))
+    End Sub
 
     Private Function IsPositive(value As Integer) As Boolean
         'Utility function for checking if a value is positive
@@ -173,4 +181,6 @@ Public Class cDisease
         Next
         Return _TotalDeaths
     End Function
+    '************************************************************************************************************************
+
 End Class
