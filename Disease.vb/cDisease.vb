@@ -15,7 +15,8 @@ Public Class cDisease
     Implements ExtractInfo
     'Variable Declaration
     Private _Name As String 'Disease name.
-    Private _LocationName As String
+    Private _RegionName As String 'Name of region
+    Private _RegionPopulation As Integer 'Population of region
     Private _InfectionRate As Double 'Infection rate of the disease.
     Private _RecoveryRate As Double 'Recovery rate of the disease.
     Private _Symptoms() As String 'Array string all symptoms of the disease. | _NumSymptoms
@@ -27,14 +28,16 @@ Public Class cDisease
     Private _YearDeaths() As Integer 'Array storing number of deaths for each recorded year. | _NumYears
     Private _NumSymptoms As Integer 'Number of symptoms to record for.
     Private _NumYears As Integer 'Number of years to record for.
-    Public Sub New(Name As String, LocationName As String, InfectionRate As Double, RecoveryRate As Double, NumSymptoms As Integer, Symptoms() As String)
+    Public Sub New(Name As String, RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String)
         _Name = Name
-        _LocationName = LocationName
-        _InfectionRate = InfectionRate
-        _RecoveryRate = RecoveryRate
+        _RegionName = RegionName
+        _RegionPopulation = Population
         _NumSymptoms = NumSymptoms
         ReDim _Symptoms(_NumSymptoms)
         _Symptoms = Symptoms
+    End Sub
+    Private Sub calcInfectionRate()
+        _InfectionRate = _YearNewCases(Len(_YearNewCases)) / _RegionPopulation
     End Sub
     Public ReadOnly Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
         Get
@@ -104,8 +107,8 @@ Public Class cDisease
         End Set
     End Property
 
-    'Utility function for checking if a value is positive
     Private Function IsPositive(value As Integer) As Boolean
+        'Utility function for checking if a value is positive
         If value > 0 Then
             Return True
         Else
@@ -114,6 +117,7 @@ Public Class cDisease
         End If
     End Function
     Private Function funcTotalDeaths() As Integer
+        'Utility function to add all recorded deaths for a disease
         For Each i As Integer In _YearDeaths
             _TotalDeaths += _YearDeaths(i)
         Next
