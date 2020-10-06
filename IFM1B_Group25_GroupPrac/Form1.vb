@@ -11,8 +11,10 @@ Option Infer Off
 ' Class name: (name of the class)
 ' *****************************************************************
 Public Class Form1
+    Const Password As String = "ClEvEiSgAy6g"
     Private Disease As cDisease
     Private HIV As cHIV
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Disease = New cDisease()
         HIV = New cHIV()

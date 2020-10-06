@@ -15,6 +15,7 @@ Public Class cDisease
     Implements ExtractInfo
     'Variable Declaration
     Private _Name As String 'Disease name.
+    Private _LocationName As String
     Private _InfectionRate As Double 'Infection rate of the disease.
     Private _RecoveryRate As Double 'Recovery rate of the disease.
     Private _Symptoms() As String 'Array string all symptoms of the disease. | _NumSymptoms
@@ -26,8 +27,9 @@ Public Class cDisease
     Private _YearDeaths() As Integer 'Array storing number of deaths for each recorded year. | _NumYears
     Private _NumSymptoms As Integer 'Number of symptoms to record for.
     Private _NumYears As Integer 'Number of years to record for.
-    Public Sub New(Name As String, InfectionRate As Double, RecoveryRate As Double, NumSymptoms As Integer, Symptoms() As String)
+    Public Sub New(Name As String, LocationName As String, InfectionRate As Double, RecoveryRate As Double, NumSymptoms As Integer, Symptoms() As String)
         _Name = Name
+        _LocationName = LocationName
         _InfectionRate = InfectionRate
         _RecoveryRate = RecoveryRate
         _NumSymptoms = NumSymptoms
