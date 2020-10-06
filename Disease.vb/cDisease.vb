@@ -112,10 +112,9 @@ Public Class cDisease
         End If
     End Function
     Private Function funcTotalDeaths() As Integer
-        Dim tempTotal As Integer
         For Each i As Integer In _YearDeaths
-            tempTotal += _YearDeaths(i)
+            _TotalDeaths += _YearDeaths(i)
         Next
-        Return tempTotal
+        Return _TotalDeaths
     End Function
 End Class
