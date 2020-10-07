@@ -13,29 +13,37 @@ Option Infer Off
 Public Class cHIV
 
     Inherits cDisease
-    Private _Cross() As Integer
-    Private _NotArt() As Integer
-    Private _Condoms() As Boolean
-    Private _Untreated() As Double
+    Private Shared _YearNewCases() As Integer
+    Private Shared _YearRecoveries() As Integer
+    Private Shared _YearDeaths() As Integer
+    Private Shared _Cross() As Integer 'Number of people cross infected with TB
+    Private Shared _NotArt() As Integer 'Number of people without access to Anti RetroViral Treatment
+    Private Shared _Condoms() As Boolean 'Whether or not Condoms were freely distributed that year
+    Private Shared _NumYears As Integer
+    Private _Symptoms(4) As String
+    Private _Population As Integer
 
-    Public Sub New(RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String, NumYears As Integer)
-        MyBase.New("HIV", RegionName, Population, NumSymptoms, Symptoms, NumYears)
-        ReDim _Cross(_NumYears)
-        ReDim _NotArt(_NumYears)
-        ReDim _Condoms(_NumYears)
-        ReDim _Untreated(_NumYears)
-    End Sub
-
-    'Calculate no of people cross infected with TB
-    Public Function CrossTB(i As Integer) As Integer
-        Return CInt(Math.Round(_YearNewCases(i) * 0.11))
-    End Function
-    Public Sub resize(val As Integer)
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
+        _NumYears += 1
+        ReDim Preserve _YearDeaths(_NumYears)
+        ReDim Preserve _YearRecoveries(_NumYears)
+        ReDim Preserve _YearNewCases(_NumYears)
         ReDim Preserve _Cross(_NumYears)
         ReDim Preserve _NotArt(_NumYears)
         ReDim Preserve _Condoms(_NumYears)
-        ReDim Preserve _Untreated(_NumYears)
+        _Population = Population
+        _Symptoms(1) = "Beans"
+        _Symptoms(2) = "Tomatoes"
+        _Symptoms(3) = "Chill"
+        _Symptoms(4) = "Grugh"
+        _Cross(_NumYears) = CrossTB()
     End Sub
+
+    'Calculate no of people cross infected with TB
+    Private Function CrossTB() As Integer
+        Return CInt(Math.Round(_YearNewCases(_NumYears) * 0.11))
+    End Function
+    'Property methods for arrays
     Public Property Cross(i As Integer) As Integer
         Get
             Return _Cross(i)
@@ -65,21 +73,6 @@ Public Class cHIV
             End If
         End Set
     End Property
-
-    Public Property Untreated(i As Integer) As Double
-        Get
-            Return _Untreated(i)
-        End Get
-        Set(value As Double)
-            _Untreated(i) = value
-        End Set
-    End Property
-    'Return percentage of people not being treated
-    Public Function CalcUntreated() As Double
-        Return NotArt(_NumYears) / _YearNewCases(_NumYears)
-    End Function
-
-    'Returns whether or not condoms are freely dispensed in the area
     Public Property Condoms(i As Integer) As Boolean
         Get
             Return _Condoms(i)
