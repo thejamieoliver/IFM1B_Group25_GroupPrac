@@ -18,8 +18,8 @@ Public Class cHIV
     Private _Condoms() As Boolean
     Private _Untreated() As Double
 
-    Public Sub New(Name As String, RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String, NumYears As Integer)
-        MyBase.New(Name, RegionName, Population, NumSymptoms, Symptoms, NumYears)
+    Public Sub New(RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String, NumYears As Integer)
+        MyBase.New("HIV", RegionName, Population, NumSymptoms, Symptoms, NumYears)
         ReDim _Cross(_NumYears)
         ReDim _NotArt(_NumYears)
         ReDim _Condoms(_NumYears)
