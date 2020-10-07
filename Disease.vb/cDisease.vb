@@ -24,11 +24,11 @@ Public Class cDisease
     Private _TotalCases As Integer 'Total number of cases for each recorded year.
     Private _TotalDeaths As Integer 'Total number of deaths for each recorded year.
     Private _TotalRecovers As Integer 'Total number of recoveries for each recorded year.
-    Private _YearNewCases() As Integer 'Array storing number of new cases for each recorded year. | _NumYears
+    Protected _YearNewCases() As Integer 'Array storing number of new cases for each recorded year. | _NumYears
     Private _YearRecoveries() As Integer 'Array storing number of recoveries for each recorded year. | _NumYears
     Private _YearDeaths() As Integer 'Array storing number of deaths for each recorded year. | _NumYears
     Private _NumSymptoms As Integer 'Number of symptoms to record for.
-    Private _NumYears As Integer 'Number of years to record for.
+    Private Protected _NumYears As Integer 'Number of years to record for.
 
 
     Public Sub New(Name As String, RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String, NumYears As Integer)
