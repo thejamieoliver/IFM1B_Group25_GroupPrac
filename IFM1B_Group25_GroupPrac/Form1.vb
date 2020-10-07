@@ -33,7 +33,7 @@ Public Class Form1
         pnlPatient.Visible = True
     End Sub
 
-    Private Sub btnNewDisease_Click(sender As Object, e As EventArgs) Handles btnRecordInfo.Click
+    Private Sub btnRecordInfo_Click(sender As Object, e As EventArgs) Handles btnRecordInfo.Click
 
         Select Case cbDiseases.SelectedIndex
             Case enumDisease.HIV
@@ -44,7 +44,7 @@ Public Class Form1
 
             Case enumDisease.Malaria
 
-            Case enumDisease.New_Disease
+            Case Is >= enumDisease.New_Disease
                 pnlNewDisease.Visible = True
                 MsgBox("Hi")
         End Select
