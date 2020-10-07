@@ -14,78 +14,32 @@ Public Class cDisease
     'Interface Class
     Implements ExtractInfo
     'Variable Declaration
-    Private _Name As String 'Disease name.
-    Private _RegionName As String 'Name of region
-    Private _RegionPopulation As Integer 'Population of region
     Private _InfectionRate As Double 'Infection rate of the disease.
     Private _DeathRate As Double 'Death rate of the disease.
     Private _RecoveryRate As Double 'Recovery rate of the disease.
-    Private _Symptoms() As String 'Array string all symptoms of the disease. | _NumSymptoms
     Private _TotalCases As Integer 'Total number of cases for each recorded year.
     Private _TotalDeaths As Integer 'Total number of deaths for each recorded year.
     Private _TotalRecovers As Integer 'Total number of recoveries for each recorded year.
-    'Protected _YearNewCases() As Integer 'Array storing number of new cases for each recorded year. | _NumYears
-    'Private _YearRecoveries() As Integer 'Array storing number of recoveries for each recorded year. | _NumYears
-    ' Private _YearDeaths() As Integer 'Array storing number of deaths for each recorded year. | _NumYears
-    Private _NumSymptoms As Integer 'Number of symptoms to record for.
-    'Private Protected _NumYears As Integer 'Number of years to record for.
+    Private _Population As Integer
 
+    'Functions and Subroutines ***********************************************************************************************
 
-    'Public Sub New(Name As String, RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String, NumYears As Integer)
-    '   _Name = Name
-    '  _RegionName = RegionName
-    ' _RegionPopulation = Population
-    '_NumSymptoms = NumSymptoms
-    'ReDim _Symptoms(_NumSymptoms)
-    '   _Symptoms = Symptoms
-    '  _NumYears = NumYears
-    'ReDim _YearDeaths(_NumYears)
-    'ReDim _YearNewCases(_NumYears)
-    'ReDim _YearRecoveries(_NumYears)
-    'End Sub
+    Public Function CalcInfectionRate() As Double
+        _InfectionRate = _TotalCases / _Population
+        Return _InfectionRate
+    End Function
 
+    Public Function CalcDeathRate() As Double
+        _DeathRate = _TotalDeaths / _Population
+        Return _DeathRate
+    End Function
 
-    Public ReadOnly Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
-        Get
-            Return funcTotalDeaths()
-        End Get
-    End Property
-
+    Public Overridable Function CalcRecoverRate() As Double
+        _RecoveryRate = _TotalRecovers / _Population
+        Return _DeathRate
+    End Function
 
     'Interface properties ****************************************************************************************************
-    Public Property DiseaseName As String Implements ExtractInfo.DiseaseName
-        Get
-            Return _Name
-        End Get
-        Set(value As String)
-            _Name = value
-        End Set
-    End Property
-
-
-    Public ReadOnly Property InfectionRate As Double Implements ExtractInfo.InfectionRate
-        Get
-            calcInfectionRate()
-            Return _InfectionRate
-        End Get
-    End Property
-
-
-    Public ReadOnly Property DeathRate As Double Implements ExtractInfo.DeathRate
-        Get
-            calcDeathRate()
-            Return _DeathRate
-        End Get
-    End Property
-
-
-    Public ReadOnly Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
-        Get
-            calcRecoveryRate()
-            Return _RecoveryRate
-        End Get
-    End Property
-
 
     Public Property TotalCases As Integer Implements ExtractInfo.TotalCases
         Get
@@ -98,6 +52,16 @@ Public Class cDisease
         End Set
     End Property
 
+    Public Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
+        Get
+            Return _TotalDeaths
+        End Get
+        Set(value As Integer)
+            If IsPositive(value) = True Then
+                _TotalDeaths = value
+            End If
+        End Set
+    End Property
 
     Public Property TotalRecovers As Integer Implements ExtractInfo.TotalRecovers
         Get
@@ -110,55 +74,37 @@ Public Class cDisease
         End Set
     End Property
 
-
-    Public Property NumSymptoms As Integer Implements ExtractInfo.NumSymptoms
+    Public Property Population As Integer Implements ExtractInfo.Population
         Get
-            Return _NumSymptoms
+            Return _Population
         End Get
         Set(value As Integer)
             If IsPositive(value) = True Then
-                _NumSymptoms = value
-                ReDim Preserve _Symptoms(_NumSymptoms)
+                _Population = value
             End If
         End Set
     End Property
 
-
-    Public ReadOnly Property RegionName As String Implements ExtractInfo.RegionName
+    Public ReadOnly Property InfectionRate As Double Implements ExtractInfo.InfectionRate
         Get
-            Return _RegionName
+            Return _InfectionRate
         End Get
     End Property
 
-
-    Public Property Population As Integer Implements ExtractInfo.Population
+    Public ReadOnly Property DeathRate As Double Implements ExtractInfo.DeathRate
         Get
-            Return _RegionPopulation
+            Return _DeathRate
         End Get
-        Set(value As Integer)
-            _RegionPopulation = value
-        End Set
+    End Property
+
+    Public ReadOnly Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
+        Get
+            Return _RecoveryRate
+        End Get
     End Property
     '************************************************************************************************************************
 
     'Utility Methods ********************************************************************************************************
-    Private Sub calcInfectionRate()
-        'Calculates the infection rate for the latest year recorded
-        _InfectionRate = _YearNewCases(Len(_YearNewCases)) / _RegionPopulation
-    End Sub
-
-
-    Private Sub calcRecoveryRate()
-        'Calculates the recovery rate for the latest year recorded
-        _RecoveryRate = _YearRecoveries(Len(_YearRecoveries)) / _YearNewCases(Len(_YearNewCases))
-    End Sub
-
-
-    Private Sub calcDeathRate()
-        'Calculates the death rate for the latest year recorded
-        _DeathRate = _YearDeaths(Len(_YearRecoveries)) / _YearNewCases(Len(_YearNewCases))
-    End Sub
-
     Private Function IsPositive(value As Integer) As Boolean
         'Utility function for checking if a value is positive
         If value > 0 Then
@@ -167,15 +113,6 @@ Public Class cDisease
             MsgBox("Invalid Input")
             Return False
         End If
-    End Function
-
-
-    Private Function funcTotalDeaths() As Integer
-        'Utility function to add all recorded deaths for a disease
-        For Each i As Integer In _YearDeaths
-            _TotalDeaths += _YearDeaths(i)
-        Next
-        Return _TotalDeaths
     End Function
     '************************************************************************************************************************
 
