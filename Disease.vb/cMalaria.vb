@@ -12,14 +12,20 @@ Option Infer Off
 ' *****************************************************************
 Public Class cMalaria
     Inherits cDisease
-    Private _Perm() As Boolean
+    Private Shared _YearNewCases() As Integer
+    Private Shared _YearRecoveries() As Integer
+    Private Shared _YearDeaths() As Integer
+    Private Shared _NumYears As Integer
+    Private _Population As Integer
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
+        _NumYears += 1
+        ReDim Preserve _YearDeaths(_NumYears)
+        ReDim Preserve _YearRecoveries(_NumYears)
+        ReDim Preserve _YearNewCases(_NumYears)
+        _Population = Population
+    End Sub
 
-    Public Property Perm(i As Integer) As Boolean
-        Get
-            Return _Perm(i)
-        End Get
-        Set(value As Boolean)
-            _Perm(i) = value
-        End Set
-    End Property
+    Public Sub ResetYears()
+        _NumYears = 0
+    End Sub
 End Class

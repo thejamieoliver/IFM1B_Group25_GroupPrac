@@ -24,29 +24,25 @@ Public Class cDisease
     Private _TotalCases As Integer 'Total number of cases for each recorded year.
     Private _TotalDeaths As Integer 'Total number of deaths for each recorded year.
     Private _TotalRecovers As Integer 'Total number of recoveries for each recorded year.
-    Protected _YearNewCases() As Integer 'Array storing number of new cases for each recorded year. | _NumYears
-    Private _YearRecoveries() As Integer 'Array storing number of recoveries for each recorded year. | _NumYears
-    Private _YearDeaths() As Integer 'Array storing number of deaths for each recorded year. | _NumYears
+    'Protected _YearNewCases() As Integer 'Array storing number of new cases for each recorded year. | _NumYears
+    'Private _YearRecoveries() As Integer 'Array storing number of recoveries for each recorded year. | _NumYears
+    ' Private _YearDeaths() As Integer 'Array storing number of deaths for each recorded year. | _NumYears
     Private _NumSymptoms As Integer 'Number of symptoms to record for.
-    Private Protected _NumYears As Integer 'Number of years to record for.
+    'Private Protected _NumYears As Integer 'Number of years to record for.
 
 
-    Public Sub New(Name As String, RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String, NumYears As Integer)
-        _Name = Name
-        _RegionName = RegionName
-        _RegionPopulation = Population
-        _NumSymptoms = NumSymptoms
-        ReDim _Symptoms(_NumSymptoms)
-        _Symptoms = Symptoms
-        _NumYears = NumYears
-        ReDim _YearDeaths(_NumYears)
-        ReDim _YearNewCases(_NumYears)
-        ReDim _YearRecoveries(_NumYears)
-    End Sub
-
-    Public Sub New()
-
-    End Sub
+    'Public Sub New(Name As String, RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String, NumYears As Integer)
+    '   _Name = Name
+    '  _RegionName = RegionName
+    ' _RegionPopulation = Population
+    '_NumSymptoms = NumSymptoms
+    'ReDim _Symptoms(_NumSymptoms)
+    '   _Symptoms = Symptoms
+    '  _NumYears = NumYears
+    'ReDim _YearDeaths(_NumYears)
+    'ReDim _YearNewCases(_NumYears)
+    'ReDim _YearRecoveries(_NumYears)
+    'End Sub
 
 
     Public ReadOnly Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
