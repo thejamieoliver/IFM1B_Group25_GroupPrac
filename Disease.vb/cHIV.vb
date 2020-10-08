@@ -19,29 +19,31 @@ Public Class cHIV
     Private Shared _Cross() As Integer 'Number of people cross infected with TB
     Private Shared _NotArt() As Integer 'Number of people without access to Anti RetroViral Treatment
     Private Shared _Condoms() As Boolean 'Whether or not Condoms were freely distributed that year
-    Private Shared _NumYears As Integer
-    Private _Symptoms(4) As String
+    Private Shared _NumYears As Integer 'Number of years of Observation
+    Private Shared ReadOnly _Symptoms(4) As String 'Array of Symptoms
     Private _Population As Integer
 
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noART As Integer, cond As Boolean)
+        'Increase numyears by 1
         _NumYears += 1
+        'redim all arrays to numyears, preserving past data
         ReDim Preserve _YearDeaths(_NumYears)
-        _YearDeaths(_NumYears) = YearDeaths
+        _YearDeaths(_NumYears) = YearDeaths 'Set the current index of YearDeaths to the value passed to the constructor
         ReDim Preserve _YearRecoveries(_NumYears)
-        _YearRecoveries(_NumYears) = YearRecoveries
+        _YearRecoveries(_NumYears) = YearRecoveries 'Set the current index of YearRecoveries to the value passed to the constructor
         ReDim Preserve _YearNewCases(_NumYears)
-        _YearNewCases(_NumYears) = YearCases
+        _YearNewCases(_NumYears) = YearCases 'Set the current index of YearNewCases to the value passed to the constructor
         ReDim Preserve _Cross(_NumYears)
-        _Cross(_NumYears) = CrossTB()
+        _Cross(_NumYears) = CrossTB() 'Set the current index of Cross to the value passed to the constructor (pass it through property method)
         ReDim Preserve _NotArt(_NumYears)
-        NotArt(_NumYears) = noART
+        NotArt(_NumYears) = noART 'Set the current index of NotArt to the value passed to the constructor after it has been validated
         ReDim Preserve _Condoms(_NumYears)
-        _Condoms(_NumYears) = cond
+        _Condoms(_NumYears) = cond 'Set the current index of Condoms to the value passed to the constructor 
         _Population = Population
-        _Symptoms(1) = "Beans"
-        _Symptoms(2) = "Tomatoes"
-        _Symptoms(3) = "Chill"
-        _Symptoms(4) = "Grugh"
+        _Symptoms(1) = "Chronic Diarrhoea" 'Assign values to the symptoms array
+        _Symptoms(2) = "Night Sweats"
+        _Symptoms(3) = "Fever"
+        _Symptoms(4) = "Rashes"
     End Sub
 
     'Calculate no of people cross infected with TB
@@ -54,11 +56,14 @@ Public Class cHIV
             Return _Cross(i)
         End Get
         Set(value As Integer)
+            'Check if the value _cross is being set to is not Negative
             If value < 0 Then
                 _Cross(i) = 0
+                'Or Greater than the cases for that year
             ElseIf value > _YearNewCases(i) Then
                 _Cross(i) = _YearNewCases(i)
             Else
+                'If not, set _Cross to the value
                 _Cross(i) = value
             End If
         End Set
@@ -69,11 +74,14 @@ Public Class cHIV
             Return _NotArt(i)
         End Get
         Set(value As Integer)
+            'Check if the value _NotArt is being set to is not Negative
             If value < 0 Then
                 _NotArt(i) = 0
+                'Or Greater than the cases for that year
             ElseIf value > _YearNewCases(i) Then
                 _NotArt(i) = _YearNewCases(i)
             Else
+                'If not, set _Cross to the value
                 _NotArt(i) = value
             End If
         End Set
