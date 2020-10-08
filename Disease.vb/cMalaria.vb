@@ -17,6 +17,7 @@ Public Class cMalaria
     Private Shared _YearDeaths() As Integer
     Private Shared _NumYears As Integer
     Private Symptoms(4) As String
+
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
         _NumYears += 1
         ReDim Preserve _YearDeaths(_NumYears)

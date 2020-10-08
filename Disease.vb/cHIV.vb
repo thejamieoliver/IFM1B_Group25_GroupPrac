@@ -23,20 +23,25 @@ Public Class cHIV
     Private _Symptoms(4) As String
     Private _Population As Integer
 
-    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noART As Integer, cond As Boolean)
         _NumYears += 1
         ReDim Preserve _YearDeaths(_NumYears)
+        _YearDeaths(_NumYears) = YearDeaths
         ReDim Preserve _YearRecoveries(_NumYears)
+        _YearRecoveries(_NumYears) = YearRecoveries
         ReDim Preserve _YearNewCases(_NumYears)
+        _YearNewCases(_NumYears) = YearCases
         ReDim Preserve _Cross(_NumYears)
+        _Cross(_NumYears) = CrossTB()
         ReDim Preserve _NotArt(_NumYears)
+        NotArt(_NumYears) = noART
         ReDim Preserve _Condoms(_NumYears)
+        _Condoms(_NumYears) = cond
         _Population = Population
         _Symptoms(1) = "Beans"
         _Symptoms(2) = "Tomatoes"
         _Symptoms(3) = "Chill"
         _Symptoms(4) = "Grugh"
-        _Cross(_NumYears) = CrossTB()
     End Sub
 
     'Calculate no of people cross infected with TB
@@ -51,8 +56,8 @@ Public Class cHIV
         Set(value As Integer)
             If value < 0 Then
                 _Cross(i) = 0
-            ElseIf value > _YearNewCases(_NumYears) Then
-                _Cross(i) = _YearNewCases(_NumYears)
+            ElseIf value > _YearNewCases(i) Then
+                _Cross(i) = _YearNewCases(i)
             Else
                 _Cross(i) = value
             End If
@@ -66,8 +71,8 @@ Public Class cHIV
         Set(value As Integer)
             If value < 0 Then
                 _NotArt(i) = 0
-            ElseIf value > _YearNewCases(_NumYears) Then
-                _NotArt(i) = _YearNewCases(_NumYears)
+            ElseIf value > _YearNewCases(i) Then
+                _NotArt(i) = _YearNewCases(i)
             Else
                 _NotArt(i) = value
             End If
@@ -81,4 +86,9 @@ Public Class cHIV
             _Condoms(i) = value
         End Set
     End Property
+
+    Private Function calcTotalCases() As Integer
+        Dim td As Integer
+        td = _TotalCases - (_Yearnewdeaths(_NumYears) + recoveries())
+    End Function
 End Class

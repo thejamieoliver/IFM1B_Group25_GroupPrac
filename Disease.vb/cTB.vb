@@ -17,12 +17,19 @@ Public Class cTB
     Private Shared _YearDeaths() As Integer
     Private Shared _NumYears As Integer
     Private _Population As Integer
-
-    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
+    Private _Cross As Integer
+    Private Shared _NoDots() As Integer
+    Private Shared _Untreated() As Integer
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noDOts As Integer)
         _NumYears += 1
         ReDim Preserve _YearDeaths(_NumYears)
+        _YearDeaths(_NumYears) = YearDeaths
         ReDim Preserve _YearRecoveries(_NumYears)
+        _YearRecoveries(_NumYears) = YearRecoveries
         ReDim Preserve _YearNewCases(_NumYears)
+        _YearNewCases(_NumYears) = YearCases
+        ReDim Preserve _NoDots(_NumYears)
+        Me.NoDOTS(_NumYears) = noDOts
         _Population = Population
     End Sub
 
@@ -30,33 +37,26 @@ Public Class cTB
         _NumYears = 0
     End Sub
 
+    Public Property Cross() As Integer
+        Get
+            Return _Cross
+        End Get
+        Set(value As Integer)
+            value = _Cross
+        End Set
+    End Property
+    Public Property NoDOTS(i As Integer) As Integer
+        Get
+            Return _NoDots(i)
+        End Get
+        Set(value As Integer)
+            If value < 0 Then
+                _NoDots(i) = 0
+            ElseIf value > _YearNewCases(i) Then
+                _NoDots(i) = _YearNewCases(i)
+            Else
+                _NoDots(i) = value
+            End If
+        End Set
+    End Property
 End Class
-'Private _Cross As Integer
-'Private _DOTS() As Integer
-
-'Public Property Cross() As Integer
-'    Get
-'        Return _Cross
-'    End Get
-'    Set(value As Integer)
-'        value = _Cross
-'    End Set
-'End Property
-'Public Property DOTS(i As Integer) As Integer
-'    Get
-'        Return _DOTS(i)
-'    End Get
-'    Set(value As Integer)
-'        If value < 0 Then
-'            _DOTS(i) = 0
-'        ElseIf value > _YearNewCases(_NumYears) Then
-'            _DOTS(i) = _YearNewCases(_NumYears)
-'        Else
-'            _DOTS(i) = value
-'        End If
-'    End Set
-'End Property
-''Calculate number of People who are not able to be treated for TB
-'Public Function CalcUntreated() As Double
-'    Return DOTS(_NumYears) / _YearNewCases(_NumYears)
-'End Function
