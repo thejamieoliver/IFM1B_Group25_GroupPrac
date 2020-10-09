@@ -16,7 +16,7 @@ Public Class cMalaria
     Private Shared _YearRecoveries() As Integer
     Private Shared _YearDeaths() As Integer
     Private Shared _NumYears As Integer
-    Private Shared ReadOnly Symptoms(4) As String
+    Private Shared _Symptoms(4) As String
 
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
         'Increase numyears by 1
@@ -28,7 +28,10 @@ Public Class cMalaria
         _YearRecoveries(_NumYears) = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         ReDim Preserve _YearNewCases(_NumYears)
         _YearNewCases(_NumYears) = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
-
+        _Symptoms(1) = "Nausea" 'Assign values to the symptoms array
+        _Symptoms(2) = "Muscle Pain"
+        _Symptoms(3) = "Headache"
+        _Symptoms(4) = "Chills"
     End Sub
 
     Public Sub TotalArrays()
