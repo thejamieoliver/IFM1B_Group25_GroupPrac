@@ -13,6 +13,7 @@ Imports System.Runtime.Serialization.Formatters.Binary
 ' Practical: Team Project
 ' Class name: (name of the class)
 ' *****************************************************************
+
 Public Class Form1
     Const PASSWORD As String = "123"
     Const FNAME As String = "/Diseases.txt"
