@@ -18,11 +18,12 @@ Option Infer Off
     Private _Perm As Boolean
     Private Shared _NumYears As Integer
     Private ReadOnly _Symptoms(7) As String
+    Private _NumSymp As Integer
 
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
         'Increase numyears by 1
         _NumYears += 1
-        'redim all arrays to numyears, preserving past data
+        'Redim all arrays to numyears, preserving past data
         _YearDeaths = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
         _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
@@ -30,9 +31,10 @@ Option Infer Off
         _Symptoms(1) = "Fever"
         _Symptoms(2) = "Chills"
         _Symptoms(3) = "Headache"
-        _Symptoms(5) = "Vomiting"
-        _Symptoms(6) = "Fatigue"
-        _Symptoms(7) = "Cough"
+        _Symptoms(4) = "Vomiting"
+        _Symptoms(5) = "Fatigue"
+        _Symptoms(6) = "Cough"
+        _NumSymp = _Symptoms.Length
     End Sub
 
     Public Property perm As Boolean
@@ -57,4 +59,20 @@ Option Infer Off
     Public Sub ResetYears()
         _NumYears = 0
     End Sub
+    Public Sub Removeoneyear() 'Subtracts a year so that values wont be used
+        _NumYears -= 1
+    End Sub
+
+    Public Function CollectSymptoms(value As String) As String 'Searches through
+        If _NumSymp > 0 Then
+            If value = _Symptoms(_NumSymp) Then
+                Return _Symptoms(_NumSymp)
+            Else
+                Return "Null"
+            End If
+            _NumSymp -= 1
+        Else
+            Return "Null"
+        End If
+    End Function
 End Class

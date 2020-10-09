@@ -18,6 +18,7 @@ Option Infer Off
     Private Shared _NumYears As Integer
     Private _NoDots As Integer 'People unable to be treated
     Private ReadOnly _Symptoms(6) As String 'Array of Symptoms
+    Private _NumSymp As Integer
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noDOts As Integer)
         'Increase numyears by 1
         _NumYears += 1
@@ -33,6 +34,7 @@ Option Infer Off
         _Symptoms(4) = "Chest pain"
         _Symptoms(5) = "Weight Loss"
         _Symptoms(6) = "Night Sweats"
+        _NumSymp = _Symptoms.Length
     End Sub
 
     Public Sub ResetYears()
@@ -66,5 +68,15 @@ Option Infer Off
         & "Untreated: " & _NoDots & Environment.NewLine
         Return dis
     End Function
-
+    Public Sub Removeoneyear()
+        _NumYears -= 1
+    End Sub
+    Public Function CollectSymptoms(value As String) As String
+        If value = _Symptoms(_NumSymp) Then
+            Return _Symptoms(_NumSymp)
+        Else
+            Return "Null"
+        End If
+        _NumSymp -= 1
+    End Function
 End Class
