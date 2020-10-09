@@ -60,7 +60,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="UJGrid">
-      <HintPath>..\..\..\..\Semester 1\General\UJGrid.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\UJGrid.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

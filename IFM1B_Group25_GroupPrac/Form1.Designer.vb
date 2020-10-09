@@ -47,6 +47,7 @@ Partial Class Form1
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
+        Me.UjGrid1 = New UJGrid.UJGrid()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -74,6 +75,7 @@ Partial Class Form1
         '
         'pnlDoctor
         '
+        Me.pnlDoctor.Controls.Add(Me.UjGrid1)
         Me.pnlDoctor.Controls.Add(Me.cbDiseases)
         Me.pnlDoctor.Controls.Add(Me.pnlHIV)
         Me.pnlDoctor.Controls.Add(Me.btnRecordInfo)
@@ -263,11 +265,21 @@ Partial Class Form1
         Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
         Me.cbSymptoms.TabIndex = 0
         '
+        'UjGrid1
+        '
+        Me.UjGrid1.FixedCols = 1
+        Me.UjGrid1.FixedRows = 1
+        Me.UjGrid1.Location = New System.Drawing.Point(291, 57)
+        Me.UjGrid1.Name = "UjGrid1"
+        Me.UjGrid1.Scrollbars = System.Windows.Forms.ScrollBars.Both
+        Me.UjGrid1.Size = New System.Drawing.Size(449, 315)
+        Me.UjGrid1.TabIndex = 5
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1345, 840)
+        Me.ClientSize = New System.Drawing.Size(1345, 749)
         Me.Controls.Add(Me.pnlMalaria)
         Me.Controls.Add(Me.pnlTB)
         Me.Controls.Add(Me.pnlPatient)
@@ -313,4 +325,5 @@ Partial Class Form1
     Friend WithEvents TextBox14 As TextBox
     Friend WithEvents TextBox13 As TextBox
     Friend WithEvents TextBox12 As TextBox
+    Friend WithEvents UjGrid1 As UJGrid.UJGrid
 End Class
