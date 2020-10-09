@@ -10,7 +10,7 @@ Option Infer Off
 ' Practical: Team Project
 ' Class name: cDisease
 ' *****************************************************************
-Public Class cDisease
+<Serializable> Public Class cDisease
     'Interface Class
     Implements ExtractInfo
     'Variable Declaration

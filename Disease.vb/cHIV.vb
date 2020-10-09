@@ -10,7 +10,7 @@ Option Infer Off
 ' Practical: Team Project
 ' Class name: cHIV
 ' *****************************************************************
-Public Class cHIV
+<Serializable> Public Class cHIV
 
     Inherits cDisease
     Private _YearNewCases As Integer
