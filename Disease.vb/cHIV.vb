@@ -28,13 +28,13 @@ Public Class cHIV
         _NumYears += 1
         'redim all arrays to numyears, preserving past data
         ReDim Preserve _YearDeaths(_NumYears)
-        _YearDeaths(_NumYears) = YearDeaths 'Set the current index of YearDeaths to the value passed to the constructor
+        _YearDeaths(_NumYears) = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
         ReDim Preserve _YearRecoveries(_NumYears)
-        _YearRecoveries(_NumYears) = YearRecoveries 'Set the current index of YearRecoveries to the value passed to the constructor
+        _YearRecoveries(_NumYears) = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         ReDim Preserve _YearNewCases(_NumYears)
-        _YearNewCases(_NumYears) = YearCases 'Set the current index of YearNewCases to the value passed to the constructor
+        _YearNewCases(_NumYears) = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
         ReDim Preserve _Cross(_NumYears)
-        _Cross(_NumYears) = CrossTB() 'Set the current index of Cross to the value passed to the constructor (pass it through property method)
+        Cross(_NumYears) = CrossTB() 'Set the current index of Cross to the value passed to the constructor (pass it through property method)
         ReDim Preserve _NotArt(_NumYears)
         NotArt(_NumYears) = noART 'Set the current index of NotArt to the value passed to the constructor after it has been validated
         ReDim Preserve _Condoms(_NumYears)
@@ -95,8 +95,8 @@ Public Class cHIV
         End Set
     End Property
 
-    Private Function calcTotalCases() As Integer
-        Dim td As Integer
-        td = _TotalCases - (_Yearnewdeaths(_NumYears) + recoveries())
-    End Function
+    'Private Function calcTotalCases() As Integer
+    'Dim td As Integer
+    'td = _TotalCases - (_Yearnewdeaths(_NumYears) + recoveries())
+    'End Function
 End Class

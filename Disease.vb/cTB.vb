@@ -25,13 +25,13 @@ Public Class cTB
         _NumYears += 1
         'redim all arrays to numyears, preserving past data
         ReDim Preserve _YearDeaths(_NumYears)
-        _YearDeaths(_NumYears) = YearDeaths 'Set the current index of YearDeaths to the value passed to the constructor
+        _YearDeaths(_NumYears) = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
         ReDim Preserve _YearRecoveries(_NumYears)
-        _YearRecoveries(_NumYears) = YearRecoveries 'Set the current index of YearRecoveries to the value passed to the constructor
+        _YearRecoveries(_NumYears) = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         ReDim Preserve _YearNewCases(_NumYears)
-        _YearNewCases(_NumYears) = YearCases 'Set the current index of YearNewCases to the value passed to the constructor
+        _YearNewCases(_NumYears) = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
         ReDim Preserve _NoDots(_NumYears)
-        Me.NoDOTS(_NumYears) = noDOts 'Set the current index of this classes NoDots to the value passed to the constructor
+        Me.NoDOTS(_NumYears) = MyBase.validInt(noDOts) 'Set the current index of this classes NoDots to the value passed to the constructor
         _Population = Population
         _Symptoms(1) = "Coughing Blood" 'Give values to the symptoms array
         _Symptoms(2) = "Chills"
