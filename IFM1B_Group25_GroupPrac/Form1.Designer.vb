@@ -75,6 +75,7 @@ Partial Class Form1
         '
         'pnlDoctor
         '
+        Me.pnlDoctor.Controls.Add(Me.UjGrid1)
         Me.pnlDoctor.Controls.Add(Me.cbDiseases)
         Me.pnlDoctor.Controls.Add(Me.pnlHIV)
         Me.pnlDoctor.Controls.Add(Me.btnRecordInfo)
@@ -268,18 +269,17 @@ Partial Class Form1
         '
         Me.UjGrid1.FixedCols = 1
         Me.UjGrid1.FixedRows = 1
-        Me.UjGrid1.Location = New System.Drawing.Point(868, 43)
+        Me.UjGrid1.Location = New System.Drawing.Point(284, 57)
         Me.UjGrid1.Name = "UjGrid1"
         Me.UjGrid1.Scrollbars = System.Windows.Forms.ScrollBars.Both
-        Me.UjGrid1.Size = New System.Drawing.Size(342, 275)
-        Me.UjGrid1.TabIndex = 7
+        Me.UjGrid1.Size = New System.Drawing.Size(229, 150)
+        Me.UjGrid1.TabIndex = 5
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1345, 749)
-        Me.Controls.Add(Me.UjGrid1)
         Me.Controls.Add(Me.pnlMalaria)
         Me.Controls.Add(Me.pnlTB)
         Me.Controls.Add(Me.pnlPatient)
@@ -326,5 +326,5 @@ Partial Class Form1
     Friend WithEvents TextBox13 As TextBox
     Friend WithEvents TextBox12 As TextBox
     Friend WithEvents UjGrid1 As UJGrid.UJGrid
-    'Friend WithEvents UjGrid1 As UJGrid.UJGrid
+
 End Class
