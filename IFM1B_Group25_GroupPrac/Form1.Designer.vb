@@ -25,9 +25,10 @@ Partial Class Form1
         Me.btnAdmin = New System.Windows.Forms.Button()
         Me.btnPatient = New System.Windows.Forms.Button()
         Me.pnlDoctor = New System.Windows.Forms.Panel()
+        Me.UjGrid1 = New UJGrid.UJGrid()
         Me.cbDiseases = New System.Windows.Forms.ComboBox()
         Me.pnlHIV = New System.Windows.Forms.Panel()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtHIVYearCases = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
@@ -47,7 +48,6 @@ Partial Class Form1
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
-        Me.UjGrid1 = New UJGrid.UJGrid()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -85,6 +85,16 @@ Partial Class Form1
         Me.pnlDoctor.TabIndex = 2
         Me.pnlDoctor.Visible = False
         '
+        'UjGrid1
+        '
+        Me.UjGrid1.FixedCols = 1
+        Me.UjGrid1.FixedRows = 1
+        Me.UjGrid1.Location = New System.Drawing.Point(284, 57)
+        Me.UjGrid1.Name = "UjGrid1"
+        Me.UjGrid1.Scrollbars = System.Windows.Forms.ScrollBars.Both
+        Me.UjGrid1.Size = New System.Drawing.Size(474, 315)
+        Me.UjGrid1.TabIndex = 5
+        '
         'cbDiseases
         '
         Me.cbDiseases.FormattingEnabled = True
@@ -97,7 +107,7 @@ Partial Class Form1
         '
         'pnlHIV
         '
-        Me.pnlHIV.Controls.Add(Me.TextBox2)
+        Me.pnlHIV.Controls.Add(Me.txtHIVYearCases)
         Me.pnlHIV.Controls.Add(Me.TextBox1)
         Me.pnlHIV.Controls.Add(Me.TextBox3)
         Me.pnlHIV.Controls.Add(Me.TextBox4)
@@ -109,12 +119,12 @@ Partial Class Form1
         Me.pnlHIV.TabIndex = 4
         Me.pnlHIV.Visible = False
         '
-        'TextBox2
+        'txtHIVYearCases
         '
-        Me.TextBox2.Location = New System.Drawing.Point(135, 25)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox2.TabIndex = 8
+        Me.txtHIVYearCases.Location = New System.Drawing.Point(135, 25)
+        Me.txtHIVYearCases.Name = "txtHIVYearCases"
+        Me.txtHIVYearCases.Size = New System.Drawing.Size(52, 20)
+        Me.txtHIVYearCases.TabIndex = 8
         '
         'TextBox1
         '
@@ -265,16 +275,6 @@ Partial Class Form1
         Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
         Me.cbSymptoms.TabIndex = 0
         '
-        'UjGrid1
-        '
-        Me.UjGrid1.FixedCols = 1
-        Me.UjGrid1.FixedRows = 1
-        Me.UjGrid1.Location = New System.Drawing.Point(284, 57)
-        Me.UjGrid1.Name = "UjGrid1"
-        Me.UjGrid1.Scrollbars = System.Windows.Forms.ScrollBars.Both
-        Me.UjGrid1.Size = New System.Drawing.Size(229, 150)
-        Me.UjGrid1.TabIndex = 5
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -310,7 +310,7 @@ Partial Class Form1
     Friend WithEvents pnlTB As Panel
     Friend WithEvents pnlMalaria As Panel
     Friend WithEvents pnlHIV As Panel
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtHIVYearCases As TextBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox4 As TextBox

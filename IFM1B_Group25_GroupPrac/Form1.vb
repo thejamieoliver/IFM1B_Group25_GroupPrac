@@ -63,7 +63,8 @@ Public Class Form1
         Select Case cbDiseases.SelectedIndex
             Case enumDisease.HIV
                 Dim TempHIV As cHIV
-                'TempHIV = New cHIV()
+
+                TempHIV = New cHIV()
             Case enumDisease.TB
 
             Case enumDisease.Malaria
