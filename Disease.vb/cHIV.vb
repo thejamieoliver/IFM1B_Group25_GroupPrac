@@ -92,6 +92,17 @@ Public Class cHIV
         End Set
     End Property
 
+    Public Overrides Function Display() As String
+        'Return the year number, and the value of the base classes display
+        Dim dis As String = "Year: " & _NumYears & Environment.NewLine & MyBase.Display
+        'Add the derived class unique variables
+        dis &= "Cases: " & _YearNewCases & Environment.NewLine _
+            & "Deaths: " & _YearDeaths & Environment.NewLine _
+              & "Untreated: " & _NotArt & Environment.NewLine _
+               & "Free Condoms: " & _Condoms & Environment.NewLine
+        Return dis
+    End Function
+
     'Private Function calcTotalCases() As Integer
     'Dim td As Integer
     'td = _TotalCases - (_Yearnewdeaths(_NumYears) + recoveries())

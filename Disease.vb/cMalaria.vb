@@ -15,6 +15,7 @@ Public Class cMalaria
     Private _YearNewCases As Integer
     Private _YearRecoveries As Integer
     Private _YearDeaths As Integer
+    Private _Perm As Boolean
     Private Shared _NumYears As Integer
     Private ReadOnly _Symptoms(7) As String
 
@@ -34,6 +35,25 @@ Public Class cMalaria
         _Symptoms(7) = "Cough"
     End Sub
 
+    Public Property perm As Boolean
+        Get
+            Return _Perm
+        End Get
+        Set(value As Boolean)
+            _Perm = value
+        End Set
+    End Property
+
+    Public Overrides Function Display() As String
+        'Return the year number, and the value of the base classes display
+        Dim dis As String = "Year: " & _NumYears & Environment.NewLine & MyBase.Display
+        'Add the derived class unique variables
+        dis &= "Cases: " & _YearNewCases & Environment.NewLine _
+             & "Recoveries: " & _YearRecoveries & Environment.NewLine _
+            & "Deaths: " & _YearDeaths & Environment.NewLine _
+            & "Permethrin Sprayed: " & _Perm & Environment.NewLine
+        Return dis
+    End Function
     Public Sub ResetYears()
         _NumYears = 0
     End Sub

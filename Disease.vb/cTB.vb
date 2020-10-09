@@ -16,7 +16,6 @@ Public Class cTB
     Private _YearRecoveries As Integer
     Private _YearDeaths As Integer
     Private Shared _NumYears As Integer
-    Private _Cross As Integer 'People Cross infected with HIV
     Private _NoDots As Integer 'People unable to be treated
     Private ReadOnly _Symptoms(6) As String 'Array of Symptoms
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noDOts As Integer)
@@ -40,16 +39,6 @@ Public Class cTB
         _NumYears = 0
     End Sub
 
-    Public Property Cross() As Integer
-        Get
-            'Return _Cross
-            Return _Cross
-        End Get
-        'Set _Cross to the value
-        Set(value As Integer)
-            value = _Cross
-        End Set
-    End Property
     Public Property NoDOTS() As Integer
         Get
             'Return _NoDots at the index
@@ -66,4 +55,16 @@ Public Class cTB
             End If
         End Set
     End Property
+
+    Public Overrides Function Display() As String
+        'Return the year number, and the value of the base classes display
+        Dim dis As String = "Year: " & _NumYears & Environment.NewLine & MyBase.Display
+        'Add the derived class unique variables
+        dis &= "Cases: " & _YearNewCases & Environment.NewLine _
+        & "Recoveries: " & _YearRecoveries & Environment.NewLine _
+        & "Deaths: " & _YearDeaths & Environment.NewLine _
+        & "Untreated: " & _NoDots & Environment.NewLine
+        Return dis
+    End Function
+
 End Class
