@@ -12,34 +12,20 @@ Option Infer Off
 ' *****************************************************************
 Public Class cMalaria
     Inherits cDisease
-    Private Shared _YearNewCases() As Integer
-    Private Shared _YearRecoveries() As Integer
-    Private Shared _YearDeaths() As Integer
+    Private _YearNewCases As Integer
+    Private _YearRecoveries As Integer
+    Private _YearDeaths As Integer
     Private Shared _NumYears As Integer
-    Private Shared _Symptoms(4) As String
+    Private ReadOnly Symptoms(4) As String
 
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
         'Increase numyears by 1
         _NumYears += 1
         'redim all arrays to numyears, preserving past data
-        ReDim Preserve _YearDeaths(_NumYears)
-        _YearDeaths(_NumYears) = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
-        ReDim Preserve _YearRecoveries(_NumYears)
-        _YearRecoveries(_NumYears) = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
-        ReDim Preserve _YearNewCases(_NumYears)
-        _YearNewCases(_NumYears) = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
-        _Symptoms(1) = "Nausea" 'Assign values to the symptoms array
-        _Symptoms(2) = "Muscle Pain"
-        _Symptoms(3) = "Headache"
-        _Symptoms(4) = "Chills"
-    End Sub
-
-    Public Sub TotalArrays()
-        For i As Integer = 1 To _NumYears
-            TotalCases += _YearNewCases(i)
-            TotalDeaths += _YearDeaths(i)
-            TotalRecovers += _YearRecoveries(i)
-        Next i
+        _YearDeaths = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
+        _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
+        _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
+        MyBase.Population = Population
     End Sub
 
     Public Sub ResetYears()

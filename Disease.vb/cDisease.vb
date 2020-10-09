@@ -17,62 +17,26 @@ Public Class cDisease
     Private _InfectionRate As Double 'Infection rate of the disease.
     Private _DeathRate As Double 'Death rate of the disease.
     Private _RecoveryRate As Double 'Recovery rate of the disease.
-    Private _TotalCases As Integer 'Total number of cases for each recorded year.
-    Private _TotalDeaths As Integer 'Total number of deaths for each recorded year.
-    Private _TotalRecovers As Integer 'Total number of recoveries for each recorded year.
     Private _Population As Integer
 
     'Functions and Subroutines ***********************************************************************************************
 
-    Public Function CalcInfectionRate() As Double
-        _InfectionRate = _TotalCases / _Population
+    Public Function CalcInfectionRate(TotalCases As Integer) As Double
+        _InfectionRate = TotalCases / _Population
         Return _InfectionRate
     End Function
 
-    Public Function CalcDeathRate() As Double
-        _DeathRate = _TotalDeaths / _Population
+    Public Function CalcDeathRate(TotalDeaths As Integer) As Double
+        _DeathRate = TotalDeaths / _Population
         Return _DeathRate
     End Function
 
-    Public Overridable Function CalcRecoverRate() As Double
-        _RecoveryRate = _TotalRecovers / _Population
+    Public Overridable Function CalcRecoverRate(TotalRecovers As Integer) As Double
+        _RecoveryRate = TotalRecovers / _Population
         Return _DeathRate
     End Function
 
     'Interface properties ****************************************************************************************************
-
-    Public Property TotalCases As Integer Implements ExtractInfo.TotalCases
-        Get
-            Return _TotalCases
-        End Get
-        Set(value As Integer)
-            If IsPositive(value) = True Then
-                _TotalCases = value
-            End If
-        End Set
-    End Property
-
-    Public Property TotalDeaths As Integer Implements ExtractInfo.TotalDeaths
-        Get
-            Return _TotalDeaths
-        End Get
-        Set(value As Integer)
-            If IsPositive(value) = True Then
-                _TotalDeaths = value
-            End If
-        End Set
-    End Property
-
-    Public Property TotalRecovers As Integer Implements ExtractInfo.TotalRecovers
-        Get
-            Return _TotalRecovers
-        End Get
-        Set(value As Integer)
-            If IsPositive(value) = True Then
-                _TotalRecovers = value
-            End If
-        End Set
-    End Property
 
     Public Property Population As Integer Implements ExtractInfo.Population
         Get
