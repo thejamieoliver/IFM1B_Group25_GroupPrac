@@ -21,6 +21,11 @@ Public Class Form1
     Private HIV() As cHIV
     Private TB() As cTB
     Private Malaria() As cMalaria
+    Private NumRecords As Integer
+    Private NumHIV As Integer
+    Private NumTB As Integer
+    Private NumMalaria As Integer
+    Private isLoaded As Boolean
     Private Enum enumDisease As Integer
         HIV
         TB
@@ -91,13 +96,32 @@ Public Class Form1
     Private Sub LoadFromFile()
         Dim FS As FileStream
         Dim BF As BinaryFormatter
-        FS = New FileStream(FNAME, FileMode.Open, FileAccess.Read)
-        BF = New BinaryFormatter()
-        While FS.Position < FS.Length
-            'Downcasting code
-            '.
-            '.
-            '.
-        End While
+        If isLoaded = False Then
+            NumHIV = 0
+            NumTB = 0
+            NumMalaria = 0
+            FS = New FileStream(FNAME, FileMode.Open, FileAccess.Read)
+            BF = New BinaryFormatter()
+            While FS.Position < FS.Length
+                'Downcasting code
+                Dim tempHIV As cHIV
+                Dim tempTB As cTB
+                Dim tempMalaria As cMalaria
+                tempHIV = TryCast(BF.Deserialize(FS), cHIV)
+                tempTB = TryCast(BF.Deserialize(FS), cTB)
+                tempMalaria = TryCast(BF.Deserialize(FS), cMalaria)
+                If Not (tempHIV Is Nothing) Then
+                    NumHIV += 1
+                    HIV(NumHIV) = tempHIV
+                ElseIf Not (tempTB Is Nothing) Then
+                    NumTB += 1
+                    TB(NumTB) = tempTB
+                ElseIf Not (tempMalaria Is Nothing) Then
+                    NumMalaria += 1
+                    Malaria(NumMalaria) = tempMalaria
+                End If
+            End While
+            isLoaded = True
+        End If
     End Sub
 End Class
