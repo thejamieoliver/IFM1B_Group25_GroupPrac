@@ -18,7 +18,7 @@ Public Class cTB
     Private Shared _NumYears As Integer
     Private _Cross As Integer 'People Cross infected with HIV
     Private _NoDots As Integer 'People unable to be treated
-    Private ReadOnly _Symptoms(4) As String 'Array of Symptoms
+    Private ReadOnly _Symptoms(6) As String 'Array of Symptoms
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noDOts As Integer)
         'Increase numyears by 1
         _NumYears += 1
@@ -32,6 +32,8 @@ Public Class cTB
         _Symptoms(2) = "Chills"
         _Symptoms(3) = "No Appetite"
         _Symptoms(4) = "Night Sweats"
+        _Symptoms(5) = "Night Sweats"
+        _Symptoms(6) = "Night Sweats"
     End Sub
 
     Public Sub ResetYears()

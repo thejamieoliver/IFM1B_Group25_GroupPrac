@@ -20,7 +20,7 @@ Public Class cHIV
     Private _NotArt As Integer 'Number of people without access to Anti RetroViral Treatment
     Private _Condoms As Boolean 'Whether or not Condoms were freely distributed that year
     Private Shared _NumYears As Integer 'Number of years of Observation
-    Private ReadOnly _Symptoms(4) As String 'Array of Symptoms
+    Private ReadOnly _Symptoms(8) As String 'Array of Symptoms
 
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noART As Integer, cond As Boolean)
         'Increase numyears by 1
@@ -37,6 +37,10 @@ Public Class cHIV
         _Symptoms(2) = "Night Sweats"
         _Symptoms(3) = "Fever"
         _Symptoms(4) = "Rashes"
+        _Symptoms(5) = "Chills"
+        _Symptoms(6) = "Sore throat"
+        _Symptoms(7) = "Swollen Lymph Nodes"
+        _Symptoms(8) = "Ulcers"
     End Sub
 
     'Calculate no of people cross infected with TB

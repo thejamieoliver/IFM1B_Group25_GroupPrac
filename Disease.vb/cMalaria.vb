@@ -16,7 +16,7 @@ Public Class cMalaria
     Private _YearRecoveries As Integer
     Private _YearDeaths As Integer
     Private Shared _NumYears As Integer
-    Private ReadOnly Symptoms(4) As String
+    Private ReadOnly _Symptoms(7) As String
 
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
         'Increase numyears by 1
@@ -26,6 +26,12 @@ Public Class cMalaria
         _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
         MyBase.Population = Population
+        _Symptoms(1) = "Fever"
+        _Symptoms(2) = "Chills"
+        _Symptoms(3) = "Headache"
+        _Symptoms(5) = "Vomiting"
+        _Symptoms(6) = "Fatigue"
+        _Symptoms(7) = "Cough"
     End Sub
 
     Public Sub ResetYears()
