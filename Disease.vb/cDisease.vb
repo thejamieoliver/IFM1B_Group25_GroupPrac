@@ -43,9 +43,7 @@ Public Class cDisease
             Return _Population
         End Get
         Set(value As Integer)
-            If IsPositive(value) = True Then
-                _Population = value
-            End If
+            _Population = validInt(value)
         End Set
     End Property
 
@@ -69,16 +67,6 @@ Public Class cDisease
     '************************************************************************************************************************
 
     'Utility Methods ********************************************************************************************************
-    Private Function IsPositive(value As Integer) As Boolean
-        'Utility function for checking if a value is positive
-        If value > 0 Then
-            Return True
-        Else
-            MsgBox("Invalid Input")
-            Return False
-        End If
-    End Function
-
     Protected Function validInt(i As Integer) As Integer
         'Check if the passed value is posistive
         If i < 0 Then
@@ -90,7 +78,8 @@ Public Class cDisease
     End Function
 
     Public Overridable Function Display() As String
-        Return "Recovery rate: " & RecoveryRate & Environment.NewLine _
+        'Return the recovery rate, the death rate, and infection rate
+        Return "Infection rate: " & RecoveryRate & Environment.NewLine _
            & "Death rate: " & DeathRate & Environment.NewLine _
            & "Recovery rate: " & RecoveryRate & Environment.NewLine
     End Function
