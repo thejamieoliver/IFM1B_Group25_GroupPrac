@@ -10,6 +10,7 @@ Option Infer Off
 ' Practical: Team Project
 ' Class name: (name of the class)
 ' *****************************************************************
+
 Public Class Form1
     Const PASSWORD As String = "123"
     Private Disease() As cDisease
