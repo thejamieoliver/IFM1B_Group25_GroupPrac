@@ -12,27 +12,22 @@ Option Infer Off
 ' *****************************************************************
 Public Class cTB
     Inherits cDisease
-    Private Shared _YearNewCases() As Integer
-    Private Shared _YearRecoveries() As Integer
-    Private Shared _YearDeaths() As Integer
+    Private _YearNewCases As Integer
+    Private _YearRecoveries As Integer
+    Private _YearDeaths As Integer
     Private Shared _NumYears As Integer
-    Private _Population As Integer
     Private _Cross As Integer 'People Cross infected with HIV
-    Private Shared _NoDots() As Integer 'People unable to be treated
-    Private Shared ReadOnly _Symptoms(4) As String 'Array of Symptoms
+    Private _NoDots As Integer 'People unable to be treated
+    Private ReadOnly _Symptoms(4) As String 'Array of Symptoms
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noDOts As Integer)
         'Increase numyears by 1
         _NumYears += 1
         'redim all arrays to numyears, preserving past data
-        ReDim Preserve _YearDeaths(_NumYears)
-        _YearDeaths(_NumYears) = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
-        ReDim Preserve _YearRecoveries(_NumYears)
-        _YearRecoveries(_NumYears) = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
-        ReDim Preserve _YearNewCases(_NumYears)
-        _YearNewCases(_NumYears) = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
-        ReDim Preserve _NoDots(_NumYears)
-        Me.NoDOTS(_NumYears) = MyBase.validInt(noDOts) 'Set the current index of this classes NoDots to the value passed to the constructor
-        _Population = Population
+        _YearDeaths = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
+        _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
+        _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
+        _NoDots = MyBase.validInt(noDOts) 'Set the current index of this classes NoDots to the value passed to the constructor
+        MyBase.Population = Population
         _Symptoms(1) = "Coughing Blood" 'Give values to the symptoms array
         _Symptoms(2) = "Chills"
         _Symptoms(3) = "No Appetite"
@@ -53,19 +48,19 @@ Public Class cTB
             value = _Cross
         End Set
     End Property
-    Public Property NoDOTS(i As Integer) As Integer
+    Public Property NoDOTS() As Integer
         Get
             'Return _NoDots at the index
-            Return _NoDots(i)
+            Return _NoDots
         End Get
         Set(value As Integer)
             'Check that the passed value is not negative, or gretaer than the given cases
             If value < 0 Then
-                _NoDots(i) = 0
-            ElseIf value > _YearNewCases(i) Then
-                _NoDots(i) = _YearNewCases(i)
+                _NoDots = 0
+            ElseIf value > _YearNewCases Then
+                _NoDots = _YearNewCases
             Else
-                _NoDots(i) = value
+                _NoDots = value
             End If
         End Set
     End Property

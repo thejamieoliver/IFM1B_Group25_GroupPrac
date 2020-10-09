@@ -9,9 +9,6 @@
 ' *****************************************************************
 Public Interface ExtractInfo
     Property Population As Integer
-    Property TotalCases As Integer
-    Property TotalDeaths As Integer
-    Property TotalRecovers As Integer
     ReadOnly Property InfectionRate As Double
     ReadOnly Property DeathRate As Double
     ReadOnly Property RecoveryRate As Double
