@@ -30,7 +30,7 @@ Public Class cHIV
     Public Function CrossTB(i As Integer) As Integer
         Return CInt(Math.Round(_YearNewCases(i) * 0.11))
     End Function
-    Public Sub resize(val As Integer)
+    Public Sub Resize(val As Integer)
         ReDim Preserve _Cross(_NumYears)
         ReDim Preserve _NotArt(_NumYears)
         ReDim Preserve _Condoms(_NumYears)
