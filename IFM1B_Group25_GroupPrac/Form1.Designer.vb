@@ -54,6 +54,8 @@ Partial Class Form1
         '
         'pnlDoctor
         '
+        Me.pnlDoctor.Controls.Add(Me.pnlNewDisease)
+        Me.pnlDoctor.Controls.Add(Me.pnlPatient)
         Me.pnlDoctor.Controls.Add(Me.cbDiseases)
         Me.pnlDoctor.Controls.Add(Me.btnRecordInfo)
         Me.pnlDoctor.Location = New System.Drawing.Point(1, 1)
@@ -65,8 +67,8 @@ Partial Class Form1
         'cbDiseases
         '
         Me.cbDiseases.FormattingEnabled = True
-        Me.cbDiseases.Items.AddRange(New Object() {"HIV", "AIDs", "TB", "Malaria", "New Disease"})
-        Me.cbDiseases.Location = New System.Drawing.Point(85, 160)
+        Me.cbDiseases.Items.AddRange(New Object() {"HIV", "TB", "Malaria"})
+        Me.cbDiseases.Location = New System.Drawing.Point(65, 64)
         Me.cbDiseases.Name = "cbDiseases"
         Me.cbDiseases.Size = New System.Drawing.Size(121, 21)
         Me.cbDiseases.TabIndex = 1
@@ -74,17 +76,17 @@ Partial Class Form1
         '
         'btnRecordInfo
         '
-        Me.btnRecordInfo.Location = New System.Drawing.Point(72, 89)
+        Me.btnRecordInfo.Location = New System.Drawing.Point(65, 91)
         Me.btnRecordInfo.Name = "btnRecordInfo"
         Me.btnRecordInfo.Size = New System.Drawing.Size(75, 23)
         Me.btnRecordInfo.TabIndex = 0
-        Me.btnRecordInfo.Text = "Button1"
+        Me.btnRecordInfo.Text = "New Year"
         Me.btnRecordInfo.UseVisualStyleBackColor = True
         '
         'pnlPatient
         '
         Me.pnlPatient.Controls.Add(Me.cbSymptoms)
-        Me.pnlPatient.Location = New System.Drawing.Point(336, 36)
+        Me.pnlPatient.Location = New System.Drawing.Point(103, 137)
         Me.pnlPatient.Name = "pnlPatient"
         Me.pnlPatient.Size = New System.Drawing.Size(317, 209)
         Me.pnlPatient.TabIndex = 3
@@ -100,7 +102,7 @@ Partial Class Form1
         '
         'pnlNewDisease
         '
-        Me.pnlNewDisease.Location = New System.Drawing.Point(427, 167)
+        Me.pnlNewDisease.Location = New System.Drawing.Point(572, 26)
         Me.pnlNewDisease.Name = "pnlNewDisease"
         Me.pnlNewDisease.Size = New System.Drawing.Size(200, 100)
         Me.pnlNewDisease.TabIndex = 3
@@ -111,8 +113,6 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.pnlPatient)
-        Me.Controls.Add(Me.pnlNewDisease)
         Me.Controls.Add(Me.pnlDoctor)
         Me.Controls.Add(Me.btnPatient)
         Me.Controls.Add(Me.btnAdmin)
