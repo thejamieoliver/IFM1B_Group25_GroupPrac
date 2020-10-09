@@ -12,25 +12,28 @@ Option Infer Off
 ' *****************************************************************
 Public Class cMalaria
     Inherits cDisease
-    Private Shared _YearCases() As Integer
+    Private Shared _YearNewCases() As Integer
     Private Shared _YearRecoveries() As Integer
     Private Shared _YearDeaths() As Integer
     Private Shared _NumYears As Integer
-    Private Symptoms(4) As String
+    Private Shared ReadOnly Symptoms(4) As String
+
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
+        'Increase numyears by 1
         _NumYears += 1
+        'redim all arrays to numyears, preserving past data
         ReDim Preserve _YearDeaths(_NumYears)
-        _YearDeaths(_NumYears) = YearDeaths
+        _YearDeaths(_NumYears) = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
         ReDim Preserve _YearRecoveries(_NumYears)
-        _YearRecoveries(_NumYears) = YearRecoveries
-        ReDim Preserve _YearCases(_NumYears)
-        _YearCases(_NumYears) = YearCases
-        MyBase.Population = Population
+        _YearRecoveries(_NumYears) = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
+        ReDim Preserve _YearNewCases(_NumYears)
+        _YearNewCases(_NumYears) = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
+
     End Sub
 
     Public Sub TotalArrays()
         For i As Integer = 1 To _NumYears
-            TotalCases += _YearCases(i)
+            TotalCases += _YearNewCases(i)
             TotalDeaths += _YearDeaths(i)
             TotalRecovers += _YearRecoveries(i)
         Next i

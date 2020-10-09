@@ -114,6 +114,13 @@ Public Class cDisease
             Return False
         End If
     End Function
+
+    Protected Function validInt(i As Integer) As Integer
+        If i < 0 Then
+            i = 0
+        End If
+        Return i
+    End Function
     '************************************************************************************************************************
 
 End Class

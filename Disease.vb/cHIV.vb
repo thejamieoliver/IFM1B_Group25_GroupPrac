@@ -13,39 +13,57 @@ Option Infer Off
 Public Class cHIV
 
     Inherits cDisease
-    Private _Cross() As Integer
-    Private _NotArt() As Integer
-    Private _Condoms() As Boolean
-    Private _Untreated() As Double
+    Private Shared _YearNewCases() As Integer
+    Private Shared _YearRecoveries() As Integer
+    Private Shared _YearDeaths() As Integer
+    Private Shared _Cross() As Integer 'Number of people cross infected with TB
+    Private Shared _NotArt() As Integer 'Number of people without access to Anti RetroViral Treatment
+    Private Shared _Condoms() As Boolean 'Whether or not Condoms were freely distributed that year
+    Private Shared _NumYears As Integer 'Number of years of Observation
+    Private Shared ReadOnly _Symptoms(4) As String 'Array of Symptoms
+    Private _Population As Integer
 
-    Public Sub New(RegionName As String, Population As Integer, NumSymptoms As Integer, Symptoms() As String, NumYears As Integer)
-        MyBase.New("HIV", RegionName, Population, NumSymptoms, Symptoms, NumYears)
-        ReDim _Cross(_NumYears)
-        ReDim _NotArt(_NumYears)
-        ReDim _Condoms(_NumYears)
-        ReDim _Untreated(_NumYears)
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noART As Integer, cond As Boolean)
+        'Increase numyears by 1
+        _NumYears += 1
+        'redim all arrays to numyears, preserving past data
+        ReDim Preserve _YearDeaths(_NumYears)
+        _YearDeaths(_NumYears) = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
+        ReDim Preserve _YearRecoveries(_NumYears)
+        _YearRecoveries(_NumYears) = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
+        ReDim Preserve _YearNewCases(_NumYears)
+        _YearNewCases(_NumYears) = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
+        ReDim Preserve _Cross(_NumYears)
+        Cross(_NumYears) = CrossTB() 'Set the current index of Cross to the value passed to the constructor (pass it through property method)
+        ReDim Preserve _NotArt(_NumYears)
+        NotArt(_NumYears) = noART 'Set the current index of NotArt to the value passed to the constructor after it has been validated
+        ReDim Preserve _Condoms(_NumYears)
+        _Condoms(_NumYears) = cond 'Set the current index of Condoms to the value passed to the constructor 
+        _Population = Population
+        _Symptoms(1) = "Chronic Diarrhoea" 'Assign values to the symptoms array
+        _Symptoms(2) = "Night Sweats"
+        _Symptoms(3) = "Fever"
+        _Symptoms(4) = "Rashes"
     End Sub
 
     'Calculate no of people cross infected with TB
-    Public Function CrossTB(i As Integer) As Integer
-        Return CInt(Math.Round(_YearNewCases(i) * 0.11))
+    Private Function CrossTB() As Integer
+        Return CInt(Math.Round(_YearNewCases(_NumYears) * 0.11))
     End Function
-    Public Sub Resize(val As Integer)
-        ReDim Preserve _Cross(_NumYears)
-        ReDim Preserve _NotArt(_NumYears)
-        ReDim Preserve _Condoms(_NumYears)
-        ReDim Preserve _Untreated(_NumYears)
-    End Sub
+    'Property methods for arrays
     Public Property Cross(i As Integer) As Integer
         Get
             Return _Cross(i)
         End Get
         Set(value As Integer)
+            'Check if the value _cross is being set to is not Negative
             If value < 0 Then
                 _Cross(i) = 0
-            ElseIf value > _YearNewCases(_NumYears) Then
-                _Cross(i) = _YearNewCases(_NumYears)
+                'Or Greater than the cases for that year
+            ElseIf value > _YearNewCases(i) Then
+                _Cross(i) = _YearNewCases(i)
             Else
+                'If not, set _Cross to the value
                 _Cross(i) = value
             End If
         End Set
@@ -56,30 +74,18 @@ Public Class cHIV
             Return _NotArt(i)
         End Get
         Set(value As Integer)
+            'Check if the value _NotArt is being set to is not Negative
             If value < 0 Then
                 _NotArt(i) = 0
-            ElseIf value > _YearNewCases(_NumYears) Then
-                _NotArt(i) = _YearNewCases(_NumYears)
+                'Or Greater than the cases for that year
+            ElseIf value > _YearNewCases(i) Then
+                _NotArt(i) = _YearNewCases(i)
             Else
+                'If not, set _Cross to the value
                 _NotArt(i) = value
             End If
         End Set
     End Property
-
-    Public Property Untreated(i As Integer) As Double
-        Get
-            Return _Untreated(i)
-        End Get
-        Set(value As Double)
-            _Untreated(i) = value
-        End Set
-    End Property
-    'Return percentage of people not being treated
-    Public Function CalcUntreated() As Double
-        Return NotArt(_NumYears) / _YearNewCases(_NumYears)
-    End Function
-
-    'Returns whether or not condoms are freely dispensed in the area
     Public Property Condoms(i As Integer) As Boolean
         Get
             Return _Condoms(i)
@@ -88,4 +94,9 @@ Public Class cHIV
             _Condoms(i) = value
         End Set
     End Property
+
+    'Private Function calcTotalCases() As Integer
+    'Dim td As Integer
+    'td = _TotalCases - (_Yearnewdeaths(_NumYears) + recoveries())
+    'End Function
 End Class
