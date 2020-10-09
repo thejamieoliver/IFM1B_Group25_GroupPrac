@@ -12,8 +12,10 @@ Option Infer Off
 ' *****************************************************************
 Public Class Form1
     Const PASSWORD As String = "123"
-    Private Disease As cDisease
-    Private HIV As cHIV
+    Private Disease() As cDisease
+    Private HIV() As cHIV
+    Private TB() As cTB
+    Private Malaria() As cMalaria
     Private Enum enumDisease As Integer
         HIV
         TB
@@ -31,19 +33,49 @@ Public Class Form1
         pnlPatient.Visible = True
     End Sub
 
+    Private Sub cbDiseases_IndexChange(sender As Object, e As EventArgs) Handles cbDiseases.SelectedIndexChanged
+        Select Case cbDiseases.SelectedIndex
+            Case enumDisease.HIV
+                pnlHIV.Visible = True
+                pnlTB.Visible = False
+                pnlMalaria.Visible = False
+            Case enumDisease.TB
+                pnlHIV.Visible = False
+                pnlTB.Visible = True
+                pnlMalaria.Visible = False
+            Case enumDisease.Malaria
+                pnlHIV.Visible = False
+                pnlTB.Visible = False
+                pnlMalaria.Visible = True
+            Case -1
+        End Select
+    End Sub
     Private Sub btnRecordInfo_Click(sender As Object, e As EventArgs) Handles btnRecordInfo.Click
 
         Select Case cbDiseases.SelectedIndex
             Case enumDisease.HIV
-
+                Dim TempHIV As cHIV
+                'TempHIV = New cHIV()
             Case enumDisease.TB
 
             Case enumDisease.Malaria
 
         End Select
+        cbDiseases.SelectedIndex = -1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.Width = 800
+        Me.Height = 450
+        pnlDoctor.Left = 0
+        pnlDoctor.Top = 0
+        pnlHIV.Parent = pnlDoctor
+        pnlTB.Parent = pnlDoctor
+        pnlTB.Left = pnlHIV.Left
+        pnlTB.Top = pnlHIV.Top
+        pnlMalaria.Parent = pnlDoctor
+        pnlMalaria.Left = pnlHIV.Left
+        pnlMalaria.Top = pnlHIV.Top
+        btnRecordInfo.Parent = pnlDoctor
     End Sub
 End Class
