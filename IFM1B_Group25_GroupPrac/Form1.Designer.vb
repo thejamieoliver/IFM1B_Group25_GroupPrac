@@ -47,6 +47,7 @@ Partial Class Form1
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
+        Me.UjGrid1 = New UJGrid.UJGrid()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -324,5 +325,5 @@ Partial Class Form1
     Friend WithEvents TextBox14 As TextBox
     Friend WithEvents TextBox13 As TextBox
     Friend WithEvents TextBox12 As TextBox
-    Friend WithEvents UjGrid1 As UJgrid.UJGrid
+    Friend WithEvents UjGrid1 As UJGrid.UJGrid
 End Class
