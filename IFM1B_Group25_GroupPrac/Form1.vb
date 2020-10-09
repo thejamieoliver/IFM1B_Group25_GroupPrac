@@ -1,6 +1,9 @@
 ﻿Option Strict On
 Option Explicit On
 Option Infer Off
+
+Imports System.IO
+Imports System.Runtime.Serialization.Formatters.Binary
 ' *****************************************************************
 ' Team Number: 25
 ' Team Member 1 Details: Crossling, CJ (220108433)
@@ -13,6 +16,7 @@ Option Infer Off
 
 Public Class Form1
     Const PASSWORD As String = "123"
+    Const FNAME As String = "/Diseases.txt"
     Private Disease() As cDisease
     Private HIV() As cHIV
     Private TB() As cTB
@@ -82,5 +86,17 @@ Public Class Form1
         pnlMalaria.Left = pnlHIV.Left
         pnlMalaria.Top = pnlHIV.Top
         btnRecordInfo.Parent = pnlDoctor
+    End Sub
+    Private Sub LoadFromFile()
+        Dim FS As FileStream
+        Dim BF As BinaryFormatter
+        FS = New FileStream(FNAME, FileMode.Open, FileAccess.Read)
+        BF = New BinaryFormatter()
+        While FS.Position < FS.Length
+            'Downcasting code
+            '.
+            '.
+            '.
+        End While
     End Sub
 End Class
