@@ -269,10 +269,10 @@ Partial Class Form1
         '
         Me.UjGrid1.FixedCols = 1
         Me.UjGrid1.FixedRows = 1
-        Me.UjGrid1.Location = New System.Drawing.Point(291, 57)
+        Me.UjGrid1.Location = New System.Drawing.Point(539, 66)
         Me.UjGrid1.Name = "UjGrid1"
         Me.UjGrid1.Scrollbars = System.Windows.Forms.ScrollBars.Both
-        Me.UjGrid1.Size = New System.Drawing.Size(449, 315)
+        Me.UjGrid1.Size = New System.Drawing.Size(229, 150)
         Me.UjGrid1.TabIndex = 5
         '
         'Form1
