@@ -13,7 +13,6 @@ Imports System.Runtime.Serialization.Formatters.Binary
 ' Practical: Team Project
 ' Class name: (name of the class)
 ' *****************************************************************
-
 Public Class Form1
     Const PASSWORD As String = "123"
     Const FNAME As String = "/Diseases.txt"
@@ -21,6 +20,11 @@ Public Class Form1
     Private HIV() As cHIV
     Private TB() As cTB
     Private Malaria() As cMalaria
+    Private NumRecords As Integer
+    Private NumHIV As Integer
+    Private NumTB As Integer
+    Private NumMalaria As Integer
+    Private isLoaded As Boolean
     Private Enum enumDisease As Integer
         HIV
         TB
@@ -33,11 +37,9 @@ Public Class Form1
             MessageBox.Show("Incorrect Password!", "Error")
         End If
     End Sub
-
     Private Sub btnPatient_Click(sender As Object, e As EventArgs) Handles btnPatient.Click
         pnlPatient.Visible = True
     End Sub
-
     Private Sub cbDiseases_IndexChange(sender As Object, e As EventArgs) Handles cbDiseases.SelectedIndexChanged
         Select Case cbDiseases.SelectedIndex
             Case enumDisease.HIV
@@ -87,17 +89,63 @@ Public Class Form1
         pnlMalaria.Left = pnlHIV.Left
         pnlMalaria.Top = pnlHIV.Top
         btnRecordInfo.Parent = pnlDoctor
+        isLoaded = False
+    End Sub
+    Private Sub SaveToFile()
+        Dim FS As FileStream
+        Dim BF As BinaryFormatter
+        Dim HIVIndex As Integer
+        Dim TBIndex As Integer
+        Dim MalariaIndex As Integer
+        FS = New FileStream(FNAME, FileMode.OpenOrCreate, FileAccess.Write)
+        BF = New BinaryFormatter()
+        For i As Integer = 1 To Len(Disease)
+            For HIVIndex = 1 To Len(HIV)
+                Disease(i) = HIV(HIVIndex)
+            Next
+            For TBIndex = 1 To Len(TB)
+                Disease(i) = TB(TBIndex)
+            Next
+            For MalariaIndex = 1 To Len(Malaria)
+                Disease(i) = TB(TBIndex)
+            Next
+            BF.Serialize(FS, Disease(i))
+        Next
+        FS.Close()
     End Sub
     Private Sub LoadFromFile()
         Dim FS As FileStream
         Dim BF As BinaryFormatter
-        FS = New FileStream(FNAME, FileMode.Open, FileAccess.Read)
-        BF = New BinaryFormatter()
-        While FS.Position < FS.Length
-            'Downcasting code
-            '.
-            '.
-            '.
-        End While
+        If isLoaded = False Then
+            NumHIV = 0
+            NumTB = 0
+            NumMalaria = 0
+            FS = New FileStream(FNAME, FileMode.Open, FileAccess.Read)
+            BF = New BinaryFormatter()
+            While FS.Position < FS.Length
+                'Downcasting code
+                Dim tempHIV As cHIV
+                Dim tempTB As cTB
+                Dim tempMalaria As cMalaria
+                tempHIV = TryCast(BF.Deserialize(FS), cHIV)
+                tempTB = TryCast(BF.Deserialize(FS), cTB)
+                tempMalaria = TryCast(BF.Deserialize(FS), cMalaria)
+                If Not (tempHIV Is Nothing) Then
+                    NumHIV += 1
+                    ReDim Preserve HIV(NumHIV)
+                    HIV(NumHIV) = tempHIV
+                ElseIf Not (tempTB Is Nothing) Then
+                    NumTB += 1
+                    ReDim Preserve TB(NumTB)
+                    TB(NumTB) = tempTB
+                ElseIf Not (tempMalaria Is Nothing) Then
+                    ReDim Preserve Malaria(NumMalaria)
+                    NumMalaria += 1
+                    Malaria(NumMalaria) = tempMalaria
+                End If
+            End While
+            FS.Close()
+            isLoaded = True
+        End If
     End Sub
 End Class
