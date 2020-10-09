@@ -88,6 +88,12 @@ Public Class cDisease
         'Return passed value
         Return i
     End Function
+
+    Public Overridable Function Display() As String
+        Return "Recovery rate: " & RecoveryRate & Environment.NewLine _
+           & "Death rate: " & DeathRate & Environment.NewLine _
+           & "Recovery rate: " & RecoveryRate & Environment.NewLine
+    End Function
     '************************************************************************************************************************
 
 End Class

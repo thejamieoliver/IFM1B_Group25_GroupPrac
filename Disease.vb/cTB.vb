@@ -31,8 +31,8 @@ Public Class cTB
         _Symptoms(1) = "Coughing Blood" 'Give values to the symptoms array
         _Symptoms(2) = "Chills"
         _Symptoms(3) = "No Appetite"
-        _Symptoms(4) = "Night Sweats"
-        _Symptoms(5) = "Night Sweats"
+        _Symptoms(4) = "Chest pain"
+        _Symptoms(5) = "Weight Loss"
         _Symptoms(6) = "Night Sweats"
     End Sub
 
