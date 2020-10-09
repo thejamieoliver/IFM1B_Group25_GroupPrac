@@ -48,6 +48,10 @@ Public Class Form1
                 pnlTB.Visible = False
                 pnlMalaria.Visible = True
             Case -1
+                pnlHIV.Visible = False
+                pnlTB.Visible = False
+                pnlMalaria.Visible = False
+                cbDiseases.Text = "Select a disease..."
         End Select
     End Sub
     Private Sub btnRecordInfo_Click(sender As Object, e As EventArgs) Handles btnRecordInfo.Click
