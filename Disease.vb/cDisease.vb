@@ -80,9 +80,12 @@ Public Class cDisease
     End Function
 
     Protected Function validInt(i As Integer) As Integer
+        'Check if the passed value is posistive
         If i < 0 Then
+            'if not, set it to 0
             i = 0
         End If
+        'Return passed value
         Return i
     End Function
     '************************************************************************************************************************
