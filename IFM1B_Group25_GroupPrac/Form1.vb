@@ -51,7 +51,7 @@ Public Class Form1
         Dim tempTB As cTB
         Dim tempMalaria As cMalaria
         Dim iCheck As Integer = 0
-        tempHIV = New cHIV(1, 1, 1, 1, 1, False) 'I couldnt think of another way to do this at the time, this means we cant use population as a shared variable in the base class because this will change it(Maybe we can but then subtract the pop value?)
+        tempHIV = New cHIV(1, 1, 1, 1, False) 'I couldnt think of another way to do this at the time, this means we cant use population as a shared variable in the base class because this will change it(Maybe we can but then subtract the pop value?)
         tempHIV.Removeoneyear() 'Check cMalaria for more info on Removeoneyear
         For i As Integer = 1 To 8 'The highest number of symptoms in a variable
             If tempHIV.CollectSymptoms(sSymptom) <> "Null" Then 'Check cMalaria for more info on Collectsymptoms
@@ -119,7 +119,7 @@ Public Class Form1
                 HIVYearRecoveries = CInt(txtHIVYearRecoveries.Text)
                 noART = CInt(txtNoART.Text)
                 bCondoms = cbxCondoms.Checked
-                TempHIV = New cHIV(HIVYearCases, HIVYearDeaths, HIVYearRecoveries, Population, noART, bCondoms)
+                TempHIV = New cHIV(HIVYearCases, HIVYearDeaths, Population, noART, bCondoms)
                 NumHIV += 1
                 NumRecords += 1
                 ReDim Preserve HIV(NumHIV)
