@@ -72,12 +72,10 @@ Public Class Form1
                 Dim TempHIV As cHIV
                 Dim HIVYearCases As Integer
                 Dim HIVYearDeaths As Integer
-                Dim HIVYearRecoveries As Integer
                 Dim noART As Integer
                 Dim bCondoms As Boolean
                 HIVYearCases = CInt(txtHIVYearCases.Text)
                 HIVYearDeaths = CInt(txtHIVYearDeaths.Text)
-                HIVYearRecoveries = CInt(txtHIVYearRecoveries.Text)
                 noART = CInt(txtNoART.Text)
                 bCondoms = cbxCondoms.Checked
                 TempHIV = New cHIV(HIVYearCases, HIVYearDeaths, Population, noART, bCondoms)
@@ -140,16 +138,17 @@ Public Class Form1
         Dim MalariaIndex As Integer
         FS = New FileStream(FNAME, FileMode.OpenOrCreate, FileAccess.Write)
         BF = New BinaryFormatter()
+
+        For HIVIndex = 1 To NumHIV
+            Disease(HIVIndex) = HIV(HIVIndex)
+        Next
+        For TBIndex = 1 To NumTB
+            Disease(TBIndex + NumHIV) = TB(TBIndex)
+        Next
+        For MalariaIndex = 1 To NumMalaria
+            Disease(NumTB + NumHIV + MalariaIndex) = Malaria(MalariaIndex)
+        Next
         For i As Integer = 1 To NumRecords
-            For HIVIndex = 1 To NumHIV
-                Disease(i) = HIV(HIVIndex)
-            Next
-            For TBIndex = 1 To NumTB
-                Disease(i) = TB(TBIndex)
-            Next
-            For MalariaIndex = 1 To NumMalaria
-                Disease(i) = TB(TBIndex)
-            Next
             BF.Serialize(FS, Disease(i))
         Next
         FS.Close()
@@ -200,6 +199,7 @@ Public Class Form1
 
             End While
             FS.Close()
+            ReDim Disease(NumRecords)
             isLoaded = True
         End If
     End Sub
@@ -250,5 +250,7 @@ Public Class Form1
         Population = CInt(InputBox("Enter the new population for the current year.", "Update Population"))
     End Sub
 
-
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtOutputSymptom.Text = ""
+    End Sub
 End Class

@@ -32,13 +32,11 @@ Partial Class Form1
         Me.pnlHIV = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbxCondoms = New System.Windows.Forms.CheckBox()
         Me.txtHIVYearCases = New System.Windows.Forms.TextBox()
         Me.txtHIVYearDeaths = New System.Windows.Forms.TextBox()
-        Me.txtHIVYearRecoveries = New System.Windows.Forms.TextBox()
         Me.txtNoART = New System.Windows.Forms.TextBox()
         Me.btnRecordInfo = New System.Windows.Forms.Button()
         Me.pnlTB = New System.Windows.Forms.Panel()
@@ -63,6 +61,7 @@ Partial Class Form1
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
         Me.txtMalRecoveries = New System.Windows.Forms.TextBox()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -96,7 +95,7 @@ Partial Class Form1
         Me.pnlDoctor.Controls.Add(Me.cbDiseases)
         Me.pnlDoctor.Controls.Add(Me.pnlHIV)
         Me.pnlDoctor.Controls.Add(Me.btnRecordInfo)
-        Me.pnlDoctor.Location = New System.Drawing.Point(497, 42)
+        Me.pnlDoctor.Location = New System.Drawing.Point(491, 12)
         Me.pnlDoctor.Name = "pnlDoctor"
         Me.pnlDoctor.Size = New System.Drawing.Size(799, 449)
         Me.pnlDoctor.TabIndex = 2
@@ -104,7 +103,7 @@ Partial Class Form1
         '
         'btnUpdatePop
         '
-        Me.btnUpdatePop.Location = New System.Drawing.Point(36, 349)
+        Me.btnUpdatePop.Location = New System.Drawing.Point(65, 57)
         Me.btnUpdatePop.Name = "btnUpdatePop"
         Me.btnUpdatePop.Size = New System.Drawing.Size(114, 23)
         Me.btnUpdatePop.TabIndex = 8
@@ -132,7 +131,7 @@ Partial Class Form1
         '
         Me.cbDiseases.FormattingEnabled = True
         Me.cbDiseases.Items.AddRange(New Object() {"HIV", "TB", "Malaria"})
-        Me.cbDiseases.Location = New System.Drawing.Point(65, 30)
+        Me.cbDiseases.Location = New System.Drawing.Point(65, 93)
         Me.cbDiseases.Name = "cbDiseases"
         Me.cbDiseases.Size = New System.Drawing.Size(121, 21)
         Me.cbDiseases.TabIndex = 1
@@ -142,69 +141,58 @@ Partial Class Form1
         '
         Me.pnlHIV.Controls.Add(Me.Label5)
         Me.pnlHIV.Controls.Add(Me.Label4)
-        Me.pnlHIV.Controls.Add(Me.Label3)
         Me.pnlHIV.Controls.Add(Me.Label2)
         Me.pnlHIV.Controls.Add(Me.Label1)
         Me.pnlHIV.Controls.Add(Me.cbxCondoms)
         Me.pnlHIV.Controls.Add(Me.txtHIVYearCases)
         Me.pnlHIV.Controls.Add(Me.txtHIVYearDeaths)
-        Me.pnlHIV.Controls.Add(Me.txtHIVYearRecoveries)
         Me.pnlHIV.Controls.Add(Me.txtNoART)
-        Me.pnlHIV.Location = New System.Drawing.Point(65, 57)
+        Me.pnlHIV.Location = New System.Drawing.Point(65, 120)
         Me.pnlHIV.Name = "pnlHIV"
-        Me.pnlHIV.Size = New System.Drawing.Size(200, 238)
+        Me.pnlHIV.Size = New System.Drawing.Size(200, 185)
         Me.pnlHIV.TabIndex = 4
         Me.pnlHIV.Visible = False
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(17, 204)
+        Me.Label5.Location = New System.Drawing.Point(16, 155)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(125, 13)
+        Me.Label5.Size = New System.Drawing.Size(128, 13)
         Me.Label5.TabIndex = 17
-        Me.Label5.Text = "Free Condom Distribution"
+        Me.Label5.Text = "Free Condom Distribution:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(16, 168)
+        Me.Label4.Location = New System.Drawing.Point(15, 119)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(87, 13)
+        Me.Label4.Size = New System.Drawing.Size(90, 13)
         Me.Label4.TabIndex = 16
-        Me.Label4.Text = "People with ART"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 119)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(113, 13)
-        Me.Label3.TabIndex = 15
-        Me.Label3.Text = "Number of Recoveries"
+        Me.Label4.Text = "People with ART:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(17, 74)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(93, 13)
+        Me.Label2.Size = New System.Drawing.Size(96, 13)
         Me.Label2.TabIndex = 14
-        Me.Label2.Text = "Number of Deaths"
+        Me.Label2.Text = "Number of Deaths:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(16, 28)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(113, 13)
+        Me.Label1.Size = New System.Drawing.Size(116, 13)
         Me.Label1.TabIndex = 13
-        Me.Label1.Text = "Number of New Cases"
+        Me.Label1.Text = "Number of New Cases:"
         '
         'cbxCondoms
         '
         Me.cbxCondoms.AutoSize = True
-        Me.cbxCondoms.Location = New System.Drawing.Point(172, 204)
+        Me.cbxCondoms.Location = New System.Drawing.Point(171, 155)
         Me.cbxCondoms.Name = "cbxCondoms"
         Me.cbxCondoms.Size = New System.Drawing.Size(15, 14)
         Me.cbxCondoms.TabIndex = 12
@@ -224,16 +212,9 @@ Partial Class Form1
         Me.txtHIVYearDeaths.Size = New System.Drawing.Size(52, 20)
         Me.txtHIVYearDeaths.TabIndex = 9
         '
-        'txtHIVYearRecoveries
-        '
-        Me.txtHIVYearRecoveries.Location = New System.Drawing.Point(135, 116)
-        Me.txtHIVYearRecoveries.Name = "txtHIVYearRecoveries"
-        Me.txtHIVYearRecoveries.Size = New System.Drawing.Size(52, 20)
-        Me.txtHIVYearRecoveries.TabIndex = 10
-        '
         'txtNoART
         '
-        Me.txtNoART.Location = New System.Drawing.Point(135, 165)
+        Me.txtNoART.Location = New System.Drawing.Point(134, 116)
         Me.txtNoART.Name = "txtNoART"
         Me.txtNoART.Size = New System.Drawing.Size(52, 20)
         Me.txtNoART.TabIndex = 11
@@ -241,11 +222,11 @@ Partial Class Form1
         'btnRecordInfo
         '
         Me.btnRecordInfo.Enabled = False
-        Me.btnRecordInfo.Location = New System.Drawing.Point(36, 315)
+        Me.btnRecordInfo.Location = New System.Drawing.Point(64, 349)
         Me.btnRecordInfo.Name = "btnRecordInfo"
         Me.btnRecordInfo.Size = New System.Drawing.Size(114, 23)
         Me.btnRecordInfo.TabIndex = 0
-        Me.btnRecordInfo.Text = "Save Record"
+        Me.btnRecordInfo.Text = "Enter Record"
         Me.btnRecordInfo.UseVisualStyleBackColor = True
         '
         'pnlTB
@@ -258,9 +239,9 @@ Partial Class Form1
         Me.pnlTB.Controls.Add(Me.txtRecTB)
         Me.pnlTB.Controls.Add(Me.txtDeathsTB)
         Me.pnlTB.Controls.Add(Me.txtCasesTB)
-        Me.pnlTB.Location = New System.Drawing.Point(358, 497)
+        Me.pnlTB.Location = New System.Drawing.Point(96, 159)
         Me.pnlTB.Name = "pnlTB"
-        Me.pnlTB.Size = New System.Drawing.Size(200, 263)
+        Me.pnlTB.Size = New System.Drawing.Size(200, 172)
         Me.pnlTB.TabIndex = 5
         Me.pnlTB.Visible = False
         '
@@ -276,7 +257,7 @@ Partial Class Form1
         'lblDeathsTB
         '
         Me.lblDeathsTB.AutoSize = True
-        Me.lblDeathsTB.Location = New System.Drawing.Point(11, 79)
+        Me.lblDeathsTB.Location = New System.Drawing.Point(11, 62)
         Me.lblDeathsTB.Name = "lblDeathsTB"
         Me.lblDeathsTB.Size = New System.Drawing.Size(69, 13)
         Me.lblDeathsTB.TabIndex = 30
@@ -285,7 +266,7 @@ Partial Class Form1
         'lblRecTB
         '
         Me.lblRecTB.AutoSize = True
-        Me.lblRecTB.Location = New System.Drawing.Point(11, 137)
+        Me.lblRecTB.Location = New System.Drawing.Point(11, 99)
         Me.lblRecTB.Name = "lblRecTB"
         Me.lblRecTB.Size = New System.Drawing.Size(89, 13)
         Me.lblRecTB.TabIndex = 29
@@ -294,7 +275,7 @@ Partial Class Form1
         'lblDOTS
         '
         Me.lblDOTS.AutoSize = True
-        Me.lblDOTS.Location = New System.Drawing.Point(11, 180)
+        Me.lblDOTS.Location = New System.Drawing.Point(11, 135)
         Me.lblDOTS.Name = "lblDOTS"
         Me.lblDOTS.Size = New System.Drawing.Size(118, 13)
         Me.lblDOTS.TabIndex = 28
@@ -302,21 +283,21 @@ Partial Class Form1
         '
         'txtDOTS
         '
-        Me.txtDOTS.Location = New System.Drawing.Point(135, 177)
+        Me.txtDOTS.Location = New System.Drawing.Point(135, 132)
         Me.txtDOTS.Name = "txtDOTS"
         Me.txtDOTS.Size = New System.Drawing.Size(52, 20)
         Me.txtDOTS.TabIndex = 17
         '
         'txtRecTB
         '
-        Me.txtRecTB.Location = New System.Drawing.Point(135, 130)
+        Me.txtRecTB.Location = New System.Drawing.Point(135, 96)
         Me.txtRecTB.Name = "txtRecTB"
         Me.txtRecTB.Size = New System.Drawing.Size(52, 20)
         Me.txtRecTB.TabIndex = 16
         '
         'txtDeathsTB
         '
-        Me.txtDeathsTB.Location = New System.Drawing.Point(135, 79)
+        Me.txtDeathsTB.Location = New System.Drawing.Point(135, 59)
         Me.txtDeathsTB.Name = "txtDeathsTB"
         Me.txtDeathsTB.Size = New System.Drawing.Size(52, 20)
         Me.txtDeathsTB.TabIndex = 15
@@ -338,16 +319,16 @@ Partial Class Form1
         Me.pnlMalaria.Controls.Add(Me.lblCases)
         Me.pnlMalaria.Controls.Add(Me.txtNewDeathsMal)
         Me.pnlMalaria.Controls.Add(Me.txtMalCases)
-        Me.pnlMalaria.Location = New System.Drawing.Point(65, 470)
+        Me.pnlMalaria.Location = New System.Drawing.Point(70, 450)
         Me.pnlMalaria.Name = "pnlMalaria"
-        Me.pnlMalaria.Size = New System.Drawing.Size(200, 315)
+        Me.pnlMalaria.Size = New System.Drawing.Size(200, 179)
         Me.pnlMalaria.TabIndex = 6
         Me.pnlMalaria.Visible = False
         '
         'lblPerm
         '
         Me.lblPerm.AutoSize = True
-        Me.lblPerm.Location = New System.Drawing.Point(28, 177)
+        Me.lblPerm.Location = New System.Drawing.Point(28, 141)
         Me.lblPerm.Name = "lblPerm"
         Me.lblPerm.Size = New System.Drawing.Size(102, 13)
         Me.lblPerm.TabIndex = 26
@@ -356,7 +337,7 @@ Partial Class Form1
         'cbxPerm
         '
         Me.cbxPerm.AutoSize = True
-        Me.cbxPerm.Location = New System.Drawing.Point(172, 177)
+        Me.cbxPerm.Location = New System.Drawing.Point(172, 140)
         Me.cbxPerm.Name = "cbxPerm"
         Me.cbxPerm.Size = New System.Drawing.Size(15, 14)
         Me.cbxPerm.TabIndex = 25
@@ -365,7 +346,7 @@ Partial Class Form1
         'lblMalRec
         '
         Me.lblMalRec.AutoSize = True
-        Me.lblMalRec.Location = New System.Drawing.Point(28, 133)
+        Me.lblMalRec.Location = New System.Drawing.Point(28, 107)
         Me.lblMalRec.Name = "lblMalRec"
         Me.lblMalRec.Size = New System.Drawing.Size(89, 13)
         Me.lblMalRec.TabIndex = 24
@@ -374,7 +355,7 @@ Partial Class Form1
         'lblDeaths
         '
         Me.lblDeaths.AutoSize = True
-        Me.lblDeaths.Location = New System.Drawing.Point(28, 82)
+        Me.lblDeaths.Location = New System.Drawing.Point(28, 66)
         Me.lblDeaths.Name = "lblDeaths"
         Me.lblDeaths.Size = New System.Drawing.Size(69, 13)
         Me.lblDeaths.TabIndex = 23
@@ -391,7 +372,7 @@ Partial Class Form1
         '
         'txtNewDeathsMal
         '
-        Me.txtNewDeathsMal.Location = New System.Drawing.Point(135, 79)
+        Me.txtNewDeathsMal.Location = New System.Drawing.Point(135, 63)
         Me.txtNewDeathsMal.Name = "txtNewDeathsMal"
         Me.txtNewDeathsMal.Size = New System.Drawing.Size(52, 20)
         Me.txtNewDeathsMal.TabIndex = 19
@@ -405,6 +386,7 @@ Partial Class Form1
         '
         'pnlPatient
         '
+        Me.pnlPatient.Controls.Add(Me.btnClear)
         Me.pnlPatient.Controls.Add(Me.txtOutputSymptom)
         Me.pnlPatient.Controls.Add(Me.btnSearch)
         Me.pnlPatient.Controls.Add(Me.cbSymptoms)
@@ -443,10 +425,19 @@ Partial Class Form1
         '
         'txtMalRecoveries
         '
-        Me.txtMalRecoveries.Location = New System.Drawing.Point(135, 133)
+        Me.txtMalRecoveries.Location = New System.Drawing.Point(135, 102)
         Me.txtMalRecoveries.Name = "txtMalRecoveries"
         Me.txtMalRecoveries.Size = New System.Drawing.Size(52, 20)
         Me.txtMalRecoveries.TabIndex = 7
+        '
+        'btnClear
+        '
+        Me.btnClear.Location = New System.Drawing.Point(43, 189)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(75, 23)
+        Me.btnClear.TabIndex = 3
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -487,7 +478,6 @@ Partial Class Form1
     Friend WithEvents pnlHIV As Panel
     Friend WithEvents txtHIVYearCases As TextBox
     Friend WithEvents txtHIVYearDeaths As TextBox
-    Friend WithEvents txtHIVYearRecoveries As TextBox
     Friend WithEvents txtNoART As TextBox
     Friend WithEvents txtDOTS As TextBox
     Friend WithEvents txtRecTB As TextBox
@@ -504,7 +494,6 @@ Partial Class Form1
     Friend WithEvents btnUpdatePop As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents lblCases As Label
@@ -517,4 +506,5 @@ Partial Class Form1
     Friend WithEvents lblDeathsTB As Label
     Friend WithEvents lblRecTB As Label
     Friend WithEvents txtMalRecoveries As TextBox
+    Friend WithEvents btnClear As Button
 End Class
