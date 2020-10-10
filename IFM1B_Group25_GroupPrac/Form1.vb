@@ -180,6 +180,20 @@ Public Class Form1
         cbDiseases.SelectedIndex = -1
         btnRecordInfo.Enabled = False
         Display()
+        MsgBox("Click save all to file to commit changes")
+        'clearing textboxes
+        txtCasesTB.Clear()
+        txtDeathsTB.Clear()
+        txtDOTS.Clear()
+        txtHIVYearCases.Clear()
+        txtHIVYearDeaths.Clear()
+        txtMalCases.Clear()
+        txtMalRecoveries.Clear()
+        txtNewDeathsMal.Clear()
+        txtNoART.Clear()
+        txtRecTB.Clear()
+        cbxCondoms.Checked = False
+        cbxPerm.Checked = False
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
