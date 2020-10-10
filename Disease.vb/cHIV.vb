@@ -18,23 +18,24 @@ Option Infer Off
     Private _YearRecoveries As Integer
     Private _YearDeaths As Integer
     Private _Cross As Integer 'Number of people cross infected with TB
-    Private _NotArt As Integer 'Number of people without access to Anti RetroViral Treatment
+    Private _NotArt As Integer 'Number of people with access to Anti RetroViral Treatment
     Private _Condoms As Boolean 'Whether or not Condoms were freely distributed that year
     Private Shared _NumYears As Integer 'Number of years of Observation
+    Private _current As Integer
     Private ReadOnly _Symptoms(8) As String 'Array of Symptoms
     Private _NumSymp As Integer
 
-    Public Sub New(YearCases As Integer, YearDeaths As Integer, Population As Integer, noART As Integer, cond As Boolean)
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, pop As Integer, noART As Integer, cond As Boolean)
         'Increase numyears by 1
         _NumYears += 1
+        _current = _NumYears
         'redim all arrays to numyears, preserving past data
         _YearDeaths = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
-
         _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
         Cross = CrossTB() 'Set the current index of Cross to the value passed to the constructor (pass it through property method)
         NotArt(_NumYears) = noART 'Set the current index of NotArt to the value passed to the constructor after it has been validated
         _Condoms = cond 'Set the current index of Condoms to the value passed to the constructor 
-        MyBase.Population = Population
+        MyBase.Population = pop
         _Symptoms(1) = "Chronic Diarrhoea" 'Assign values to the symptoms array
         _Symptoms(2) = "Night Sweats"
         _Symptoms(3) = "Fever"
@@ -43,10 +44,8 @@ Option Infer Off
         _Symptoms(6) = "Sore throat"
         _Symptoms(7) = "Swollen Lymph Nodes"
         _Symptoms(8) = "Ulcers"
-        _NumSymp = _Symptoms.Length
     End Sub
-
-    'Calculate no of people cross infected with TB
+    'Calculate and return no of people cross infected with TB
     Private Function CrossTB() As Integer
         Return CInt(Math.Round(_YearNewCases * 0.11))
     End Function
@@ -87,47 +86,48 @@ Option Infer Off
         End Set
     End Property
     Public Property Condoms(i As Integer) As Boolean
-        Get
+        Get 'Return _condoms
             Return _Condoms
         End Get
         Set(value As Boolean)
+            'Set _condoms to value
             _Condoms = value
         End Set
     End Property
     ' Property methods From interDisease
     Public ReadOnly Property YearNewCases As Integer Implements InterDisease.YearNewCases
-        Get
+        Get 'Return _yearnewcases
             Return _YearNewCases
         End Get
     End Property
 
     Public ReadOnly Property YearRecoveries As Integer Implements InterDisease.YearRecoveries
-        Get
-            Return _YearRecoveries
+        Get  'return _yearrecoveries
+            Return 0
         End Get
     End Property
 
     Public ReadOnly Property YearDeaths As Integer Implements InterDisease.YearDeaths
-        Get
+        Get 'return _yeardeaths
             Return _YearDeaths
         End Get
     End Property
+    Public Overrides Sub CalcRecoverRate(TotalRecovers As Integer)
+        'Return totalrecoveries/ population
+        MyBase.RecoveryRate = 0
+    End Sub
 
     Public Overrides Function Display() As String
         'Return the year number, and the value of the base classes display
-        Dim dis As String = "Year: " & _NumYears & Environment.NewLine & MyBase.Display
+        Dim dis As String = "Year: " & _current & Environment.NewLine & MyBase.Display
         'Add the derived class unique variables
         dis &= "Cases: " & _YearNewCases & Environment.NewLine _
             & "Deaths: " & _YearDeaths & Environment.NewLine _
-              & "Untreated: " & _NotArt & Environment.NewLine _
+              & "Treated: " & _NotArt & Environment.NewLine _
                & "Free Condoms: " & _Condoms & Environment.NewLine
         Return dis
     End Function
 
-    'Private Function calcTotalCases() As Integer
-    'Dim td As Integer
-    'td = _TotalCases - (_Yearnewdeaths(_NumYears) + recoveries())
-    'End Function
     Public Sub Removeoneyear()
         _NumYears -= 1
     End Sub
