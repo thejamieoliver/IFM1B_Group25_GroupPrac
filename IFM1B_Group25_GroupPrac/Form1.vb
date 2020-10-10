@@ -45,10 +45,33 @@ Public Class Form1
         Else
             MessageBox.Show("Incorrect Password!", "Error")
         End If
+        LoadFromFile()
+        Display()
+    End Sub
+    Private Sub Display()
+        For i As Integer = 1 To NumTB
+            TB(i).CalcDeathRate(TB(i).YearDeaths)
+            TB(i).CalcRecoverRate(TB(i).YearRecoveries)
+            TB(i).CalcInfectionRate(TB(i).YearNewCases)
+            txtTB.Text &= TB(i).Display() & vbNewLine
+        Next i
+        For i As Integer = 1 To NumHIV
+            HIV(i).CalcDeathRate(HIV(i).YearDeaths)
+            HIV(i).CalcRecoverRate(HIV(i).YearRecoveries)
+            HIV(i).CalcInfectionRate(HIV(i).YearNewCases)
+            txtHIV.Text &= HIV(i).Display() & vbNewLine
+        Next i
+        For i As Integer = 1 To NumMalaria
+            Malaria(i).CalcDeathRate(Malaria(i).YearDeaths)
+            Malaria(i).CalcRecoverRate(Malaria(i).YearRecoveries)
+            Malaria(i).CalcInfectionRate(Malaria(i).YearNewCases)
+            txtMalaria.Text &= Malaria(i).Display() & vbNewLine
+        Next i
     End Sub
     Private Sub btnPatient_Click(sender As Object, e As EventArgs) Handles btnPatient.Click
         'This doesnt go on the button
         pnlPatient.Visible = True
+        LoadFromFile()
     End Sub
     Private Sub cbDiseases_IndexChange(sender As Object, e As EventArgs) Handles cbDiseases.SelectedIndexChanged
         'Enable the record button
@@ -134,6 +157,7 @@ Public Class Form1
         'set the index of cDiseases to -1, and disable the record button
         cbDiseases.SelectedIndex = -1
         btnRecordInfo.Enabled = False
+        Display()
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -305,6 +329,7 @@ Public Class Form1
 
     Private Sub btnUpdatePop_Click(sender As Object, e As EventArgs) Handles btnUpdatePop.Click 'Ask user for the current poulation
         Population = CInt(InputBox("Enter the new population for the current year.", "Update Population"))
+        lblCurrentPop.Text = "Current Population: " & CStr(Population)
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click 'Clear the display symptoms box

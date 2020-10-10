@@ -21,23 +21,20 @@ Option Infer Off
 
     'Functions and Subroutines ***********************************************************************************************
 
-    Public Function CalcInfectionRate(TotalCases As Integer) As Double
+    Public Sub CalcInfectionRate(TotalCases As Integer)
         'Return the total cases/population
         _InfectionRate = TotalCases / _Population
-        Return _InfectionRate
-    End Function
+    End Sub
 
-    Public Function CalcDeathRate(TotalDeaths As Integer) As Double
+    Public Sub CalcDeathRate(TotalDeaths As Integer)
         'Return totaldeaths/population
         _DeathRate = TotalDeaths / _Population
-        Return _DeathRate
-    End Function
+    End Sub
 
-    Public Overridable Function CalcRecoverRate(TotalRecovers As Integer) As Double
+    Public Overridable Sub CalcRecoverRate(TotalRecovers As Integer)
         'Return totalrecoveries/ population
         _RecoveryRate = TotalRecovers / _Population
-        Return _DeathRate
-    End Function
+    End Sub
 
     'Interface properties ****************************************************************************************************
 
@@ -66,11 +63,14 @@ Option Infer Off
         End Get
     End Property
 
-    Public ReadOnly Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
+    Public Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
         Get
             'Return Recovery rate
             Return _RecoveryRate
         End Get
+        Set(value As Double)
+
+        End Set
     End Property
     '************************************************************************************************************************
 

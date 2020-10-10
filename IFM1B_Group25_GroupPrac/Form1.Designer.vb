@@ -69,6 +69,7 @@ Partial Class Form1
         Me.lblTB = New System.Windows.Forms.Label()
         Me.lblHIV = New System.Windows.Forms.Label()
         Me.lblMalaria = New System.Windows.Forms.Label()
+        Me.lblCurrentPop = New System.Windows.Forms.Label()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -96,6 +97,7 @@ Partial Class Form1
         '
         'pnlDoctor
         '
+        Me.pnlDoctor.Controls.Add(Me.lblCurrentPop)
         Me.pnlDoctor.Controls.Add(Me.lblMalaria)
         Me.pnlDoctor.Controls.Add(Me.lblHIV)
         Me.pnlDoctor.Controls.Add(Me.lblTB)
@@ -125,7 +127,7 @@ Partial Class Form1
         '
         'btnUpdatePop
         '
-        Me.btnUpdatePop.Location = New System.Drawing.Point(65, 57)
+        Me.btnUpdatePop.Location = New System.Drawing.Point(64, 41)
         Me.btnUpdatePop.Name = "btnUpdatePop"
         Me.btnUpdatePop.Size = New System.Drawing.Size(114, 23)
         Me.btnUpdatePop.TabIndex = 8
@@ -137,6 +139,7 @@ Partial Class Form1
         Me.txtTB.Location = New System.Drawing.Point(356, 57)
         Me.txtTB.Multiline = True
         Me.txtTB.Name = "txtTB"
+        Me.txtTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtTB.Size = New System.Drawing.Size(402, 86)
         Me.txtTB.TabIndex = 7
         '
@@ -476,6 +479,7 @@ Partial Class Form1
         Me.txtHIV.Location = New System.Drawing.Point(356, 170)
         Me.txtHIV.Multiline = True
         Me.txtHIV.Name = "txtHIV"
+        Me.txtHIV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtHIV.Size = New System.Drawing.Size(402, 86)
         Me.txtHIV.TabIndex = 10
         '
@@ -484,6 +488,7 @@ Partial Class Form1
         Me.txtMalaria.Location = New System.Drawing.Point(356, 286)
         Me.txtMalaria.Multiline = True
         Me.txtMalaria.Name = "txtMalaria"
+        Me.txtMalaria.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtMalaria.Size = New System.Drawing.Size(402, 86)
         Me.txtMalaria.TabIndex = 11
         '
@@ -513,6 +518,15 @@ Partial Class Form1
         Me.lblMalaria.Size = New System.Drawing.Size(41, 13)
         Me.lblMalaria.TabIndex = 14
         Me.lblMalaria.Text = "Malaria"
+        '
+        'lblCurrentPop
+        '
+        Me.lblCurrentPop.AutoSize = True
+        Me.lblCurrentPop.Location = New System.Drawing.Point(62, 67)
+        Me.lblCurrentPop.Name = "lblCurrentPop"
+        Me.lblCurrentPop.Size = New System.Drawing.Size(100, 13)
+        Me.lblCurrentPop.TabIndex = 15
+        Me.lblCurrentPop.Text = "Current Population: "
         '
         'Form1
         '
@@ -589,4 +603,5 @@ Partial Class Form1
     Friend WithEvents lblTB As Label
     Friend WithEvents txtMalaria As TextBox
     Friend WithEvents txtHIV As TextBox
+    Friend WithEvents lblCurrentPop As Label
 End Class

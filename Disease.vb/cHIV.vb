@@ -29,7 +29,6 @@ Option Infer Off
         _NumYears += 1
         'redim all arrays to numyears, preserving past data
         _YearDeaths = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
-
         _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
         Cross = CrossTB() 'Set the current index of Cross to the value passed to the constructor (pass it through property method)
         NotArt(_NumYears) = noART 'Set the current index of NotArt to the value passed to the constructor after it has been validated
@@ -45,7 +44,6 @@ Option Infer Off
         _Symptoms(8) = "Ulcers"
         _NumSymp = _Symptoms.Length
     End Sub
-
     'Calculate and return no of people cross infected with TB
     Private Function CrossTB() As Integer
         Return CInt(Math.Round(_YearNewCases * 0.11))
@@ -104,7 +102,7 @@ Option Infer Off
 
     Public ReadOnly Property YearRecoveries As Integer Implements InterDisease.YearRecoveries
         Get  'return _yearrecoveries
-            Return _YearRecoveries
+            Return 0
         End Get
     End Property
 
@@ -113,6 +111,10 @@ Option Infer Off
             Return _YearDeaths
         End Get
     End Property
+    Public Overrides Sub CalcRecoverRate(TotalRecovers As Integer)
+        'Return totalrecoveries/ population
+        MyBase.RecoveryRate = 0
+    End Sub
 
     Public Overrides Function Display() As String
         'Return the year number, and the value of the base classes display
