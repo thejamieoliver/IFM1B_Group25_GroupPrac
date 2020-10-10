@@ -46,6 +46,13 @@ Public Class Form1
             MessageBox.Show("Incorrect Password!", "Error")
         End If
         LoadFromFile()
+        lblTB.Parent = pnlDoctor
+        lblHIV.Parent = pnlDoctor
+        lblMalaria.Parent = pnlDoctor
+        txtTB.Parent = pnlDoctor
+        txtHIV.Parent = pnlDoctor
+        txtMalaria.Parent = pnlDoctor
+        Display()
         Display()
     End Sub
     Private Sub Display()
@@ -72,6 +79,13 @@ Public Class Form1
         'This doesnt go on the button
         pnlPatient.Visible = True
         LoadFromFile()
+        lblTB.Parent = pnlPatient
+        lblHIV.Parent = pnlPatient
+        lblMalaria.Parent = pnlPatient
+        txtTB.Parent = pnlPatient
+        txtHIV.Parent = pnlPatient
+        txtMalaria.Parent = pnlPatient
+        Display()
     End Sub
     Private Sub cbDiseases_IndexChange(sender As Object, e As EventArgs) Handles cbDiseases.SelectedIndexChanged
         'Enable the record button
