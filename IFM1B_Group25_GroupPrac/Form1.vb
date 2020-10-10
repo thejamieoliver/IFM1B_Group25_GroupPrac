@@ -15,7 +15,7 @@ Imports System.Runtime.Serialization.Formatters.Binary
 ' *****************************************************************
 Public Class Form1
     Const PASSWORD As String = "123"
-    Const FNAME As String = "/Diseases.txt"
+    Const FNAME As String = "Diseases.txt"
     Private Disease() As cDisease
     Private HIV() As cHIV
     Private TB() As cTB
@@ -25,14 +25,19 @@ Public Class Form1
     Private NumTB As Integer
     Private NumMalaria As Integer
     Private isLoaded As Boolean
+    Private isPopRecorded As Boolean
+    Private Population As Integer
+    Private RecordedYears() As Integer
     Private Enum enumDisease As Integer
         HIV
         TB
         Malaria
+        New_Disease
     End Enum
     Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
         If InputBox("Enter the password", "Login") = PASSWORD Then
             pnlDoctor.Visible = True
+            LoadFromFile()
         Else
             MessageBox.Show("Incorrect Password!", "Error")
         End If
@@ -54,6 +59,8 @@ Public Class Form1
                 pnlHIV.Visible = False
                 pnlTB.Visible = False
                 pnlMalaria.Visible = True
+            Case enumDisease.New_Disease
+
             Case -1
                 pnlHIV.Visible = False
                 pnlTB.Visible = False
@@ -62,12 +69,26 @@ Public Class Form1
         End Select
     End Sub
     Private Sub btnRecordInfo_Click(sender As Object, e As EventArgs) Handles btnRecordInfo.Click
-
+        Dim Year As Integer
+        Year = CInt(InputBox("Enter the year for which you wish to enter statistics for."))
+        IsRecorded(Year)
         Select Case cbDiseases.SelectedIndex
             Case enumDisease.HIV
                 Dim TempHIV As cHIV
-
-                TempHIV = New cHIV()
+                Dim HIVYearCases As Integer
+                Dim HIVYearDeaths As Integer
+                Dim HIVYearRecoveries As Integer
+                Dim noART As Integer
+                'Dim bCondoms As Boolean
+                HIVYearCases = CInt(txtHIVYearCases.Text)
+                HIVYearDeaths = CInt(txtHIVYearDeaths.Text)
+                HIVYearRecoveries = CInt(txtHIVYearRecoveries.Text)
+                noART = CInt(txtNoART.Text)
+                Population = 7800000
+                TempHIV = New cHIV(HIVYearCases, HIVYearDeaths, HIVYearRecoveries, Population, noART, True)
+                NumHIV += 1
+                ReDim Preserve HIV(NumHIV)
+                HIV(NumHIV) = TempHIV
             Case enumDisease.TB
 
             Case enumDisease.Malaria
@@ -97,9 +118,9 @@ Public Class Form1
         Dim HIVIndex As Integer
         Dim TBIndex As Integer
         Dim MalariaIndex As Integer
-        FS = New FileStream(FNAME, FileMode.OpenOrCreate, FileAccess.Write)
+        FS = New FileStream(FNAME, FileMode.Open, FileAccess.Write)
         BF = New BinaryFormatter()
-        For i As Integer = 1 To Len(Disease)
+        For i As Integer = 1 To NumRecords
             For HIVIndex = 1 To Len(HIV)
                 Disease(i) = HIV(HIVIndex)
             Next
@@ -132,20 +153,31 @@ Public Class Form1
                 tempMalaria = TryCast(BF.Deserialize(FS), cMalaria)
                 If Not (tempHIV Is Nothing) Then
                     NumHIV += 1
+                    NumRecords += 1
                     ReDim Preserve HIV(NumHIV)
                     HIV(NumHIV) = tempHIV
                 ElseIf Not (tempTB Is Nothing) Then
                     NumTB += 1
+                    NumRecords += 1
                     ReDim Preserve TB(NumTB)
                     TB(NumTB) = tempTB
                 ElseIf Not (tempMalaria Is Nothing) Then
-                    ReDim Preserve Malaria(NumMalaria)
                     NumMalaria += 1
+                    NumRecords += 1
+                    ReDim Preserve Malaria(NumMalaria)
                     Malaria(NumMalaria) = tempMalaria
                 End If
             End While
             FS.Close()
             isLoaded = True
         End If
+    End Sub
+
+    Private Sub IsRecorded(Year As Integer)
+
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        SaveToFile()
     End Sub
 End Class

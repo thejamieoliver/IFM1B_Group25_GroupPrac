@@ -29,11 +29,10 @@ Partial Class Form1
         Me.cbDiseases = New System.Windows.Forms.ComboBox()
         Me.pnlHIV = New System.Windows.Forms.Panel()
         Me.txtHIVYearCases = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txtHIVYearDeaths = New System.Windows.Forms.TextBox()
+        Me.txtHIVYearRecoveries = New System.Windows.Forms.TextBox()
+        Me.txtNoART = New System.Windows.Forms.TextBox()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.btnRecordInfo = New System.Windows.Forms.Button()
         Me.pnlTB = New System.Windows.Forms.Panel()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
@@ -48,6 +47,7 @@ Partial Class Form1
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -75,11 +75,12 @@ Partial Class Form1
         '
         'pnlDoctor
         '
+        Me.pnlDoctor.Controls.Add(Me.btnSave)
         Me.pnlDoctor.Controls.Add(Me.UjGrid1)
         Me.pnlDoctor.Controls.Add(Me.cbDiseases)
         Me.pnlDoctor.Controls.Add(Me.pnlHIV)
         Me.pnlDoctor.Controls.Add(Me.btnRecordInfo)
-        Me.pnlDoctor.Location = New System.Drawing.Point(0, 0)
+        Me.pnlDoctor.Location = New System.Drawing.Point(497, 42)
         Me.pnlDoctor.Name = "pnlDoctor"
         Me.pnlDoctor.Size = New System.Drawing.Size(799, 449)
         Me.pnlDoctor.TabIndex = 2
@@ -89,10 +90,10 @@ Partial Class Form1
         '
         Me.UjGrid1.FixedCols = 1
         Me.UjGrid1.FixedRows = 1
-        Me.UjGrid1.Location = New System.Drawing.Point(284, 57)
+        Me.UjGrid1.Location = New System.Drawing.Point(284, 30)
         Me.UjGrid1.Name = "UjGrid1"
         Me.UjGrid1.Scrollbars = System.Windows.Forms.ScrollBars.Both
-        Me.UjGrid1.Size = New System.Drawing.Size(474, 315)
+        Me.UjGrid1.Size = New System.Drawing.Size(474, 342)
         Me.UjGrid1.TabIndex = 5
         '
         'cbDiseases
@@ -108,11 +109,10 @@ Partial Class Form1
         'pnlHIV
         '
         Me.pnlHIV.Controls.Add(Me.txtHIVYearCases)
-        Me.pnlHIV.Controls.Add(Me.TextBox1)
-        Me.pnlHIV.Controls.Add(Me.TextBox3)
-        Me.pnlHIV.Controls.Add(Me.TextBox4)
+        Me.pnlHIV.Controls.Add(Me.txtHIVYearDeaths)
+        Me.pnlHIV.Controls.Add(Me.txtHIVYearRecoveries)
+        Me.pnlHIV.Controls.Add(Me.txtNoART)
         Me.pnlHIV.Controls.Add(Me.TextBox5)
-        Me.pnlHIV.Controls.Add(Me.TextBox6)
         Me.pnlHIV.Location = New System.Drawing.Point(65, 57)
         Me.pnlHIV.Name = "pnlHIV"
         Me.pnlHIV.Size = New System.Drawing.Size(200, 315)
@@ -126,26 +126,26 @@ Partial Class Form1
         Me.txtHIVYearCases.Size = New System.Drawing.Size(52, 20)
         Me.txtHIVYearCases.TabIndex = 8
         '
-        'TextBox1
+        'txtHIVYearDeaths
         '
-        Me.TextBox1.Location = New System.Drawing.Point(135, 71)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox1.TabIndex = 9
+        Me.txtHIVYearDeaths.Location = New System.Drawing.Point(135, 71)
+        Me.txtHIVYearDeaths.Name = "txtHIVYearDeaths"
+        Me.txtHIVYearDeaths.Size = New System.Drawing.Size(52, 20)
+        Me.txtHIVYearDeaths.TabIndex = 9
         '
-        'TextBox3
+        'txtHIVYearRecoveries
         '
-        Me.TextBox3.Location = New System.Drawing.Point(135, 116)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox3.TabIndex = 10
+        Me.txtHIVYearRecoveries.Location = New System.Drawing.Point(135, 116)
+        Me.txtHIVYearRecoveries.Name = "txtHIVYearRecoveries"
+        Me.txtHIVYearRecoveries.Size = New System.Drawing.Size(52, 20)
+        Me.txtHIVYearRecoveries.TabIndex = 10
         '
-        'TextBox4
+        'txtNoART
         '
-        Me.TextBox4.Location = New System.Drawing.Point(135, 165)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox4.TabIndex = 11
+        Me.txtNoART.Location = New System.Drawing.Point(135, 165)
+        Me.txtNoART.Name = "txtNoART"
+        Me.txtNoART.Size = New System.Drawing.Size(52, 20)
+        Me.txtNoART.TabIndex = 11
         '
         'TextBox5
         '
@@ -154,20 +154,13 @@ Partial Class Form1
         Me.TextBox5.Size = New System.Drawing.Size(52, 20)
         Me.TextBox5.TabIndex = 12
         '
-        'TextBox6
-        '
-        Me.TextBox6.Location = New System.Drawing.Point(135, 261)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox6.TabIndex = 13
-        '
         'btnRecordInfo
         '
         Me.btnRecordInfo.Location = New System.Drawing.Point(43, 378)
         Me.btnRecordInfo.Name = "btnRecordInfo"
-        Me.btnRecordInfo.Size = New System.Drawing.Size(75, 23)
+        Me.btnRecordInfo.Size = New System.Drawing.Size(97, 23)
         Me.btnRecordInfo.TabIndex = 0
-        Me.btnRecordInfo.Text = "New Year"
+        Me.btnRecordInfo.Text = "Save Record"
         Me.btnRecordInfo.UseVisualStyleBackColor = True
         '
         'pnlTB
@@ -275,6 +268,15 @@ Partial Class Form1
         Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
         Me.cbSymptoms.TabIndex = 0
         '
+        'btnSave
+        '
+        Me.btnSave.Location = New System.Drawing.Point(653, 378)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(105, 23)
+        Me.btnSave.TabIndex = 6
+        Me.btnSave.Text = "Save All to File"
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -311,11 +313,10 @@ Partial Class Form1
     Friend WithEvents pnlMalaria As Panel
     Friend WithEvents pnlHIV As Panel
     Friend WithEvents txtHIVYearCases As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txtHIVYearDeaths As TextBox
+    Friend WithEvents txtHIVYearRecoveries As TextBox
+    Friend WithEvents txtNoART As TextBox
     Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox6 As TextBox
     Friend WithEvents TextBox11 As TextBox
     Friend WithEvents TextBox10 As TextBox
     Friend WithEvents TextBox9 As TextBox
@@ -326,5 +327,5 @@ Partial Class Form1
     Friend WithEvents TextBox13 As TextBox
     Friend WithEvents TextBox12 As TextBox
     Friend WithEvents UjGrid1 As UJGrid.UJGrid
-
+    Friend WithEvents btnSave As Button
 End Class
