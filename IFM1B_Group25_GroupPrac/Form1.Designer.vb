@@ -25,6 +25,7 @@ Partial Class Form1
         Me.btnAdmin = New System.Windows.Forms.Button()
         Me.btnPatient = New System.Windows.Forms.Button()
         Me.pnlDoctor = New System.Windows.Forms.Panel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.cbDiseases = New System.Windows.Forms.ComboBox()
         Me.pnlHIV = New System.Windows.Forms.Panel()
@@ -47,7 +48,8 @@ Partial Class Form1
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.txtOutputSymptom = New System.Windows.Forms.TextBox()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -85,6 +87,14 @@ Partial Class Form1
         Me.pnlDoctor.Size = New System.Drawing.Size(799, 449)
         Me.pnlDoctor.TabIndex = 2
         Me.pnlDoctor.Visible = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(343, 57)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(415, 315)
+        Me.TextBox1.TabIndex = 7
         '
         'btnSave
         '
@@ -252,34 +262,47 @@ Partial Class Form1
         '
         'pnlPatient
         '
+        Me.pnlPatient.Controls.Add(Me.txtOutputSymptom)
+        Me.pnlPatient.Controls.Add(Me.btnSearch)
         Me.pnlPatient.Controls.Add(Me.cbSymptoms)
-        Me.pnlPatient.Location = New System.Drawing.Point(855, 493)
+        Me.pnlPatient.Location = New System.Drawing.Point(643, 497)
         Me.pnlPatient.Name = "pnlPatient"
-        Me.pnlPatient.Size = New System.Drawing.Size(317, 209)
+        Me.pnlPatient.Size = New System.Drawing.Size(799, 449)
         Me.pnlPatient.TabIndex = 3
         Me.pnlPatient.Visible = False
         '
         'cbSymptoms
         '
         Me.cbSymptoms.FormattingEnabled = True
-        Me.cbSymptoms.Location = New System.Drawing.Point(158, 25)
+        Me.cbSymptoms.Items.AddRange(New Object() {"Chronic Diarrhoea", "Night Sweats", "Fever", "Rashes", "Chills", "Sore throat", "Swollen Lymph Nodes", "Ulcers", "Headache", "Vomiting", "Fatigue", "Cough", "Coughing Blood", "Chills", "No Appetite", "Chest pain", "Weight Loss"})
+        Me.cbSymptoms.Location = New System.Drawing.Point(43, 30)
         Me.cbSymptoms.Name = "cbSymptoms"
         Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
         Me.cbSymptoms.TabIndex = 0
+        Me.cbSymptoms.Text = "Please Select Value"
         '
-        'TextBox1
+        'btnSearch
         '
-        Me.TextBox1.Location = New System.Drawing.Point(343, 57)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(415, 315)
-        Me.TextBox1.TabIndex = 7
+        Me.btnSearch.Location = New System.Drawing.Point(43, 57)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(75, 23)
+        Me.btnSearch.TabIndex = 1
+        Me.btnSearch.Text = "Search"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'txtOutputSymptom
+        '
+        Me.txtOutputSymptom.Location = New System.Drawing.Point(170, 30)
+        Me.txtOutputSymptom.Multiline = True
+        Me.txtOutputSymptom.Name = "txtOutputSymptom"
+        Me.txtOutputSymptom.Size = New System.Drawing.Size(157, 182)
+        Me.txtOutputSymptom.TabIndex = 2
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1345, 749)
+        Me.ClientSize = New System.Drawing.Size(1652, 974)
         Me.Controls.Add(Me.pnlMalaria)
         Me.Controls.Add(Me.pnlTB)
         Me.Controls.Add(Me.pnlPatient)
@@ -297,6 +320,7 @@ Partial Class Form1
         Me.pnlMalaria.ResumeLayout(False)
         Me.pnlMalaria.PerformLayout()
         Me.pnlPatient.ResumeLayout(False)
+        Me.pnlPatient.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -327,4 +351,6 @@ Partial Class Form1
     Friend WithEvents TextBox12 As TextBox
     Friend WithEvents btnSave As Button
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtOutputSymptom As TextBox
 End Class

@@ -132,12 +132,13 @@ Option Infer Off
         _NumYears -= 1
     End Sub
 
-    Public Function CollectSymptoms(value As String) As String
-        If value = _Symptoms(_NumSymp) Then
-            Return _Symptoms(_NumSymp)
-        Else
-            Return "Null"
-        End If
-        _NumSymp -= 1
+    Public Function CollectSymptoms(value As String) As Boolean
+        For i As Integer = 1 To _Symptoms.Length - 1
+            If value = _Symptoms(i) Then
+                Return True
+                Exit Function
+            End If
+        Next i
+        Return False
     End Function
 End Class
