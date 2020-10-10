@@ -220,4 +220,6 @@ Public Class Form1
             txtOutputSymptom.Text += sDisplay(i) & vbNewLine
         Next
     End Sub
+
+
 End Class

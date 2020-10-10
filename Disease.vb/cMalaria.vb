@@ -21,7 +21,7 @@ Option Infer Off
     Private ReadOnly _Symptoms(7) As String
     Private _NumSymp As Integer
 
-    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer)
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, perm As Boolean)
         'Increase numyears by 1
         _NumYears += 1
         'Redim all arrays to numyears, preserving past data
@@ -29,6 +29,7 @@ Option Infer Off
         _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
         MyBase.Population = Population
+        perm = perm
         _Symptoms(1) = "Fever"
         _Symptoms(2) = "Chills"
         _Symptoms(3) = "Headache"
