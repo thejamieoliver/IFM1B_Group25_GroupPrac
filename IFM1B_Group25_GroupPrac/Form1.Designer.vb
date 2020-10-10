@@ -56,13 +56,13 @@ Partial Class Form1
         Me.lblMalRec = New System.Windows.Forms.Label()
         Me.lblDeaths = New System.Windows.Forms.Label()
         Me.lblCases = New System.Windows.Forms.Label()
-        Me.txtMalRecoveries = New System.Windows.Forms.TextBox()
         Me.txtNewDeathsMal = New System.Windows.Forms.TextBox()
         Me.txtMalCases = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
         Me.txtOutputSymptom = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
+        Me.txtMalRecoveries = New System.Windows.Forms.TextBox()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -330,12 +330,12 @@ Partial Class Form1
         '
         'pnlMalaria
         '
+        Me.pnlMalaria.Controls.Add(Me.txtMalRecoveries)
         Me.pnlMalaria.Controls.Add(Me.lblPerm)
         Me.pnlMalaria.Controls.Add(Me.cbxPerm)
         Me.pnlMalaria.Controls.Add(Me.lblMalRec)
         Me.pnlMalaria.Controls.Add(Me.lblDeaths)
         Me.pnlMalaria.Controls.Add(Me.lblCases)
-        Me.pnlMalaria.Controls.Add(Me.txtMalRecoveries)
         Me.pnlMalaria.Controls.Add(Me.txtNewDeathsMal)
         Me.pnlMalaria.Controls.Add(Me.txtMalCases)
         Me.pnlMalaria.Location = New System.Drawing.Point(65, 470)
@@ -389,13 +389,6 @@ Partial Class Form1
         Me.lblCases.TabIndex = 22
         Me.lblCases.Text = "New Cases:"
         '
-        'txtMalRecoveries
-        '
-        Me.txtMalRecoveries.Location = New System.Drawing.Point(135, 130)
-        Me.txtMalRecoveries.Name = "txtMalRecoveries"
-        Me.txtMalRecoveries.Size = New System.Drawing.Size(52, 20)
-        Me.txtMalRecoveries.TabIndex = 20
-        '
         'txtNewDeathsMal
         '
         Me.txtNewDeathsMal.Location = New System.Drawing.Point(135, 79)
@@ -447,6 +440,13 @@ Partial Class Form1
         Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
         Me.cbSymptoms.TabIndex = 0
         Me.cbSymptoms.Text = "Please Select Value"
+        '
+        'txtMalRecoveries
+        '
+        Me.txtMalRecoveries.Location = New System.Drawing.Point(135, 133)
+        Me.txtMalRecoveries.Name = "txtMalRecoveries"
+        Me.txtMalRecoveries.Size = New System.Drawing.Size(52, 20)
+        Me.txtMalRecoveries.TabIndex = 7
         '
         'Form1
         '
@@ -516,4 +516,5 @@ Partial Class Form1
     Friend WithEvents lblCasesTB As Label
     Friend WithEvents lblDeathsTB As Label
     Friend WithEvents lblRecTB As Label
+    Friend WithEvents txtMalRecoveries As TextBox
 End Class
