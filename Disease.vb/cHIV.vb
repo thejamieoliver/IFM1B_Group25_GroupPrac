@@ -14,7 +14,6 @@ Option Infer Off
 
     Inherits cDisease
     Implements InterDisease
-
     Private _YearNewCases As Integer
     Private _YearRecoveries As Integer
     Private _YearDeaths As Integer
@@ -96,19 +95,19 @@ Option Infer Off
         End Set
     End Property
     ' Property methods From interDisease
-    Public ReadOnly Property YearNewCases As Object Implements InterDisease.YearNewCases
+    Public ReadOnly Property YearNewCases As Integer Implements InterDisease.YearNewCases
         Get
             Return _YearNewCases
         End Get
     End Property
 
-    Public ReadOnly Property YearRecoveries As Object Implements InterDisease.YearRecoveries
+    Public ReadOnly Property YearRecoveries As Integer Implements InterDisease.YearRecoveries
         Get
             Return _YearRecoveries
         End Get
     End Property
 
-    Public ReadOnly Property YearDeaths As Object Implements InterDisease.YearDeaths
+    Public ReadOnly Property YearDeaths As Integer Implements InterDisease.YearDeaths
         Get
             Return _YearDeaths
         End Get

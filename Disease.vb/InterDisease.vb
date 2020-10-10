@@ -1,5 +1,5 @@
 ﻿Public Interface InterDisease
-    ReadOnly Property YearNewCases
-    ReadOnly Property YearRecoveries
-    ReadOnly Property YearDeaths
+    ReadOnly Property YearNewCases As Integer
+    ReadOnly Property YearRecoveries As Integer
+    ReadOnly Property YearDeaths As Integer
 End Interface
