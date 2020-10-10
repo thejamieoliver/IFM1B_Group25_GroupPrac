@@ -19,9 +19,11 @@ Option Infer Off
     Private Shared _NumYears As Integer
     Private _NoDOTs As Integer 'People able to be treated
     Private ReadOnly _Symptoms(6) As String 'Array of Symptoms
+    Private _current As Integer
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, pop As Integer, noDOTs As Integer)
         'Increase numyears by 1
         _NumYears += 1
+        _current = _NumYears
         'redim all arrays to numyears, preserving past data
         _YearDeaths = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
         _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
@@ -81,7 +83,7 @@ Option Infer Off
 
     Public Overrides Function Display() As String
         'Return the year number, and the value of the base classes display
-        Dim dis As String = "Year: " & _NumYears & Environment.NewLine & MyBase.Display
+        Dim dis As String = "Year: " & _current & Environment.NewLine & MyBase.Display
         'Add the derived class unique variables
         dis &= "Cases: " & _YearNewCases & Environment.NewLine _
         & "Recoveries: " & _YearRecoveries & Environment.NewLine _
