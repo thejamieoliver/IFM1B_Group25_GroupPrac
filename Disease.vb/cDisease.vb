@@ -22,16 +22,19 @@ Option Infer Off
     'Functions and Subroutines ***********************************************************************************************
 
     Public Function CalcInfectionRate(TotalCases As Integer) As Double
+        'Return the total cases/population
         _InfectionRate = TotalCases / _Population
         Return _InfectionRate
     End Function
 
     Public Function CalcDeathRate(TotalDeaths As Integer) As Double
+        'Return totaldeaths/population
         _DeathRate = TotalDeaths / _Population
         Return _DeathRate
     End Function
 
     Public Overridable Function CalcRecoverRate(TotalRecovers As Integer) As Double
+        'Return totalrecoveries/ population
         _RecoveryRate = TotalRecovers / _Population
         Return _DeathRate
     End Function
@@ -40,27 +43,32 @@ Option Infer Off
 
     Public Property Population As Integer Implements ExtractInfo.Population
         Get
+            'Return poulation
             Return _Population
         End Get
         Set(value As Integer)
+            'set _poulation to the validation of value
             _Population = validInt(value)
         End Set
     End Property
 
     Public ReadOnly Property InfectionRate As Double Implements ExtractInfo.InfectionRate
         Get
+            'Return infectionrate
             Return _InfectionRate
         End Get
     End Property
 
     Public ReadOnly Property DeathRate As Double Implements ExtractInfo.DeathRate
         Get
+            'Return deathrate
             Return _DeathRate
         End Get
     End Property
 
     Public ReadOnly Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
         Get
+            'Return Recovery rate
             Return _RecoveryRate
         End Get
     End Property
@@ -79,7 +87,7 @@ Option Infer Off
 
     Public Overridable Function Display() As String
         'Return the recovery rate, the death rate, and infection rate
-        Return "Infection rate: " & RecoveryRate & Environment.NewLine _
+        Return "Infection rate: " & InfectionRate & Environment.NewLine _
            & "Death rate: " & DeathRate & Environment.NewLine _
            & "Recovery rate: " & RecoveryRate & Environment.NewLine
     End Function

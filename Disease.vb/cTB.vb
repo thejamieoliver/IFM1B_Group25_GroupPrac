@@ -17,7 +17,7 @@ Option Infer Off
     Private _YearRecoveries As Integer
     Private _YearDeaths As Integer
     Private Shared _NumYears As Integer
-    Private _NoDOTs As Integer 'People unable to be treated
+    Private _NoDOTs As Integer 'People able to be treated
     Private ReadOnly _Symptoms(6) As String 'Array of Symptoms
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noDOTs As Integer)
         'Increase numyears by 1
@@ -37,6 +37,7 @@ Option Infer Off
     End Sub
 
     Public Sub ResetYears()
+        'Set _numyears to 0
         _NumYears = 0
     End Sub
 
@@ -59,18 +60,21 @@ Option Infer Off
     ' Property methods From interDisease
     Public ReadOnly Property YearNewCases As Integer Implements InterDisease.YearNewCases
         Get
+            'Return _YearNewCases
             Return _YearNewCases
         End Get
     End Property
 
     Public ReadOnly Property YearRecoveries As Integer Implements InterDisease.YearRecoveries
         Get
+            ' Return _YearRecoveries
             Return _YearRecoveries
         End Get
     End Property
 
     Public ReadOnly Property YearDeaths As Integer Implements InterDisease.YearDeaths
         Get
+            'Return _YearDeaths
             Return _YearDeaths
         End Get
     End Property
@@ -82,10 +86,11 @@ Option Infer Off
         dis &= "Cases: " & _YearNewCases & Environment.NewLine _
         & "Recoveries: " & _YearRecoveries & Environment.NewLine _
         & "Deaths: " & _YearDeaths & Environment.NewLine _
-        & "Untreated: " & _NoDOTs & Environment.NewLine
+        & "Treated: " & _NoDOTs & Environment.NewLine
         Return dis
     End Function
     Public Sub Removeoneyear()
+        'Remove 1 from numyears
         _NumYears -= 1
     End Sub
     Public Function CollectSymptoms(value As String) As Boolean

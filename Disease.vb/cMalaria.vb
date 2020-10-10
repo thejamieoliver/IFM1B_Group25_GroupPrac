@@ -11,17 +11,19 @@ Option Infer Off
 ' Class name: cMalaria
 ' *****************************************************************
 <Serializable> Public Class cMalaria
+    'Inherit disease class, implement the interface
     Inherits cDisease
     Implements InterDisease
+    'declare all needed variables
     Private _YearNewCases As Integer
     Private _YearRecoveries As Integer
     Private _YearDeaths As Integer
-    Private _Perm As Boolean
+    Private _Perm As Boolean 'Whether or not the region was sprayed with permethrin
     Private Shared _NumYears As Integer
-    Private ReadOnly _Symptoms(7) As String
+    Private ReadOnly _Symptoms(7) As String 'A constant array of symptoms
     Private _NumSymp As Integer
 
-    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, perm As Boolean)
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, p As Boolean)
         'Increase numyears by 1
         _NumYears += 1
         'Redim all arrays to numyears, preserving past data
@@ -29,8 +31,8 @@ Option Infer Off
         _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
         MyBase.Population = Population
-        perm = perm
-        _Symptoms(1) = "Fever"
+        perm = p
+        _Symptoms(1) = "Fever" 'Give values to solutions array
         _Symptoms(2) = "Chills"
         _Symptoms(3) = "Headache"
         _Symptoms(4) = "Vomiting"
@@ -41,27 +43,32 @@ Option Infer Off
 
     Public Property perm As Boolean
         Get
+            'Return _Perm
             Return _Perm
         End Get
         Set(value As Boolean)
+            'Set _perm to value
             _Perm = value
         End Set
     End Property
     ' Property methods From interDisease
     Public ReadOnly Property YearNewCases As Integer Implements InterDisease.YearNewCases
         Get
+            'Return newcases
             Return _YearNewCases
         End Get
     End Property
 
     Public ReadOnly Property YearRecoveries As Integer Implements InterDisease.YearRecoveries
         Get
+            'return _newrecoveries
             Return _YearRecoveries
         End Get
     End Property
 
     Public ReadOnly Property YearDeaths As Integer Implements InterDisease.YearDeaths
         Get
+            'return _YearDeaths
             Return _YearDeaths
         End Get
     End Property
@@ -76,7 +83,7 @@ Option Infer Off
             & "Permethrin Sprayed: " & _Perm & Environment.NewLine
         Return dis
     End Function
-    Public Sub ResetYears()
+    Public Sub ResetYears() ' Set years to 0
         _NumYears = 0
     End Sub
     Public Sub Removeoneyear() 'Subtracts a year so that values wont be used
