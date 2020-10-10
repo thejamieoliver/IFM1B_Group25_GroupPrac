@@ -119,8 +119,8 @@ Option Infer Off
         'Add the derived class unique variables
         dis &= "Cases: " & _YearNewCases & Environment.NewLine _
             & "Deaths: " & _YearDeaths & Environment.NewLine _
-              & "Untreated: " & _NotArt & Environment.NewLine _
-               & "Free Condoms: " & _Condoms & Environment.NewLine
+            & "Untreated: " & _NotArt & Environment.NewLine _
+            & "Free Condoms: " & _Condoms & Environment.NewLine
         Return dis
     End Function
 
@@ -133,11 +133,9 @@ Option Infer Off
     End Sub
 
     Public Function CollectSymptoms(value As String) As String
-        If value = _Symptoms(_NumSymp) Then
-            Return _Symptoms(_NumSymp)
-        Else
-            Return "Null"
-        End If
+        If value = _Symptoms(_NumSymp) Then Return _Symptoms(_NumSymp) Else Return "Null"
+
+        'End If
         _NumSymp -= 1
     End Function
 End Class

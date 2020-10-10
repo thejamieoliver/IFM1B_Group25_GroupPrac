@@ -25,6 +25,7 @@ Partial Class Form1
         Me.btnAdmin = New System.Windows.Forms.Button()
         Me.btnPatient = New System.Windows.Forms.Button()
         Me.pnlDoctor = New System.Windows.Forms.Panel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.cbDiseases = New System.Windows.Forms.ComboBox()
         Me.pnlHIV = New System.Windows.Forms.Panel()
@@ -32,7 +33,6 @@ Partial Class Form1
         Me.txtHIVYearDeaths = New System.Windows.Forms.TextBox()
         Me.txtHIVYearRecoveries = New System.Windows.Forms.TextBox()
         Me.txtNoART = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.btnRecordInfo = New System.Windows.Forms.Button()
         Me.pnlTB = New System.Windows.Forms.Panel()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
@@ -47,7 +47,7 @@ Partial Class Form1
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.cbxCondoms = New System.Windows.Forms.CheckBox()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -86,9 +86,17 @@ Partial Class Form1
         Me.pnlDoctor.TabIndex = 2
         Me.pnlDoctor.Visible = False
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(343, 57)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(415, 315)
+        Me.TextBox1.TabIndex = 7
+        '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(653, 378)
+        Me.btnSave.Location = New System.Drawing.Point(653, 399)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(105, 23)
         Me.btnSave.TabIndex = 6
@@ -107,11 +115,11 @@ Partial Class Form1
         '
         'pnlHIV
         '
+        Me.pnlHIV.Controls.Add(Me.cbxCondoms)
         Me.pnlHIV.Controls.Add(Me.txtHIVYearCases)
         Me.pnlHIV.Controls.Add(Me.txtHIVYearDeaths)
         Me.pnlHIV.Controls.Add(Me.txtHIVYearRecoveries)
         Me.pnlHIV.Controls.Add(Me.txtNoART)
-        Me.pnlHIV.Controls.Add(Me.TextBox5)
         Me.pnlHIV.Location = New System.Drawing.Point(65, 57)
         Me.pnlHIV.Name = "pnlHIV"
         Me.pnlHIV.Size = New System.Drawing.Size(200, 315)
@@ -146,16 +154,9 @@ Partial Class Form1
         Me.txtNoART.Size = New System.Drawing.Size(52, 20)
         Me.txtNoART.TabIndex = 11
         '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(135, 212)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox5.TabIndex = 12
-        '
         'btnRecordInfo
         '
-        Me.btnRecordInfo.Location = New System.Drawing.Point(43, 378)
+        Me.btnRecordInfo.Location = New System.Drawing.Point(43, 399)
         Me.btnRecordInfo.Name = "btnRecordInfo"
         Me.btnRecordInfo.Size = New System.Drawing.Size(97, 23)
         Me.btnRecordInfo.TabIndex = 0
@@ -267,13 +268,14 @@ Partial Class Form1
         Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
         Me.cbSymptoms.TabIndex = 0
         '
-        'TextBox1
+        'cbxCondoms
         '
-        Me.TextBox1.Location = New System.Drawing.Point(343, 57)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(415, 315)
-        Me.TextBox1.TabIndex = 7
+        Me.cbxCondoms.AutoSize = True
+        Me.cbxCondoms.Location = New System.Drawing.Point(172, 210)
+        Me.cbxCondoms.Name = "cbxCondoms"
+        Me.cbxCondoms.Size = New System.Drawing.Size(15, 14)
+        Me.cbxCondoms.TabIndex = 13
+        Me.cbxCondoms.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -315,7 +317,6 @@ Partial Class Form1
     Friend WithEvents txtHIVYearDeaths As TextBox
     Friend WithEvents txtHIVYearRecoveries As TextBox
     Friend WithEvents txtNoART As TextBox
-    Friend WithEvents TextBox5 As TextBox
     Friend WithEvents TextBox11 As TextBox
     Friend WithEvents TextBox10 As TextBox
     Friend WithEvents TextBox9 As TextBox
@@ -327,4 +328,5 @@ Partial Class Form1
     Friend WithEvents TextBox12 As TextBox
     Friend WithEvents btnSave As Button
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents cbxCondoms As CheckBox
 End Class
