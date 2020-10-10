@@ -244,6 +244,7 @@ Public Class Form1
         Next
         'Close the filestream
         FS.Close()
+        MsgBox("Records have been save successfully to " & FNAME)
     End Sub
     Private Sub LoadFromFile()
         'Declare new filestream and binaryformatter
