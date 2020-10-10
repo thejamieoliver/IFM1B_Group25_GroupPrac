@@ -107,7 +107,8 @@ Public Class Form1
                 Dim yeardeaths As Integer = CInt(txtNewDeathsMal.Text())
                 Dim yearrec As Integer = CInt(txtMalRecoveries.Text())
                 Dim perm As Boolean = CBool(cbxPerm.Checked)
-                Dim tempPerm As cMalaria = New cMalaria(yearCases, yeardeaths, yearrec, Population, perm)
+                Dim tempMal As cMalaria = New cMalaria(yearCases, yeardeaths, yearrec, Population, perm)
+                Malaria(NumMalaria) = tempMal
         End Select
         cbDiseases.SelectedIndex = -1
         btnRecordInfo.Enabled = False
