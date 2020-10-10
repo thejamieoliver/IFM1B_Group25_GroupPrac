@@ -12,6 +12,8 @@ Option Infer Off
 ' *****************************************************************
 <Serializable> Public Class cMalaria
     Inherits cDisease
+    Implements InterDisease
+
     Private _YearNewCases As Integer
     Private _YearRecoveries As Integer
     Private _YearDeaths As Integer
@@ -44,6 +46,24 @@ Option Infer Off
         Set(value As Boolean)
             _Perm = value
         End Set
+    End Property
+    ' Property methods From interDisease
+    Public ReadOnly Property YearNewCases As Object Implements InterDisease.YearNewCases
+        Get
+            Return _YearNewCases
+        End Get
+    End Property
+
+    Public ReadOnly Property YearRecoveries As Object Implements InterDisease.YearRecoveries
+        Get
+            Return _YearRecoveries
+        End Get
+    End Property
+
+    Public ReadOnly Property YearDeaths As Object Implements InterDisease.YearDeaths
+        Get
+            Return _YearDeaths
+        End Get
     End Property
 
     Public Overrides Function Display() As String
