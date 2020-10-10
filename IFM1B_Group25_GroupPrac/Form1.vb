@@ -45,29 +45,34 @@ Public Class Form1
         Else
             MessageBox.Show("Incorrect Password!", "Error")
         End If
+        'Loading into array
         LoadFromFile()
+        'Putting the output into the patient panel
         lblTB.Parent = pnlDoctor
         lblHIV.Parent = pnlDoctor
         lblMalaria.Parent = pnlDoctor
         txtTB.Parent = pnlDoctor
         txtHIV.Parent = pnlDoctor
         txtMalaria.Parent = pnlDoctor
-        Display()
+        'Display Output
         Display()
     End Sub
     Private Sub Display()
+        'Sorts through TB class array and does calculations along with display
         For i As Integer = 1 To NumTB
             TB(i).CalcDeathRate(TB(i).YearDeaths)
             TB(i).CalcRecoverRate(TB(i).YearRecoveries)
             TB(i).CalcInfectionRate(TB(i).YearNewCases)
             txtTB.Text &= TB(i).Display() & vbNewLine
         Next i
+        'Sorts through HIV class array and does calculations along with display
         For i As Integer = 1 To NumHIV
             HIV(i).CalcDeathRate(HIV(i).YearDeaths)
             HIV(i).CalcRecoverRate(HIV(i).YearRecoveries)
             HIV(i).CalcInfectionRate(HIV(i).YearNewCases)
             txtHIV.Text &= HIV(i).Display() & vbNewLine
         Next i
+        'Sorts through Malaria class array and does calculations along with display
         For i As Integer = 1 To NumMalaria
             Malaria(i).CalcDeathRate(Malaria(i).YearDeaths)
             Malaria(i).CalcRecoverRate(Malaria(i).YearRecoveries)
@@ -78,13 +83,16 @@ Public Class Form1
     Private Sub btnPatient_Click(sender As Object, e As EventArgs) Handles btnPatient.Click
         'This doesnt go on the button
         pnlPatient.Visible = True
+        'Loading into array
         LoadFromFile()
+        'Putting the output into the patient panel
         lblTB.Parent = pnlPatient
         lblHIV.Parent = pnlPatient
         lblMalaria.Parent = pnlPatient
         txtTB.Parent = pnlPatient
         txtHIV.Parent = pnlPatient
         txtMalaria.Parent = pnlPatient
+        'Display Output
         Display()
     End Sub
     Private Sub cbDiseases_IndexChange(sender As Object, e As EventArgs) Handles cbDiseases.SelectedIndexChanged
