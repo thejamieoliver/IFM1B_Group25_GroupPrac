@@ -25,10 +25,17 @@ Partial Class Form1
         Me.btnAdmin = New System.Windows.Forms.Button()
         Me.btnPatient = New System.Windows.Forms.Button()
         Me.pnlDoctor = New System.Windows.Forms.Panel()
+        Me.btnUpdatePop = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.cbDiseases = New System.Windows.Forms.ComboBox()
         Me.pnlHIV = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cbxCondoms = New System.Windows.Forms.CheckBox()
         Me.cbxCondoms = New System.Windows.Forms.CheckBox()
         Me.txtHIVYearCases = New System.Windows.Forms.TextBox()
         Me.txtHIVYearDeaths = New System.Windows.Forms.TextBox()
@@ -84,6 +91,7 @@ Partial Class Form1
         '
         'pnlDoctor
         '
+        Me.pnlDoctor.Controls.Add(Me.btnUpdatePop)
         Me.pnlDoctor.Controls.Add(Me.TextBox1)
         Me.pnlDoctor.Controls.Add(Me.btnSave)
         Me.pnlDoctor.Controls.Add(Me.cbDiseases)
@@ -94,6 +102,15 @@ Partial Class Form1
         Me.pnlDoctor.Size = New System.Drawing.Size(799, 449)
         Me.pnlDoctor.TabIndex = 2
         Me.pnlDoctor.Visible = False
+        '
+        'btnUpdatePop
+        '
+        Me.btnUpdatePop.Location = New System.Drawing.Point(36, 349)
+        Me.btnUpdatePop.Name = "btnUpdatePop"
+        Me.btnUpdatePop.Size = New System.Drawing.Size(114, 23)
+        Me.btnUpdatePop.TabIndex = 8
+        Me.btnUpdatePop.Text = "Update Population"
+        Me.btnUpdatePop.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
@@ -124,6 +141,11 @@ Partial Class Form1
         '
         'pnlHIV
         '
+        Me.pnlHIV.Controls.Add(Me.Label5)
+        Me.pnlHIV.Controls.Add(Me.Label4)
+        Me.pnlHIV.Controls.Add(Me.Label3)
+        Me.pnlHIV.Controls.Add(Me.Label2)
+        Me.pnlHIV.Controls.Add(Me.Label1)
         Me.pnlHIV.Controls.Add(Me.cbxCondoms)
         Me.pnlHIV.Controls.Add(Me.txtHIVYearCases)
         Me.pnlHIV.Controls.Add(Me.txtHIVYearDeaths)
@@ -131,9 +153,63 @@ Partial Class Form1
         Me.pnlHIV.Controls.Add(Me.txtNoART)
         Me.pnlHIV.Location = New System.Drawing.Point(65, 57)
         Me.pnlHIV.Name = "pnlHIV"
-        Me.pnlHIV.Size = New System.Drawing.Size(200, 315)
+        Me.pnlHIV.Size = New System.Drawing.Size(200, 238)
         Me.pnlHIV.TabIndex = 4
         Me.pnlHIV.Visible = False
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(17, 204)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(125, 13)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "Free Condom Distribution"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(16, 168)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(87, 13)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "People with ART"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(17, 119)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(113, 13)
+        Me.Label3.TabIndex = 15
+        Me.Label3.Text = "Number of Recoveries"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(17, 74)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(93, 13)
+        Me.Label2.TabIndex = 14
+        Me.Label2.Text = "Number of Deaths"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(16, 28)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(113, 13)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "Number of New Cases"
+        '
+        'cbxCondoms
+        '
+        Me.cbxCondoms.AutoSize = True
+        Me.cbxCondoms.Location = New System.Drawing.Point(172, 204)
+        Me.cbxCondoms.Name = "cbxCondoms"
+        Me.cbxCondoms.Size = New System.Drawing.Size(15, 14)
+        Me.cbxCondoms.TabIndex = 12
+        Me.cbxCondoms.UseVisualStyleBackColor = True
         '
         'cbxCondoms
         '
@@ -174,9 +250,10 @@ Partial Class Form1
         '
         'btnRecordInfo
         '
-        Me.btnRecordInfo.Location = New System.Drawing.Point(43, 378)
+        Me.btnRecordInfo.Enabled = False
+        Me.btnRecordInfo.Location = New System.Drawing.Point(36, 315)
         Me.btnRecordInfo.Name = "btnRecordInfo"
-        Me.btnRecordInfo.Size = New System.Drawing.Size(97, 23)
+        Me.btnRecordInfo.Size = New System.Drawing.Size(114, 23)
         Me.btnRecordInfo.TabIndex = 0
         Me.btnRecordInfo.Text = "Save Record"
         Me.btnRecordInfo.UseVisualStyleBackColor = True
@@ -191,9 +268,9 @@ Partial Class Form1
         Me.pnlTB.Controls.Add(Me.TextBox9)
         Me.pnlTB.Controls.Add(Me.TextBox8)
         Me.pnlTB.Controls.Add(Me.TextBox7)
-        Me.pnlTB.Location = New System.Drawing.Point(437, 470)
+        Me.pnlTB.Location = New System.Drawing.Point(358, 497)
         Me.pnlTB.Name = "pnlTB"
-        Me.pnlTB.Size = New System.Drawing.Size(200, 315)
+        Me.pnlTB.Size = New System.Drawing.Size(200, 263)
         Me.pnlTB.TabIndex = 5
         Me.pnlTB.Visible = False
         '
@@ -434,6 +511,12 @@ Partial Class Form1
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtOutputSymptom As TextBox
     Friend WithEvents cbxCondoms As CheckBox
+    Friend WithEvents btnUpdatePop As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
     Friend WithEvents lblCases As Label
     Friend WithEvents lblDeaths As Label
     Friend WithEvents lblMalRec As Label
