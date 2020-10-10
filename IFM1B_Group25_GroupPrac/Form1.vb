@@ -124,7 +124,7 @@ Public Class Form1
         Dim HIVIndex As Integer
         Dim TBIndex As Integer
         Dim MalariaIndex As Integer
-        FS = New FileStream(FNAME, FileMode.Open, FileAccess.Write)
+        FS = New FileStream(FNAME, FileMode.OpenOrCreate, FileAccess.Write)
         BF = New BinaryFormatter()
         For i As Integer = 1 To NumRecords
             For HIVIndex = 1 To Len(HIV)
@@ -147,7 +147,7 @@ Public Class Form1
             NumHIV = 0
             NumTB = 0
             NumMalaria = 0
-            FS = New FileStream(FNAME, FileMode.Open, FileAccess.Read)
+            FS = New FileStream(FNAME, FileMode.OpenOrCreate, FileAccess.Read)
             BF = New BinaryFormatter()
             While FS.Position < FS.Length
                 'Downcasting code
@@ -215,6 +215,7 @@ Public Class Form1
             ReDim Preserve sDisplay(iCheck)
             sDisplay(iCheck) = "Malaria"
         End If
+        txtOutputSymptom.Text += sSymptom.ToUpper & ":" & vbNewLine
         For i As Integer = 1 To iCheck
             txtOutputSymptom.Text += sDisplay(i) & vbNewLine
         Next
