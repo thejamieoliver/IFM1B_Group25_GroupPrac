@@ -92,11 +92,22 @@ Public Class Form1
                 NumRecords += 1
                 ReDim Preserve TB(NumTB)
                 ReDim Preserve Disease(NumRecords)
+                Dim yearCases As Integer = CInt(txtCasesTB.Text())
+                Dim yeardeaths As Integer = CInt(txtDeathsTB.Text())
+                Dim yearrec As Integer = CInt(txtRecTB.Text())
+                Dim noDots As Integer = CInt(txtDOTS.Text())
+                Dim tempTB As cTB = New cTB(yearCases, yeardeaths, yearrec, Population, noDots)
+                TB(NumTB) = tempTB
             Case enumDisease.Malaria
                 NumMalaria += 1
                 NumRecords += 1
                 ReDim Preserve Malaria(NumMalaria)
                 ReDim Preserve Disease(NumRecords)
+                Dim yearCases As Integer = CInt(txtCasesTB.Text())
+                Dim yeardeaths As Integer = CInt(txtDeathsTB.Text())
+                Dim yearrec As Integer = CInt(txtRecTB.Text())
+                Dim perm As Boolean = CBool(txtDOTS.Text())
+                Dim tempPerm As cMalaria = New cMalaria(yearCases, yeardeaths, yearrec, Population, perm)
         End Select
         cbDiseases.SelectedIndex = -1
         btnRecordInfo.Enabled = False
