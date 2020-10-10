@@ -25,7 +25,7 @@ Partial Class Form1
         Me.btnAdmin = New System.Windows.Forms.Button()
         Me.btnPatient = New System.Windows.Forms.Button()
         Me.pnlDoctor = New System.Windows.Forms.Panel()
-        Me.UjGrid1 = New UJGrid.UJGrid()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.cbDiseases = New System.Windows.Forms.ComboBox()
         Me.pnlHIV = New System.Windows.Forms.Panel()
         Me.txtHIVYearCases = New System.Windows.Forms.TextBox()
@@ -47,7 +47,7 @@ Partial Class Form1
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
-        Me.btnSave = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -75,8 +75,8 @@ Partial Class Form1
         '
         'pnlDoctor
         '
+        Me.pnlDoctor.Controls.Add(Me.TextBox1)
         Me.pnlDoctor.Controls.Add(Me.btnSave)
-        Me.pnlDoctor.Controls.Add(Me.UjGrid1)
         Me.pnlDoctor.Controls.Add(Me.cbDiseases)
         Me.pnlDoctor.Controls.Add(Me.pnlHIV)
         Me.pnlDoctor.Controls.Add(Me.btnRecordInfo)
@@ -86,15 +86,14 @@ Partial Class Form1
         Me.pnlDoctor.TabIndex = 2
         Me.pnlDoctor.Visible = False
         '
-        'UjGrid1
+        'btnSave
         '
-        Me.UjGrid1.FixedCols = 1
-        Me.UjGrid1.FixedRows = 1
-        Me.UjGrid1.Location = New System.Drawing.Point(284, 30)
-        Me.UjGrid1.Name = "UjGrid1"
-        Me.UjGrid1.Scrollbars = System.Windows.Forms.ScrollBars.Both
-        Me.UjGrid1.Size = New System.Drawing.Size(474, 342)
-        Me.UjGrid1.TabIndex = 5
+        Me.btnSave.Location = New System.Drawing.Point(653, 378)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(105, 23)
+        Me.btnSave.TabIndex = 6
+        Me.btnSave.Text = "Save All to File"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
         'cbDiseases
         '
@@ -268,14 +267,13 @@ Partial Class Form1
         Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
         Me.cbSymptoms.TabIndex = 0
         '
-        'btnSave
+        'TextBox1
         '
-        Me.btnSave.Location = New System.Drawing.Point(653, 378)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(105, 23)
-        Me.btnSave.TabIndex = 6
-        Me.btnSave.Text = "Save All to File"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.TextBox1.Location = New System.Drawing.Point(343, 57)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(415, 315)
+        Me.TextBox1.TabIndex = 7
         '
         'Form1
         '
@@ -291,6 +289,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.pnlDoctor.ResumeLayout(False)
+        Me.pnlDoctor.PerformLayout()
         Me.pnlHIV.ResumeLayout(False)
         Me.pnlHIV.PerformLayout()
         Me.pnlTB.ResumeLayout(False)
@@ -326,6 +325,6 @@ Partial Class Form1
     Friend WithEvents TextBox14 As TextBox
     Friend WithEvents TextBox13 As TextBox
     Friend WithEvents TextBox12 As TextBox
-    Friend WithEvents UjGrid1 As UJGrid.UJGrid
     Friend WithEvents btnSave As Button
+    Friend WithEvents TextBox1 As TextBox
 End Class
