@@ -77,24 +77,6 @@ Option Infer Off
         End Get
     End Property
 
-    Private ReadOnly Property InterDisease_YearNewCases As Integer Implements InterDisease.YearNewCases
-        Get
-            Throw New NotImplementedException()
-        End Get
-    End Property
-
-    Private ReadOnly Property InterDisease_YearRecoveries As Integer Implements InterDisease.YearRecoveries
-        Get
-            Throw New NotImplementedException()
-        End Get
-    End Property
-
-    Private ReadOnly Property InterDisease_YearDeaths As Integer Implements InterDisease.YearDeaths
-        Get
-            Throw New NotImplementedException()
-        End Get
-    End Property
-
     Public Overrides Function Display() As String
         'Return the year number, and the value of the base classes display
         Dim dis As String = "Year: " & _NumYears & Environment.NewLine & MyBase.Display
