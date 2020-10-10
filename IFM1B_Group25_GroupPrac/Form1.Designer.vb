@@ -46,10 +46,10 @@ Partial Class Form1
         Me.lblDeathsTB = New System.Windows.Forms.Label()
         Me.lblRecTB = New System.Windows.Forms.Label()
         Me.lblDOTS = New System.Windows.Forms.Label()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.txtDOTS = New System.Windows.Forms.TextBox()
+        Me.txtRecTB = New System.Windows.Forms.TextBox()
+        Me.txtDeathsTB = New System.Windows.Forms.TextBox()
+        Me.txtCasesTB = New System.Windows.Forms.TextBox()
         Me.pnlMalaria = New System.Windows.Forms.Panel()
         Me.lblPerm = New System.Windows.Forms.Label()
         Me.cbxPerm = New System.Windows.Forms.CheckBox()
@@ -210,15 +210,6 @@ Partial Class Form1
         Me.cbxCondoms.TabIndex = 12
         Me.cbxCondoms.UseVisualStyleBackColor = True
         '
-        'cbxCondoms
-        '
-        Me.cbxCondoms.AutoSize = True
-        Me.cbxCondoms.Location = New System.Drawing.Point(172, 204)
-        Me.cbxCondoms.Name = "cbxCondoms"
-        Me.cbxCondoms.Size = New System.Drawing.Size(15, 14)
-        Me.cbxCondoms.TabIndex = 12
-        Me.cbxCondoms.UseVisualStyleBackColor = True
-        '
         'txtHIVYearCases
         '
         Me.txtHIVYearCases.Location = New System.Drawing.Point(135, 25)
@@ -263,10 +254,10 @@ Partial Class Form1
         Me.pnlTB.Controls.Add(Me.lblDeathsTB)
         Me.pnlTB.Controls.Add(Me.lblRecTB)
         Me.pnlTB.Controls.Add(Me.lblDOTS)
-        Me.pnlTB.Controls.Add(Me.TextBox10)
-        Me.pnlTB.Controls.Add(Me.TextBox9)
-        Me.pnlTB.Controls.Add(Me.TextBox8)
-        Me.pnlTB.Controls.Add(Me.TextBox7)
+        Me.pnlTB.Controls.Add(Me.txtDOTS)
+        Me.pnlTB.Controls.Add(Me.txtRecTB)
+        Me.pnlTB.Controls.Add(Me.txtDeathsTB)
+        Me.pnlTB.Controls.Add(Me.txtCasesTB)
         Me.pnlTB.Location = New System.Drawing.Point(358, 497)
         Me.pnlTB.Name = "pnlTB"
         Me.pnlTB.Size = New System.Drawing.Size(200, 263)
@@ -309,33 +300,33 @@ Partial Class Form1
         Me.lblDOTS.TabIndex = 28
         Me.lblDOTS.Text = "People treated (DOTS):"
         '
-        'TextBox10
+        'txtDOTS
         '
-        Me.TextBox10.Location = New System.Drawing.Point(135, 177)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox10.TabIndex = 17
+        Me.txtDOTS.Location = New System.Drawing.Point(135, 177)
+        Me.txtDOTS.Name = "txtDOTS"
+        Me.txtDOTS.Size = New System.Drawing.Size(52, 20)
+        Me.txtDOTS.TabIndex = 17
         '
-        'TextBox9
+        'txtRecTB
         '
-        Me.TextBox9.Location = New System.Drawing.Point(135, 130)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox9.TabIndex = 16
+        Me.txtRecTB.Location = New System.Drawing.Point(135, 130)
+        Me.txtRecTB.Name = "txtRecTB"
+        Me.txtRecTB.Size = New System.Drawing.Size(52, 20)
+        Me.txtRecTB.TabIndex = 16
         '
-        'TextBox8
+        'txtDeathsTB
         '
-        Me.TextBox8.Location = New System.Drawing.Point(135, 79)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox8.TabIndex = 15
+        Me.txtDeathsTB.Location = New System.Drawing.Point(135, 79)
+        Me.txtDeathsTB.Name = "txtDeathsTB"
+        Me.txtDeathsTB.Size = New System.Drawing.Size(52, 20)
+        Me.txtDeathsTB.TabIndex = 15
         '
-        'TextBox7
+        'txtCasesTB
         '
-        Me.TextBox7.Location = New System.Drawing.Point(135, 23)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox7.TabIndex = 14
+        Me.txtCasesTB.Location = New System.Drawing.Point(135, 23)
+        Me.txtCasesTB.Name = "txtCasesTB"
+        Me.txtCasesTB.Size = New System.Drawing.Size(52, 20)
+        Me.txtCasesTB.TabIndex = 14
         '
         'pnlMalaria
         '
@@ -498,10 +489,10 @@ Partial Class Form1
     Friend WithEvents txtHIVYearDeaths As TextBox
     Friend WithEvents txtHIVYearRecoveries As TextBox
     Friend WithEvents txtNoART As TextBox
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents txtDOTS As TextBox
+    Friend WithEvents txtRecTB As TextBox
+    Friend WithEvents txtDeathsTB As TextBox
+    Friend WithEvents txtCasesTB As TextBox
     Friend WithEvents TextBox14 As TextBox
     Friend WithEvents txtNewDeathsMal As TextBox
     Friend WithEvents txtMalCases As TextBox
