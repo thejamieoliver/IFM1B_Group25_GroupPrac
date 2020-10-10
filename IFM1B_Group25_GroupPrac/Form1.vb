@@ -103,10 +103,10 @@ Public Class Form1
                 NumRecords += 1
                 ReDim Preserve Malaria(NumMalaria)
                 ReDim Preserve Disease(NumRecords)
-                Dim yearCases As Integer = CInt(txtCasesTB.Text())
-                Dim yeardeaths As Integer = CInt(txtDeathsTB.Text())
-                Dim yearrec As Integer = CInt(txtRecTB.Text())
-                Dim perm As Boolean = CBool(txtDOTS.Text())
+                Dim yearCases As Integer = CInt(txtMalCases.Text())
+                Dim yeardeaths As Integer = CInt(txtNewDeathsMal.Text())
+                Dim yearrec As Integer = CInt(txtMalRecoveries.Text())
+                Dim perm As Boolean = CBool(cbxPerm.Checked)
                 Dim tempPerm As cMalaria = New cMalaria(yearCases, yeardeaths, yearrec, Population, perm)
         End Select
         cbDiseases.SelectedIndex = -1
