@@ -21,9 +21,8 @@ Option Infer Off
     Private _Perm As Boolean 'Whether or not the region was sprayed with permethrin
     Private Shared _NumYears As Integer
     Private ReadOnly _Symptoms(7) As String 'A constant array of symptoms
-    Private _NumSymp As Integer
 
-    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, p As Boolean)
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, pop As Integer, p As Boolean)
         'Increase numyears by 1
         _NumYears += 1
         'Redim all arrays to numyears, preserving past data
@@ -31,13 +30,13 @@ Option Infer Off
         _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
         perm = p
+        MyBase.Population = pop
         _Symptoms(1) = "Fever" 'Give values to solutions array
         _Symptoms(2) = "Chills"
         _Symptoms(3) = "Headache"
         _Symptoms(4) = "Vomiting"
         _Symptoms(5) = "Fatigue"
         _Symptoms(6) = "Cough"
-        _NumSymp = _Symptoms.Length
     End Sub
 
     Public Property perm As Boolean

@@ -19,7 +19,7 @@ Option Infer Off
     Private Shared _NumYears As Integer
     Private _NoDOTs As Integer 'People able to be treated
     Private ReadOnly _Symptoms(6) As String 'Array of Symptoms
-    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, noDOTs As Integer)
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, pop As Integer, noDOTs As Integer)
         'Increase numyears by 1
         _NumYears += 1
         'redim all arrays to numyears, preserving past data
@@ -27,6 +27,7 @@ Option Infer Off
         _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
         _NoDOTs = MyBase.validInt(noDOTs) 'Set the current index of this classes NoDots to the value passed to the constructor
+        MyBase.Population = pop
         _Symptoms(1) = "Coughing Blood" 'Give values to the symptoms array
         _Symptoms(2) = "Chills"
         _Symptoms(3) = "No Appetite"

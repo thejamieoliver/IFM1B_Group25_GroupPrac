@@ -93,7 +93,7 @@ Public Class Form1
                 noART = CInt(txtNoART.Text)
                 bCondoms = cbxCondoms.Checked
                 'Assign an HIV object to tempHIV, increase total records, and HIV records
-                TempHIV = New cHIV(HIVYearCases, HIVYearDeaths, noART, bCondoms)
+                TempHIV = New cHIV(HIVYearCases, HIVYearDeaths, Population, noART, bCondoms)
                 NumHIV += 1
                 NumRecords += 1
                 'Redim and preserve the arrays, insert object into HIV array
@@ -113,7 +113,7 @@ Public Class Form1
                 Dim yearrec As Integer = CInt(txtRecTB.Text())
                 Dim noDots As Integer = CInt(txtDOTS.Text())
                 'Create new TB object passing the user enterd values
-                Dim tempTB As cTB = New cTB(yearCases, yeardeaths, yearrec, noDots)
+                Dim tempTB As cTB = New cTB(yearCases, yeardeaths, yearrec, Population, noDots)
                 'Insert object into TB array
                 TB(NumTB) = tempTB
             Case enumDisease.Malaria
@@ -128,7 +128,7 @@ Public Class Form1
                 Dim yearrec As Integer = CInt(txtMalRecoveries.Text())
                 Dim perm As Boolean = CBool(cbxPerm.Checked)
                 'create new local variable of malaria type, passing the user entered values
-                Dim tempMal As cMalaria = New cMalaria(yearCases, yeardeaths, yearrec, perm)
+                Dim tempMal As cMalaria = New cMalaria(yearCases, yeardeaths, yearrec, Population, perm)
                 Malaria(NumMalaria) = tempMal
         End Select
         'set the index of cDiseases to -1, and disable the record button
@@ -271,11 +271,11 @@ Public Class Form1
         Dim tempMalaria As cMalaria
         Dim iCheck As Integer = 0
         'Create a new variable of each disease type, passing arbitrary objects
-        tempHIV = New cHIV(1, 1, 1, False) 'I couldnt think of another way to do this at the time, this means we cant use population as a shared variable in the base class because this will change it(Maybe we can but then subtract the pop value?)
+        tempHIV = New cHIV(1, 1, 1, 1, False) 'I couldnt think of another way to do this at the time, this means we cant use population as a shared variable in the base class because this will change it(Maybe we can but then subtract the pop value?)
         tempHIV.Removeoneyear() 'Check cMalaria for more info on Removeoneyear
-        tempTB = New cTB(1, 1, 1, 1)
+        tempTB = New cTB(1, 1, 1, 1, 1)
         tempTB.Removeoneyear()
-        tempMalaria = New cMalaria(1, 1, 1, False)
+        tempMalaria = New cMalaria(1, 1, 1, 1, False)
         tempMalaria.Removeoneyear()
         'Check the symptoms of the instantiation against the user selected symptom
         If tempTB.CollectSymptoms(sSymptom) = True Then ' if the symptoms match the TB object
