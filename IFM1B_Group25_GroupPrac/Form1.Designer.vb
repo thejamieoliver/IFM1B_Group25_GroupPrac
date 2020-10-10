@@ -56,7 +56,7 @@ Partial Class Form1
         Me.lblMalRec = New System.Windows.Forms.Label()
         Me.lblDeaths = New System.Windows.Forms.Label()
         Me.lblCases = New System.Windows.Forms.Label()
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.txtMalRecoveries = New System.Windows.Forms.TextBox()
         Me.txtNewDeathsMal = New System.Windows.Forms.TextBox()
         Me.txtMalCases = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
@@ -335,7 +335,7 @@ Partial Class Form1
         Me.pnlMalaria.Controls.Add(Me.lblMalRec)
         Me.pnlMalaria.Controls.Add(Me.lblDeaths)
         Me.pnlMalaria.Controls.Add(Me.lblCases)
-        Me.pnlMalaria.Controls.Add(Me.TextBox14)
+        Me.pnlMalaria.Controls.Add(Me.txtMalRecoveries)
         Me.pnlMalaria.Controls.Add(Me.txtNewDeathsMal)
         Me.pnlMalaria.Controls.Add(Me.txtMalCases)
         Me.pnlMalaria.Location = New System.Drawing.Point(65, 470)
@@ -389,12 +389,12 @@ Partial Class Form1
         Me.lblCases.TabIndex = 22
         Me.lblCases.Text = "New Cases:"
         '
-        'TextBox14
+        'txtMalRecoveries
         '
-        Me.TextBox14.Location = New System.Drawing.Point(135, 130)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox14.TabIndex = 20
+        Me.txtMalRecoveries.Location = New System.Drawing.Point(135, 130)
+        Me.txtMalRecoveries.Name = "txtMalRecoveries"
+        Me.txtMalRecoveries.Size = New System.Drawing.Size(52, 20)
+        Me.txtMalRecoveries.TabIndex = 20
         '
         'txtNewDeathsMal
         '
