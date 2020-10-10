@@ -36,7 +36,6 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbxCondoms = New System.Windows.Forms.CheckBox()
-        Me.cbxCondoms = New System.Windows.Forms.CheckBox()
         Me.txtHIVYearCases = New System.Windows.Forms.TextBox()
         Me.txtHIVYearDeaths = New System.Windows.Forms.TextBox()
         Me.txtHIVYearRecoveries = New System.Windows.Forms.TextBox()
