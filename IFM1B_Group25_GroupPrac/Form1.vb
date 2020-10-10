@@ -216,7 +216,7 @@ Public Class Form1
             sDisplay(iCheck) = "Malaria"
         End If
         For i As Integer = 1 To iCheck
-            txtOutputSymptom.Text = sDisplay(i)
+            txtOutputSymptom.Text += sDisplay(i) & vbNewLine
         Next
     End Sub
 End Class
