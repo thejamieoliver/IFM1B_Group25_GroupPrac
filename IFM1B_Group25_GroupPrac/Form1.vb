@@ -80,7 +80,7 @@ Public Class Form1
                 HIVYearRecoveries = CInt(txtHIVYearRecoveries.Text)
                 noART = CInt(txtNoART.Text)
                 bCondoms = cbxCondoms.Checked
-                TempHIV = New cHIV(HIVYearCases, HIVYearDeaths, HIVYearRecoveries, Population, noART, bCondoms)
+                TempHIV = New cHIV(HIVYearCases, HIVYearDeaths, Population, noART, bCondoms)
                 NumHIV += 1
                 NumRecords += 1
                 ReDim Preserve HIV(NumHIV)

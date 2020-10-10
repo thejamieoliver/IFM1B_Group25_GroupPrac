@@ -33,7 +33,6 @@ Partial Class Form1
         Me.txtHIVYearDeaths = New System.Windows.Forms.TextBox()
         Me.txtHIVYearRecoveries = New System.Windows.Forms.TextBox()
         Me.txtNoART = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.btnRecordInfo = New System.Windows.Forms.Button()
         Me.pnlTB = New System.Windows.Forms.Panel()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
@@ -47,9 +46,10 @@ Partial Class Form1
         Me.TextBox13 = New System.Windows.Forms.TextBox()
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
-        Me.cbSymptoms = New System.Windows.Forms.ComboBox()
-        Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtOutputSymptom = New System.Windows.Forms.TextBox()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.cbSymptoms = New System.Windows.Forms.ComboBox()
+        Me.cbxCondoms = New System.Windows.Forms.CheckBox()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -117,11 +117,11 @@ Partial Class Form1
         '
         'pnlHIV
         '
+        Me.pnlHIV.Controls.Add(Me.cbxCondoms)
         Me.pnlHIV.Controls.Add(Me.txtHIVYearCases)
         Me.pnlHIV.Controls.Add(Me.txtHIVYearDeaths)
         Me.pnlHIV.Controls.Add(Me.txtHIVYearRecoveries)
         Me.pnlHIV.Controls.Add(Me.txtNoART)
-        Me.pnlHIV.Controls.Add(Me.TextBox5)
         Me.pnlHIV.Location = New System.Drawing.Point(65, 57)
         Me.pnlHIV.Name = "pnlHIV"
         Me.pnlHIV.Size = New System.Drawing.Size(200, 315)
@@ -155,13 +155,6 @@ Partial Class Form1
         Me.txtNoART.Name = "txtNoART"
         Me.txtNoART.Size = New System.Drawing.Size(52, 20)
         Me.txtNoART.TabIndex = 11
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(135, 212)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox5.TabIndex = 12
         '
         'btnRecordInfo
         '
@@ -271,15 +264,13 @@ Partial Class Form1
         Me.pnlPatient.TabIndex = 3
         Me.pnlPatient.Visible = False
         '
-        'cbSymptoms
+        'txtOutputSymptom
         '
-        Me.cbSymptoms.FormattingEnabled = True
-        Me.cbSymptoms.Items.AddRange(New Object() {"Chronic Diarrhoea", "Night Sweats", "Fever", "Rashes", "Chills", "Sore throat", "Swollen Lymph Nodes", "Ulcers", "Headache", "Vomiting", "Fatigue", "Cough", "Coughing Blood", "Chills", "No Appetite", "Chest pain", "Weight Loss"})
-        Me.cbSymptoms.Location = New System.Drawing.Point(43, 30)
-        Me.cbSymptoms.Name = "cbSymptoms"
-        Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
-        Me.cbSymptoms.TabIndex = 0
-        Me.cbSymptoms.Text = "Please Select Value"
+        Me.txtOutputSymptom.Location = New System.Drawing.Point(170, 30)
+        Me.txtOutputSymptom.Multiline = True
+        Me.txtOutputSymptom.Name = "txtOutputSymptom"
+        Me.txtOutputSymptom.Size = New System.Drawing.Size(157, 182)
+        Me.txtOutputSymptom.TabIndex = 2
         '
         'btnSearch
         '
@@ -290,13 +281,24 @@ Partial Class Form1
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
-        'txtOutputSymptom
+        'cbSymptoms
         '
-        Me.txtOutputSymptom.Location = New System.Drawing.Point(170, 30)
-        Me.txtOutputSymptom.Multiline = True
-        Me.txtOutputSymptom.Name = "txtOutputSymptom"
-        Me.txtOutputSymptom.Size = New System.Drawing.Size(157, 182)
-        Me.txtOutputSymptom.TabIndex = 2
+        Me.cbSymptoms.FormattingEnabled = True
+        Me.cbSymptoms.Items.AddRange(New Object() {"Chronic Diarrhoea", "Night Sweats", "Fever", "Rashes", "Chills", "Sore throat", "Swollen Lymph Nodes", "Ulcers", "Headache", "Vomiting", "Fatigue", "Cough", "Coughing Blood", "Chills", "No Appetite", "Chest pain", "Weight Loss"})
+        Me.cbSymptoms.Location = New System.Drawing.Point(43, 30)
+        Me.cbSymptoms.Name = "cbSymptoms"
+        Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
+        Me.cbSymptoms.TabIndex = 0
+        Me.cbSymptoms.Text = "Please Select Value"
+        '
+        'cbxCondoms
+        '
+        Me.cbxCondoms.AutoSize = True
+        Me.cbxCondoms.Location = New System.Drawing.Point(172, 204)
+        Me.cbxCondoms.Name = "cbxCondoms"
+        Me.cbxCondoms.Size = New System.Drawing.Size(15, 14)
+        Me.cbxCondoms.TabIndex = 12
+        Me.cbxCondoms.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -339,7 +341,6 @@ Partial Class Form1
     Friend WithEvents txtHIVYearDeaths As TextBox
     Friend WithEvents txtHIVYearRecoveries As TextBox
     Friend WithEvents txtNoART As TextBox
-    Friend WithEvents TextBox5 As TextBox
     Friend WithEvents TextBox11 As TextBox
     Friend WithEvents TextBox10 As TextBox
     Friend WithEvents TextBox9 As TextBox
@@ -353,4 +354,5 @@ Partial Class Form1
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtOutputSymptom As TextBox
+    Friend WithEvents cbxCondoms As CheckBox
 End Class
