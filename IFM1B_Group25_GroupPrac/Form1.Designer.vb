@@ -49,6 +49,7 @@ Partial Class Form1
         Me.txtDeathsTB = New System.Windows.Forms.TextBox()
         Me.txtCasesTB = New System.Windows.Forms.TextBox()
         Me.pnlMalaria = New System.Windows.Forms.Panel()
+        Me.txtMalRecoveries = New System.Windows.Forms.TextBox()
         Me.lblPerm = New System.Windows.Forms.Label()
         Me.cbxPerm = New System.Windows.Forms.CheckBox()
         Me.lblMalRec = New System.Windows.Forms.Label()
@@ -57,11 +58,12 @@ Partial Class Form1
         Me.txtNewDeathsMal = New System.Windows.Forms.TextBox()
         Me.txtMalCases = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.txtOutputSymptom = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
-        Me.txtMalRecoveries = New System.Windows.Forms.TextBox()
-        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnBackAd = New System.Windows.Forms.Button()
+        Me.btnBackP = New System.Windows.Forms.Button()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -89,6 +91,7 @@ Partial Class Form1
         '
         'pnlDoctor
         '
+        Me.pnlDoctor.Controls.Add(Me.btnBackAd)
         Me.pnlDoctor.Controls.Add(Me.btnUpdatePop)
         Me.pnlDoctor.Controls.Add(Me.TextBox1)
         Me.pnlDoctor.Controls.Add(Me.btnSave)
@@ -325,6 +328,13 @@ Partial Class Form1
         Me.pnlMalaria.TabIndex = 6
         Me.pnlMalaria.Visible = False
         '
+        'txtMalRecoveries
+        '
+        Me.txtMalRecoveries.Location = New System.Drawing.Point(135, 102)
+        Me.txtMalRecoveries.Name = "txtMalRecoveries"
+        Me.txtMalRecoveries.Size = New System.Drawing.Size(52, 20)
+        Me.txtMalRecoveries.TabIndex = 7
+        '
         'lblPerm
         '
         Me.lblPerm.AutoSize = True
@@ -386,15 +396,25 @@ Partial Class Form1
         '
         'pnlPatient
         '
+        Me.pnlPatient.Controls.Add(Me.btnBackP)
         Me.pnlPatient.Controls.Add(Me.btnClear)
         Me.pnlPatient.Controls.Add(Me.txtOutputSymptom)
         Me.pnlPatient.Controls.Add(Me.btnSearch)
         Me.pnlPatient.Controls.Add(Me.cbSymptoms)
-        Me.pnlPatient.Location = New System.Drawing.Point(643, 497)
+        Me.pnlPatient.Location = New System.Drawing.Point(41, 258)
         Me.pnlPatient.Name = "pnlPatient"
         Me.pnlPatient.Size = New System.Drawing.Size(799, 449)
         Me.pnlPatient.TabIndex = 3
         Me.pnlPatient.Visible = False
+        '
+        'btnClear
+        '
+        Me.btnClear.Location = New System.Drawing.Point(43, 189)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(75, 23)
+        Me.btnClear.TabIndex = 3
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'txtOutputSymptom
         '
@@ -423,21 +443,23 @@ Partial Class Form1
         Me.cbSymptoms.TabIndex = 0
         Me.cbSymptoms.Text = "Please Select Value"
         '
-        'txtMalRecoveries
+        'btnBackAd
         '
-        Me.txtMalRecoveries.Location = New System.Drawing.Point(135, 102)
-        Me.txtMalRecoveries.Name = "txtMalRecoveries"
-        Me.txtMalRecoveries.Size = New System.Drawing.Size(52, 20)
-        Me.txtMalRecoveries.TabIndex = 7
+        Me.btnBackAd.Location = New System.Drawing.Point(653, 408)
+        Me.btnBackAd.Name = "btnBackAd"
+        Me.btnBackAd.Size = New System.Drawing.Size(75, 23)
+        Me.btnBackAd.TabIndex = 9
+        Me.btnBackAd.Text = "Back"
+        Me.btnBackAd.UseVisualStyleBackColor = True
         '
-        'btnClear
+        'btnBackP
         '
-        Me.btnClear.Location = New System.Drawing.Point(43, 189)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(75, 23)
-        Me.btnClear.TabIndex = 3
-        Me.btnClear.Text = "Clear"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.btnBackP.Location = New System.Drawing.Point(686, 390)
+        Me.btnBackP.Name = "btnBackP"
+        Me.btnBackP.Size = New System.Drawing.Size(75, 23)
+        Me.btnBackP.TabIndex = 4
+        Me.btnBackP.Text = "Back"
+        Me.btnBackP.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -507,4 +529,6 @@ Partial Class Form1
     Friend WithEvents lblRecTB As Label
     Friend WithEvents txtMalRecoveries As TextBox
     Friend WithEvents btnClear As Button
+    Friend WithEvents btnBackAd As Button
+    Friend WithEvents btnBackP As Button
 End Class

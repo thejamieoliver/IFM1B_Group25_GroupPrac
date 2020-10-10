@@ -253,4 +253,12 @@ Public Class Form1
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtOutputSymptom.Text = ""
     End Sub
+
+    Private Sub btnBackAd_Click(sender As Object, e As EventArgs) Handles btnBackAd.Click
+        pnlDoctor.Visible = False
+    End Sub
+
+    Private Sub btnBackP_Click(sender As Object, e As EventArgs) Handles btnBackP.Click
+        pnlPatient.Visible = False
+    End Sub
 End Class
