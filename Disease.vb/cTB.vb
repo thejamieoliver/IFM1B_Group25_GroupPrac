@@ -17,16 +17,16 @@ Option Infer Off
     Private _YearRecoveries As Integer
     Private _YearDeaths As Integer
     Private Shared _NumYears As Integer
-    Private _NoDots As Integer 'People unable to be treated
+    Private _NoDOTs As Integer 'People unable to be treated
     Private ReadOnly _Symptoms(6) As String 'Array of Symptoms
-    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noDOts As Integer)
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noDOTs As Integer)
         'Increase numyears by 1
         _NumYears += 1
         'redim all arrays to numyears, preserving past data
         _YearDeaths = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
         _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
-        _NoDots = MyBase.validInt(noDOts) 'Set the current index of this classes NoDots to the value passed to the constructor
+        _NoDOTs = MyBase.validInt(noDOTs) 'Set the current index of this classes NoDots to the value passed to the constructor
         MyBase.Population = Population
         _Symptoms(1) = "Coughing Blood" 'Give values to the symptoms array
         _Symptoms(2) = "Chills"
@@ -43,16 +43,16 @@ Option Infer Off
     Public Property NoDOTS() As Integer
         Get
             'Return _NoDots at the index
-            Return _NoDots
+            Return _NoDOTs
         End Get
         Set(value As Integer)
             'Check that the passed value is not negative, or gretaer than the given cases
             If value < 0 Then
-                _NoDots = 0
+                _NoDOTs = 0
             ElseIf value > _YearNewCases Then
-                _NoDots = _YearNewCases
+                _NoDOTs = _YearNewCases
             Else
-                _NoDots = value
+                _NoDOTs = value
             End If
         End Set
     End Property
@@ -82,7 +82,7 @@ Option Infer Off
         dis &= "Cases: " & _YearNewCases & Environment.NewLine _
         & "Recoveries: " & _YearRecoveries & Environment.NewLine _
         & "Deaths: " & _YearDeaths & Environment.NewLine _
-        & "Untreated: " & _NoDots & Environment.NewLine
+        & "Untreated: " & _NoDOTs & Environment.NewLine
         Return dis
     End Function
     Public Sub Removeoneyear()

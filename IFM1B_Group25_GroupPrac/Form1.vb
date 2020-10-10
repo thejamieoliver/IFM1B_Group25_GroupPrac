@@ -46,6 +46,7 @@ Public Class Form1
         pnlPatient.Visible = True
     End Sub
     Private Sub cbDiseases_IndexChange(sender As Object, e As EventArgs) Handles cbDiseases.SelectedIndexChanged
+        btnRecordInfo.Enabled = True
         Select Case cbDiseases.SelectedIndex
             Case enumDisease.HIV
                 pnlHIV.Visible = True
@@ -99,6 +100,7 @@ Public Class Form1
                 ReDim Preserve Disease(NumRecords)
         End Select
         cbDiseases.SelectedIndex = -1
+        btnRecordInfo.Enabled = False
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -219,5 +221,9 @@ Public Class Form1
         For i As Integer = 1 To iCheck
             txtOutputSymptom.Text += sDisplay(i) & vbNewLine
         Next
+    End Sub
+
+    Private Sub btnUpdatePop_Click(sender As Object, e As EventArgs) Handles btnUpdatePop.Click
+        Population = CInt(InputBox("Enter the new population for the current year.", "Update Population"))
     End Sub
 End Class
