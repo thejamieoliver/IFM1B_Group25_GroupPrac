@@ -35,13 +35,12 @@ Public Class Form1
     Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
         If InputBox("Enter the password", "Login") = PASSWORD Then
             pnlDoctor.Visible = True
-            LoadFromFile()
+
         Else
             MessageBox.Show("Incorrect Password!", "Error")
         End If
     End Sub
     Private Sub btnPatient_Click(sender As Object, e As EventArgs) Handles btnPatient.Click
-        LoadFromFile()
         'This doesnt go on the button
         pnlPatient.Visible = True
     End Sub
@@ -119,6 +118,7 @@ Public Class Form1
         pnlMalaria.Top = pnlHIV.Top
         btnRecordInfo.Parent = pnlDoctor
         isLoaded = False
+        LoadFromFile()
     End Sub
     Private Sub SaveToFile()
         Dim FS As FileStream
@@ -129,13 +129,13 @@ Public Class Form1
         FS = New FileStream(FNAME, FileMode.OpenOrCreate, FileAccess.Write)
         BF = New BinaryFormatter()
         For i As Integer = 1 To NumRecords
-            For HIVIndex = 1 To Len(HIV)
+            For HIVIndex = 1 To NumHIV
                 Disease(i) = HIV(HIVIndex)
             Next
-            For TBIndex = 1 To Len(TB)
+            For TBIndex = 1 To NumTB
                 Disease(i) = TB(TBIndex)
             Next
-            For MalariaIndex = 1 To Len(Malaria)
+            For MalariaIndex = 1 To NumMalaria
                 Disease(i) = TB(TBIndex)
             Next
             BF.Serialize(FS, Disease(i))
@@ -151,6 +151,7 @@ Public Class Form1
             NumMalaria = 0
             FS = New FileStream(FNAME, FileMode.OpenOrCreate, FileAccess.Read)
             BF = New BinaryFormatter()
+            FS.Position = 0
             While FS.Position < FS.Length
                 'Downcasting code
                 Dim tempHIV As cHIV
