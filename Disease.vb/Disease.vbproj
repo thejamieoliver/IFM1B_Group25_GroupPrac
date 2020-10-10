@@ -68,6 +68,7 @@
     <Compile Include="cHIV.vb" />
     <Compile Include="cMalaria.vb" />
     <Compile Include="cTB.vb" />
+    <Compile Include="InterDisease.vb" />
     <Compile Include="ExtractInfo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
