@@ -27,7 +27,6 @@ Public Class Form1
     Private isLoaded As Boolean
     Private isPopRecorded As Boolean
     Private Population As Integer
-    Private RecordedYears() As Integer
     Private Enum enumDisease As Integer
         HIV
         TB
@@ -43,6 +42,7 @@ Public Class Form1
         End If
     End Sub
     Private Sub btnPatient_Click(sender As Object, e As EventArgs) Handles btnPatient.Click
+        LoadFromFile()
         'This doesnt go on the button
         pnlPatient.Visible = True
         'I cant see the stuff on the form, so ive put the code here for the button (everything from here to Next i)
@@ -109,9 +109,6 @@ Public Class Form1
         End Select
     End Sub
     Private Sub btnRecordInfo_Click(sender As Object, e As EventArgs) Handles btnRecordInfo.Click
-        Dim Year As Integer
-        Year = CInt(InputBox("Enter the year for which you wish to enter statistics for."))
-        IsRecorded(Year)
         Select Case cbDiseases.SelectedIndex
             Case enumDisease.HIV
                 Dim TempHIV As cHIV
@@ -211,10 +208,6 @@ Public Class Form1
             FS.Close()
             isLoaded = True
         End If
-    End Sub
-
-    Private Sub IsRecorded(Year As Integer)
-
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
