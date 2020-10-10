@@ -169,9 +169,18 @@ Public Class Form1
                 Dim tempHIV As cHIV
                 Dim tempTB As cTB
                 Dim tempMalaria As cMalaria
-                tempHIV = TryCast(BF.Deserialize(FS), cHIV)
-                tempTB = TryCast(BF.Deserialize(FS), cTB)
-                tempMalaria = TryCast(BF.Deserialize(FS), cMalaria)
+                Try
+                    tempHIV = TryCast(BF.Deserialize(FS), cHIV)
+                Catch
+                    Try
+                        tempTB = TryCast(BF.Deserialize(FS), cTB)
+                    Catch
+                        Try
+                            tempMalaria = TryCast(BF.Deserialize(FS), cMalaria)
+                        Catch
+                        End Try
+                    End Try
+                End Try
                 If Not (tempHIV Is Nothing) Then
                     NumHIV += 1
                     NumRecords += 1
@@ -188,6 +197,7 @@ Public Class Form1
                     ReDim Preserve Malaria(NumMalaria)
                     Malaria(NumMalaria) = tempMalaria
                 End If
+
             End While
             FS.Close()
             isLoaded = True
