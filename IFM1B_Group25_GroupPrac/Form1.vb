@@ -201,7 +201,7 @@ Public Class Form1
         tempHIV.Removeoneyear() 'Check cMalaria for more info on Removeoneyear
         tempTB = New cTB(1, 1, 1, 1, 1)
         tempTB.Removeoneyear()
-        tempMalaria = New cMalaria(1, 1, 1, 1)
+        tempMalaria = New cMalaria(1, 1, 1, 1, False)
         tempMalaria.Removeoneyear()
         If tempTB.CollectSymptoms(sSymptom) = True Then
             iCheck += 1
