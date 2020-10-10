@@ -27,12 +27,10 @@ Public Class Form1
     Private isLoaded As Boolean
     Private isPopRecorded As Boolean
     Private Population As Integer
-    Private RecordedYears() As Integer
     Private Enum enumDisease As Integer
         HIV
         TB
         Malaria
-        New_Disease
     End Enum
     Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
         If InputBox("Enter the password", "Login") = PASSWORD Then
@@ -43,6 +41,7 @@ Public Class Form1
         End If
     End Sub
     Private Sub btnPatient_Click(sender As Object, e As EventArgs) Handles btnPatient.Click
+        LoadFromFile()
         'This doesnt go on the button
         pnlPatient.Visible = True
     End Sub
@@ -60,8 +59,6 @@ Public Class Form1
                 pnlHIV.Visible = False
                 pnlTB.Visible = False
                 pnlMalaria.Visible = True
-            Case enumDisease.New_Disease
-
             Case -1
                 pnlHIV.Visible = False
                 pnlTB.Visible = False
@@ -70,9 +67,6 @@ Public Class Form1
         End Select
     End Sub
     Private Sub btnRecordInfo_Click(sender As Object, e As EventArgs) Handles btnRecordInfo.Click
-        Dim Year As Integer
-        Year = CInt(InputBox("Enter the year for which you wish to enter statistics for."))
-        IsRecorded(Year)
         Select Case cbDiseases.SelectedIndex
             Case enumDisease.HIV
                 Dim TempHIV As cHIV
@@ -80,20 +74,29 @@ Public Class Form1
                 Dim HIVYearDeaths As Integer
                 Dim HIVYearRecoveries As Integer
                 Dim noART As Integer
-                'Dim bCondoms As Boolean
+                Dim bCondoms As Boolean
                 HIVYearCases = CInt(txtHIVYearCases.Text)
                 HIVYearDeaths = CInt(txtHIVYearDeaths.Text)
                 HIVYearRecoveries = CInt(txtHIVYearRecoveries.Text)
                 noART = CInt(txtNoART.Text)
-                Population = 7800000
-                TempHIV = New cHIV(HIVYearCases, HIVYearDeaths, HIVYearRecoveries, Population, noART, True)
+                bCondoms = cbxCondoms.Checked
+                TempHIV = New cHIV(HIVYearCases, HIVYearDeaths, HIVYearRecoveries, Population, noART, bCondoms)
                 NumHIV += 1
+                NumRecords += 1
                 ReDim Preserve HIV(NumHIV)
+                ReDim Preserve Disease(NumRecords)
                 HIV(NumHIV) = TempHIV
+
             Case enumDisease.TB
-
+                NumTB += 1
+                NumRecords += 1
+                ReDim Preserve TB(NumTB)
+                ReDim Preserve Disease(NumRecords)
             Case enumDisease.Malaria
-
+                NumMalaria += 1
+                NumRecords += 1
+                ReDim Preserve Malaria(NumMalaria)
+                ReDim Preserve Disease(NumRecords)
         End Select
         cbDiseases.SelectedIndex = -1
     End Sub
@@ -174,10 +177,6 @@ Public Class Form1
             FS.Close()
             isLoaded = True
         End If
-    End Sub
-
-    Private Sub IsRecorded(Year As Integer)
-
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
