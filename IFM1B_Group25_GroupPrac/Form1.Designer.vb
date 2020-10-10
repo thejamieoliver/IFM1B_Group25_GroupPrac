@@ -27,7 +27,7 @@ Partial Class Form1
         Me.pnlDoctor = New System.Windows.Forms.Panel()
         Me.btnBackAd = New System.Windows.Forms.Button()
         Me.btnUpdatePop = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtTB = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.cbDiseases = New System.Windows.Forms.ComboBox()
         Me.pnlHIV = New System.Windows.Forms.Panel()
@@ -64,6 +64,11 @@ Partial Class Form1
         Me.txtOutputSymptom = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
+        Me.txtHIV = New System.Windows.Forms.TextBox()
+        Me.txtMalaria = New System.Windows.Forms.TextBox()
+        Me.lblTB = New System.Windows.Forms.Label()
+        Me.lblHIV = New System.Windows.Forms.Label()
+        Me.lblMalaria = New System.Windows.Forms.Label()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -91,9 +96,14 @@ Partial Class Form1
         '
         'pnlDoctor
         '
+        Me.pnlDoctor.Controls.Add(Me.lblMalaria)
+        Me.pnlDoctor.Controls.Add(Me.lblHIV)
+        Me.pnlDoctor.Controls.Add(Me.lblTB)
+        Me.pnlDoctor.Controls.Add(Me.txtMalaria)
+        Me.pnlDoctor.Controls.Add(Me.txtHIV)
         Me.pnlDoctor.Controls.Add(Me.btnBackAd)
         Me.pnlDoctor.Controls.Add(Me.btnUpdatePop)
-        Me.pnlDoctor.Controls.Add(Me.TextBox1)
+        Me.pnlDoctor.Controls.Add(Me.txtTB)
         Me.pnlDoctor.Controls.Add(Me.btnSave)
         Me.pnlDoctor.Controls.Add(Me.cbDiseases)
         Me.pnlDoctor.Controls.Add(Me.pnlHIV)
@@ -122,13 +132,13 @@ Partial Class Form1
         Me.btnUpdatePop.Text = "Update Population"
         Me.btnUpdatePop.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtTB
         '
-        Me.TextBox1.Location = New System.Drawing.Point(343, 57)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(415, 315)
-        Me.TextBox1.TabIndex = 7
+        Me.txtTB.Location = New System.Drawing.Point(356, 57)
+        Me.txtTB.Multiline = True
+        Me.txtTB.Name = "txtTB"
+        Me.txtTB.Size = New System.Drawing.Size(402, 86)
+        Me.txtTB.TabIndex = 7
         '
         'btnSave
         '
@@ -461,6 +471,49 @@ Partial Class Form1
         Me.cbSymptoms.TabIndex = 0
         Me.cbSymptoms.Text = "Please Select Value"
         '
+        'txtHIV
+        '
+        Me.txtHIV.Location = New System.Drawing.Point(356, 170)
+        Me.txtHIV.Multiline = True
+        Me.txtHIV.Name = "txtHIV"
+        Me.txtHIV.Size = New System.Drawing.Size(402, 86)
+        Me.txtHIV.TabIndex = 10
+        '
+        'txtMalaria
+        '
+        Me.txtMalaria.Location = New System.Drawing.Point(356, 286)
+        Me.txtMalaria.Multiline = True
+        Me.txtMalaria.Name = "txtMalaria"
+        Me.txtMalaria.Size = New System.Drawing.Size(402, 86)
+        Me.txtMalaria.TabIndex = 11
+        '
+        'lblTB
+        '
+        Me.lblTB.AutoSize = True
+        Me.lblTB.Location = New System.Drawing.Point(353, 41)
+        Me.lblTB.Name = "lblTB"
+        Me.lblTB.Size = New System.Drawing.Size(21, 13)
+        Me.lblTB.TabIndex = 12
+        Me.lblTB.Text = "TB"
+        '
+        'lblHIV
+        '
+        Me.lblHIV.AutoSize = True
+        Me.lblHIV.Location = New System.Drawing.Point(353, 154)
+        Me.lblHIV.Name = "lblHIV"
+        Me.lblHIV.Size = New System.Drawing.Size(25, 13)
+        Me.lblHIV.TabIndex = 13
+        Me.lblHIV.Text = "HIV"
+        '
+        'lblMalaria
+        '
+        Me.lblMalaria.AutoSize = True
+        Me.lblMalaria.Location = New System.Drawing.Point(353, 270)
+        Me.lblMalaria.Name = "lblMalaria"
+        Me.lblMalaria.Size = New System.Drawing.Size(41, 13)
+        Me.lblMalaria.TabIndex = 14
+        Me.lblMalaria.Text = "Malaria"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -509,7 +562,7 @@ Partial Class Form1
     Friend WithEvents txtNewDeathsMal As TextBox
     Friend WithEvents txtMalCases As TextBox
     Friend WithEvents btnSave As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtTB As TextBox
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtOutputSymptom As TextBox
     Friend WithEvents cbxCondoms As CheckBox
@@ -531,4 +584,9 @@ Partial Class Form1
     Friend WithEvents btnClear As Button
     Friend WithEvents btnBackAd As Button
     Friend WithEvents btnBackP As Button
+    Friend WithEvents lblMalaria As Label
+    Friend WithEvents lblHIV As Label
+    Friend WithEvents lblTB As Label
+    Friend WithEvents txtMalaria As TextBox
+    Friend WithEvents txtHIV As TextBox
 End Class
