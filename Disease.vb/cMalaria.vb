@@ -82,7 +82,7 @@ Option Infer Off
         _NumYears -= 1
     End Sub
 
-    Public Function CollectSymptoms(value As String) As String 'Searches through
+    Public Function CollectSymptoms(value As String) As String 'Searches through 
         If _NumSymp > 0 Then
             If value = _Symptoms(_NumSymp) Then
                 Return _Symptoms(_NumSymp)
