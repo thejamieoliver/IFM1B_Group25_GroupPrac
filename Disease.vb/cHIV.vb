@@ -24,7 +24,7 @@ Option Infer Off
     Private ReadOnly _Symptoms(8) As String 'Array of Symptoms
     Private _NumSymp As Integer
 
-    Public Sub New(YearCases As Integer, YearDeaths As Integer, Population As Integer, noART As Integer, cond As Boolean)
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, pop As Integer, noART As Integer, cond As Boolean)
         'Increase numyears by 1
         _NumYears += 1
         'redim all arrays to numyears, preserving past data
@@ -33,7 +33,7 @@ Option Infer Off
         Cross = CrossTB() 'Set the current index of Cross to the value passed to the constructor (pass it through property method)
         NotArt(_NumYears) = noART 'Set the current index of NotArt to the value passed to the constructor after it has been validated
         _Condoms = cond 'Set the current index of Condoms to the value passed to the constructor 
-        MyBase.Population = Population
+        MyBase.Population = pop
         _Symptoms(1) = "Chronic Diarrhoea" 'Assign values to the symptoms array
         _Symptoms(2) = "Night Sweats"
         _Symptoms(3) = "Fever"
@@ -42,7 +42,6 @@ Option Infer Off
         _Symptoms(6) = "Sore throat"
         _Symptoms(7) = "Swollen Lymph Nodes"
         _Symptoms(8) = "Ulcers"
-        _NumSymp = _Symptoms.Length
     End Sub
     'Calculate and return no of people cross infected with TB
     Private Function CrossTB() As Integer
