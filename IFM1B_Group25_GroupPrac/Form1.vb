@@ -33,7 +33,7 @@ Public Class Form1
         Malaria
     End Enum
     Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
-        If InputBox("Enter the password", "Login") = PASSWORD Then
+        If InputBox("Enter the password" & Environment.NewLine & "Password is 123", "Login") = PASSWORD Then
             pnlDoctor.Visible = True
 
         Else
