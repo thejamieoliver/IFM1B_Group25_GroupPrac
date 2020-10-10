@@ -25,6 +25,7 @@ Partial Class Form1
         Me.btnAdmin = New System.Windows.Forms.Button()
         Me.btnPatient = New System.Windows.Forms.Button()
         Me.pnlDoctor = New System.Windows.Forms.Panel()
+        Me.btnBackAd = New System.Windows.Forms.Button()
         Me.btnUpdatePop = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
@@ -58,12 +59,11 @@ Partial Class Form1
         Me.txtNewDeathsMal = New System.Windows.Forms.TextBox()
         Me.txtMalCases = New System.Windows.Forms.TextBox()
         Me.pnlPatient = New System.Windows.Forms.Panel()
+        Me.btnBackP = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.txtOutputSymptom = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.cbSymptoms = New System.Windows.Forms.ComboBox()
-        Me.btnBackAd = New System.Windows.Forms.Button()
-        Me.btnBackP = New System.Windows.Forms.Button()
         Me.pnlDoctor.SuspendLayout()
         Me.pnlHIV.SuspendLayout()
         Me.pnlTB.SuspendLayout()
@@ -103,6 +103,15 @@ Partial Class Form1
         Me.pnlDoctor.Size = New System.Drawing.Size(799, 449)
         Me.pnlDoctor.TabIndex = 2
         Me.pnlDoctor.Visible = False
+        '
+        'btnBackAd
+        '
+        Me.btnBackAd.Location = New System.Drawing.Point(653, 408)
+        Me.btnBackAd.Name = "btnBackAd"
+        Me.btnBackAd.Size = New System.Drawing.Size(75, 23)
+        Me.btnBackAd.TabIndex = 9
+        Me.btnBackAd.Text = "Back"
+        Me.btnBackAd.UseVisualStyleBackColor = True
         '
         'btnUpdatePop
         '
@@ -401,11 +410,20 @@ Partial Class Form1
         Me.pnlPatient.Controls.Add(Me.txtOutputSymptom)
         Me.pnlPatient.Controls.Add(Me.btnSearch)
         Me.pnlPatient.Controls.Add(Me.cbSymptoms)
-        Me.pnlPatient.Location = New System.Drawing.Point(41, 258)
+        Me.pnlPatient.Location = New System.Drawing.Point(524, 513)
         Me.pnlPatient.Name = "pnlPatient"
         Me.pnlPatient.Size = New System.Drawing.Size(799, 449)
         Me.pnlPatient.TabIndex = 3
         Me.pnlPatient.Visible = False
+        '
+        'btnBackP
+        '
+        Me.btnBackP.Location = New System.Drawing.Point(686, 390)
+        Me.btnBackP.Name = "btnBackP"
+        Me.btnBackP.Size = New System.Drawing.Size(75, 23)
+        Me.btnBackP.TabIndex = 4
+        Me.btnBackP.Text = "Back"
+        Me.btnBackP.UseVisualStyleBackColor = True
         '
         'btnClear
         '
@@ -442,24 +460,6 @@ Partial Class Form1
         Me.cbSymptoms.Size = New System.Drawing.Size(121, 21)
         Me.cbSymptoms.TabIndex = 0
         Me.cbSymptoms.Text = "Please Select Value"
-        '
-        'btnBackAd
-        '
-        Me.btnBackAd.Location = New System.Drawing.Point(653, 408)
-        Me.btnBackAd.Name = "btnBackAd"
-        Me.btnBackAd.Size = New System.Drawing.Size(75, 23)
-        Me.btnBackAd.TabIndex = 9
-        Me.btnBackAd.Text = "Back"
-        Me.btnBackAd.UseVisualStyleBackColor = True
-        '
-        'btnBackP
-        '
-        Me.btnBackP.Location = New System.Drawing.Point(686, 390)
-        Me.btnBackP.Name = "btnBackP"
-        Me.btnBackP.Size = New System.Drawing.Size(75, 23)
-        Me.btnBackP.TabIndex = 4
-        Me.btnBackP.Text = "Back"
-        Me.btnBackP.UseVisualStyleBackColor = True
         '
         'Form1
         '
