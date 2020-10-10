@@ -21,6 +21,7 @@ Option Infer Off
     Private _Condoms As Boolean 'Whether or not Condoms were freely distributed that year
     Private Shared _NumYears As Integer 'Number of years of Observation
     Private ReadOnly _Symptoms(8) As String 'Array of Symptoms
+    Private _NumSymp As Integer
 
     Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noART As Integer, cond As Boolean)
         'Increase numyears by 1
@@ -41,6 +42,7 @@ Option Infer Off
         _Symptoms(6) = "Sore throat"
         _Symptoms(7) = "Swollen Lymph Nodes"
         _Symptoms(8) = "Ulcers"
+        _NumSymp = _Symptoms.Length
     End Sub
 
     'Calculate no of people cross infected with TB
@@ -107,4 +109,16 @@ Option Infer Off
     'Dim td As Integer
     'td = _TotalCases - (_Yearnewdeaths(_NumYears) + recoveries())
     'End Function
+    Public Sub Removeoneyear()
+        _NumYears -= 1
+    End Sub
+
+    Public Function CollectSymptoms(value As String) As String
+        If value = _Symptoms(_NumSymp) Then
+            Return _Symptoms(_NumSymp)
+        Else
+            Return "Null"
+        End If
+        _NumSymp -= 1
+    End Function
 End Class

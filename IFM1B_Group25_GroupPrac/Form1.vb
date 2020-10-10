@@ -43,7 +43,47 @@ Public Class Form1
         End If
     End Sub
     Private Sub btnPatient_Click(sender As Object, e As EventArgs) Handles btnPatient.Click
+        'This doesnt go on the button
         pnlPatient.Visible = True
+        'I cant see the stuff on the form, so ive put the code here for the button (everything from here to Next i)
+        Dim sSymptom, sDisplay() As String
+        'sSymptom is the value in the combobox
+        Dim tempHIV As cHIV
+        Dim tempTB As cTB
+        Dim tempMalaria As cMalaria
+        Dim iCheck As Integer = 0
+        tempHIV = New cHIV(1, 1, 1, 1, 1, False) 'I couldnt think of another way to do this at the time, this means we cant use population as a shared variable in the base class because this will change it(Maybe we can but then subtract the pop value?)
+        tempHIV.Removeoneyear() 'Check cMalaria for more info on Removeoneyear
+        For i As Integer = 1 To 8 'The highest number of symptoms in a variable
+            If tempHIV.CollectSymptoms(sSymptom) <> "Null" Then 'Check cMalaria for more info on Collectsymptoms
+                iCheck += 1
+                ReDim Preserve sDisplay(iCheck)
+                sDisplay(iCheck) = tempHIV.CollectSymptoms(sSymptom)
+            End If
+            tempTB = New cTB(1, 1, 1, 1, 1)
+            tempTB.Removeoneyear()
+            If tempTB.CollectSymptoms(sSymptom) <> "Null" Then
+                iCheck += 1
+                ReDim Preserve sDisplay(iCheck)
+                sDisplay(iCheck) = tempTB.CollectSymptoms(sSymptom)
+            End If
+            tempMalaria = New cMalaria(1, 1, 1, 1)
+            tempMalaria.Removeoneyear()
+            If tempMalaria.CollectSymptoms(sSymptom) <> "Null" Then
+                iCheck += 1
+                ReDim Preserve sDisplay(iCheck)
+                sDisplay(iCheck) = tempMalaria.CollectSymptoms(sSymptom)
+            End If
+        Next i
+        For i As Integer = 1 To iCheck 'I hope that this works, couldnt test it because i cant access the form
+            If sDisplay(i) = sDisplay(i + 1) Then
+                For z As Integer = (i + 1) To iCheck
+                    sDisplay(z) = sDisplay(z + 1)
+                    iCheck -= 1
+                Next z
+            End If
+        Next i
+        'Display from the array sDisplay
     End Sub
     Private Sub cbDiseases_IndexChange(sender As Object, e As EventArgs) Handles cbDiseases.SelectedIndexChanged
         Select Case cbDiseases.SelectedIndex
