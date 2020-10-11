@@ -21,48 +21,56 @@ Option Infer Off
 
     'Functions and Subroutines ***********************************************************************************************
 
-    Public Function CalcInfectionRate(TotalCases As Integer) As Double
+    Public Sub CalcInfectionRate(TotalCases As Integer)
+        'Return the total cases/population
         _InfectionRate = TotalCases / _Population
-        Return _InfectionRate
-    End Function
+    End Sub
 
-    Public Function CalcDeathRate(TotalDeaths As Integer) As Double
+    Public Sub CalcDeathRate(TotalDeaths As Integer)
+        'Return totaldeaths/population
         _DeathRate = TotalDeaths / _Population
-        Return _DeathRate
-    End Function
+    End Sub
 
-    Public Overridable Function CalcRecoverRate(TotalRecovers As Integer) As Double
+    Public Overridable Sub CalcRecoverRate(TotalRecovers As Integer)
+        'Return totalrecoveries/ population
         _RecoveryRate = TotalRecovers / _Population
-        Return _DeathRate
-    End Function
+    End Sub
 
     'Interface properties ****************************************************************************************************
 
     Public Property Population As Integer Implements ExtractInfo.Population
         Get
+            'Return poulation
             Return _Population
         End Get
         Set(value As Integer)
+            'set _poulation to the validation of value
             _Population = validInt(value)
         End Set
     End Property
 
     Public ReadOnly Property InfectionRate As Double Implements ExtractInfo.InfectionRate
         Get
+            'Return infectionrate
             Return _InfectionRate
         End Get
     End Property
 
     Public ReadOnly Property DeathRate As Double Implements ExtractInfo.DeathRate
         Get
+            'Return deathrate
             Return _DeathRate
         End Get
     End Property
 
-    Public ReadOnly Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
+    Public Property RecoveryRate As Double Implements ExtractInfo.RecoveryRate
         Get
+            'Return Recovery rate
             Return _RecoveryRate
         End Get
+        Set(value As Double)
+
+        End Set
     End Property
     '************************************************************************************************************************
 
@@ -79,9 +87,9 @@ Option Infer Off
 
     Public Overridable Function Display() As String
         'Return the recovery rate, the death rate, and infection rate
-        Return "Infection rate: " & RecoveryRate & Environment.NewLine _
-           & "Death rate: " & DeathRate & Environment.NewLine _
-           & "Recovery rate: " & RecoveryRate & Environment.NewLine
+        Return "Infection rate: " & Format(InfectionRate, "0.##") & Environment.NewLine _
+           & "Death rate: " & Format(DeathRate, "0.##") & Environment.NewLine _
+           & "Recovery rate: " & Format(RecoveryRate, "0.##") & Environment.NewLine
     End Function
     '************************************************************************************************************************
 

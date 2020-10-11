@@ -17,17 +17,19 @@ Option Infer Off
     Private _YearRecoveries As Integer
     Private _YearDeaths As Integer
     Private Shared _NumYears As Integer
-    Private _NoDots As Integer 'People unable to be treated
+    Private _NoDOTs As Integer 'People able to be treated
     Private ReadOnly _Symptoms(6) As String 'Array of Symptoms
-    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, Population As Integer, noDOts As Integer)
+    Private _current As Integer
+    Public Sub New(YearCases As Integer, YearDeaths As Integer, YearRecoveries As Integer, pop As Integer, noDOTs As Integer)
         'Increase numyears by 1
         _NumYears += 1
+        _current = _NumYears
         'redim all arrays to numyears, preserving past data
         _YearDeaths = MyBase.validInt(YearDeaths) 'Set the current index of YearDeaths to the value passed to the constructor
         _YearRecoveries = MyBase.validInt(YearRecoveries) 'Set the current index of YearRecoveries to the value passed to the constructor
         _YearNewCases = MyBase.validInt(YearCases) 'Set the current index of YearNewCases to the value passed to the constructor
-        _NoDots = MyBase.validInt(noDOts) 'Set the current index of this classes NoDots to the value passed to the constructor
-        MyBase.Population = Population
+        _NoDOTs = MyBase.validInt(noDOTs) 'Set the current index of this classes NoDots to the value passed to the constructor
+        MyBase.Population = pop
         _Symptoms(1) = "Coughing Blood" 'Give values to the symptoms array
         _Symptoms(2) = "Chills"
         _Symptoms(3) = "No Appetite"
@@ -37,55 +39,60 @@ Option Infer Off
     End Sub
 
     Public Sub ResetYears()
+        'Set _numyears to 0
         _NumYears = 0
     End Sub
 
     Public Property NoDOTS() As Integer
         Get
             'Return _NoDots at the index
-            Return _NoDots
+            Return _NoDOTs
         End Get
         Set(value As Integer)
             'Check that the passed value is not negative, or gretaer than the given cases
             If value < 0 Then
-                _NoDots = 0
+                _NoDOTs = 0
             ElseIf value > _YearNewCases Then
-                _NoDots = _YearNewCases
+                _NoDOTs = _YearNewCases
             Else
-                _NoDots = value
+                _NoDOTs = value
             End If
         End Set
     End Property
     ' Property methods From interDisease
     Public ReadOnly Property YearNewCases As Integer Implements InterDisease.YearNewCases
         Get
+            'Return _YearNewCases
             Return _YearNewCases
         End Get
     End Property
 
     Public ReadOnly Property YearRecoveries As Integer Implements InterDisease.YearRecoveries
         Get
+            ' Return _YearRecoveries
             Return _YearRecoveries
         End Get
     End Property
 
     Public ReadOnly Property YearDeaths As Integer Implements InterDisease.YearDeaths
         Get
+            'Return _YearDeaths
             Return _YearDeaths
         End Get
     End Property
 
     Public Overrides Function Display() As String
         'Return the year number, and the value of the base classes display
-        Dim dis As String = "Year: " & _NumYears & Environment.NewLine & MyBase.Display
+        Dim dis As String = "Year: " & _current & Environment.NewLine & MyBase.Display
         'Add the derived class unique variables
         dis &= "Cases: " & _YearNewCases & Environment.NewLine _
         & "Recoveries: " & _YearRecoveries & Environment.NewLine _
         & "Deaths: " & _YearDeaths & Environment.NewLine _
-        & "Untreated: " & _NoDots & Environment.NewLine
+        & "Treated: " & _NoDOTs & Environment.NewLine
         Return dis
     End Function
     Public Sub Removeoneyear()
+        'Remove 1 from numyears
         _NumYears -= 1
     End Sub
     Public Function CollectSymptoms(value As String) As Boolean
