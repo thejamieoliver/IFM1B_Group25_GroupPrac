@@ -203,7 +203,7 @@ Partial Class Form1
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(105, 23)
         Me.btnSave.TabIndex = 6
-        Me.btnSave.Text = "Save All to File"
+        Me.btnSave.Text = "Save to File"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'cbDiseases
