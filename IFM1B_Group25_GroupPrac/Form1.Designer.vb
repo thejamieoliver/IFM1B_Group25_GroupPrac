@@ -540,7 +540,7 @@ Partial Class FrmDiseaseTracker
         Me.Controls.Add(Me.btnPatient)
         Me.Controls.Add(Me.btnAdmin)
         Me.Name = "FrmDiseaseTracker"
-        Me.Text = "Form1"
+        Me.Text = "Disease Tracker"
         Me.pnlDoctor.ResumeLayout(False)
         Me.pnlDoctor.PerformLayout()
         Me.pnlHIV.ResumeLayout(False)
