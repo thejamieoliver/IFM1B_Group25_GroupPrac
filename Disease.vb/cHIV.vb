@@ -124,7 +124,8 @@ Option Infer Off
         dis &= "Cases: " & _YearNewCases & Environment.NewLine _
             & "Deaths: " & _YearDeaths & Environment.NewLine _
               & "Treated: " & _NotArt & Environment.NewLine _
-               & "Free Condoms: " & _Condoms & Environment.NewLine
+               & "Free Condoms: " & _Condoms & Environment.NewLine _
+               & "Cross Infected With TB: " & CrossTB() & Environment.NewLine
         Return dis
     End Function
 
