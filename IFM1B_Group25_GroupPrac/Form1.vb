@@ -58,6 +58,9 @@ Public Class Form1
         Display()
     End Sub
     Private Sub Display()
+        txtHIV.Clear()
+        txtTB.Clear()
+        txtMalaria.Clear()
         'Sorts through TB class array and does calculations along with display
         For i As Integer = 1 To NumTB
             TB(i).CalcDeathRate(TB(i).YearDeaths)
