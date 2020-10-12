@@ -87,9 +87,9 @@ Option Infer Off
 
     Public Overridable Function Display() As String
         'Return the recovery rate, the death rate, and infection rate
-        Return "Infection rate: " & InfectionRate & Environment.NewLine _
-           & "Death rate: " & DeathRate & Environment.NewLine _
-           & "Recovery rate: " & RecoveryRate & Environment.NewLine
+        Return "Infection rate: " & Format(InfectionRate, "0.##") & Environment.NewLine _
+           & "Death rate: " & Format(DeathRate, "0.##") & Environment.NewLine _
+           & "Recovery rate: " & Format(RecoveryRate, "0.##") & Environment.NewLine
     End Function
     '************************************************************************************************************************
 

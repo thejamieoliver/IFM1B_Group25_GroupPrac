@@ -13,7 +13,7 @@ Imports System.Runtime.Serialization.Formatters.Binary
 ' Practical: Team Project
 ' Class name: (name of the class)
 ' *****************************************************************
-Public Class Form1
+Public Class FrmDiseaseTracker
     'Declare a constant file name, password
     Const PASSWORD As String = "123"
     Const FNAME As String = "Diseases.txt"
@@ -183,6 +183,20 @@ Public Class Form1
         cbDiseases.SelectedIndex = -1
         btnRecordInfo.Enabled = False
         Display()
+        MsgBox("Click save all to file to commit changes")
+        'clearing textboxes
+        txtCasesTB.Clear()
+        txtDeathsTB.Clear()
+        txtDOTS.Clear()
+        txtHIVYearCases.Clear()
+        txtHIVYearDeaths.Clear()
+        txtMalCases.Clear()
+        txtMalRecoveries.Clear()
+        txtNewDeathsMal.Clear()
+        txtNoART.Clear()
+        txtRecTB.Clear()
+        cbxCondoms.Checked = False
+        cbxPerm.Checked = False
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -233,6 +247,7 @@ Public Class Form1
         Next
         'Close the filestream
         FS.Close()
+        MsgBox("Records have been save successfully to " & FNAME)
     End Sub
     Private Sub LoadFromFile()
         'Declare new filestream and binaryformatter

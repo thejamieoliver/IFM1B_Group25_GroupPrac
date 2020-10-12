@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class FrmDiseaseTracker
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -203,7 +203,7 @@ Partial Class Form1
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(105, 23)
         Me.btnSave.TabIndex = 6
-        Me.btnSave.Text = "Save All to File"
+        Me.btnSave.Text = "Save to File"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'cbDiseases
@@ -528,7 +528,7 @@ Partial Class Form1
         Me.cbSymptoms.TabIndex = 0
         Me.cbSymptoms.Text = "Please Select Value"
         '
-        'Form1
+        'FrmDiseaseTracker
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -539,8 +539,8 @@ Partial Class Form1
         Me.Controls.Add(Me.pnlDoctor)
         Me.Controls.Add(Me.btnPatient)
         Me.Controls.Add(Me.btnAdmin)
-        Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Name = "FrmDiseaseTracker"
+        Me.Text = "Disease Tracker"
         Me.pnlDoctor.ResumeLayout(False)
         Me.pnlDoctor.PerformLayout()
         Me.pnlHIV.ResumeLayout(False)
